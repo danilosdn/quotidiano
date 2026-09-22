@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { SaveManager } from '../src/game/persistence/SaveManager';
-import { createDefaultSave } from '../src/game/state/WorldState';
+import { SaveManager } from '../../src/game/persistence/SaveManager';
+import { createDefaultSave } from '../../src/game/state/WorldState';
 
 describe('save schema',()=>{
   it('round-trips versioned save data',()=>{

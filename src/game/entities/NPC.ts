@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { Facing } from '../interaction/InteractionTypes';
+import { Facing } from '../interactions/InteractionTypes';
 
 export class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene:Phaser.Scene,x:number,y:number,readonly npcId:string,facing:Facing='down'){

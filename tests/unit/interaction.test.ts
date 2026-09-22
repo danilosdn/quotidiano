@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { InteractionManager } from '../src/game/interaction/InteractionManager';
+import { InteractionManager } from '../../src/game/interactions/InteractionManager';
 
 const noop = async () => {};
 

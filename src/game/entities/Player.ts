@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { Point } from '../navigation/NavigationManager';
 import { AutoWalkStuckDetector } from '../navigation/AutoWalkStuckDetector';
-import { Facing } from '../interaction/InteractionTypes';
+import { Facing } from '../interactions/InteractionTypes';
 
 export type PlayerState = 'PLAYER_FREE'|'PLAYER_AUTOWALK'|'PLAYER_INTERACTING'|'PLAYER_SITTING'|'PLAYER_LYING'|'PLAYER_DIALOGUE'|'PLAYER_TRANSITION'|'PLAYER_INVENTORY';
 
@@ -37,11 +37,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.repath=repath; this.onAutoWalkFailed=onFailed;
   }
 
-  setState(state: PlayerState): void {
-    this.state=state;
+  setState(state: PlayerState | string | number): this {
+    super.setState(state);
+    if (typeof state !== 'string' || !state.startsWith('PLAYER_')) return this;
+    this.state=state as PlayerState;
     if(state!=='PLAYER_AUTOWALK'){
       this.path=[]; this.autoTarget=undefined; this.stuck.stop();
     }
+    return this;
   }
   setFacing(f:Facing):void{this.facing=f; if(this.state!=='PLAYER_AUTOWALK') this.setFrame(`idle_${f}`);}
   pose(frame:string,state:PlayerState):void{this.setState(state); this.stop(); this.setFrame(frame);}
@@ -58,7 +61,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.path=[];this.pathIndex=0;this.autoTarget=undefined;this.stuck.stop();this.state='PLAYER_FREE';this.stop();this.setFrame(`idle_${this.facing}`);
     }
   }
-  stop():void{this.setVelocity(0,0);this.anims.stop();}
+  stop():this{this.setVelocity(0,0);this.anims.stop();return this;}
 
   manual(vx:number,vy:number):void{
     if(this.state!=='PLAYER_FREE'&&this.state!=='PLAYER_AUTOWALK') return;

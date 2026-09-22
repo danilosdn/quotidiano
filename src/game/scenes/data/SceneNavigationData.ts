@@ -1,4 +1,4 @@
-import type { AnchorPoint } from '../../interaction/InteractionTypes';
+import type { AnchorPoint } from '../../interactions/InteractionTypes';
 import type { RectObstacle } from '../../navigation/NavigationManager';
 
 export interface SceneNavigationDefinition {

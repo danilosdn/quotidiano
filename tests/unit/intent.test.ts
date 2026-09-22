@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { matchIntent, normalizeText } from '../src/game/dialogue/IntentMatcher';
+import { matchIntent, normalizeText } from '../../src/game/dialogue/IntentMatcher';
 
 describe('Dutch intent matching',()=>{
   it('accepts natural coffee variants',()=>{

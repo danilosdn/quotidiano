@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { Player, PlayerState } from '../entities/Player';
-import { InteractionManager } from '../interaction/InteractionManager';
-import { InteractionDefinition, AnchorPoint, Facing } from '../interaction/InteractionTypes';
+import { InteractionManager } from '../interactions/InteractionManager';
+import { InteractionDefinition, AnchorPoint, Facing } from '../interactions/InteractionTypes';
 import { NavigationManager, Point, RectObstacle } from '../navigation/NavigationManager';
 import { UIController } from '../../ui/UIController';
 import { SaveManager } from '../persistence/SaveManager';

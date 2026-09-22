@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { NavigationManager } from '../src/game/navigation/NavigationManager';
-import { CAFE_NAV, HOME_NAV, REQUIRED_ANCHORS, STREET_NAV } from '../src/game/scenes/data/SceneNavigationData';
+import { NavigationManager } from '../../src/game/navigation/NavigationManager';
+import { CAFE_NAV, HOME_NAV, REQUIRED_ANCHORS, STREET_NAV } from '../../src/game/scenes/data/SceneNavigationData';
 
 const scenes = { HomeScene: HOME_NAV, StreetScene: STREET_NAV, CafeScene: CAFE_NAV };
 

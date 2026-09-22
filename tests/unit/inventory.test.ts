@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { inventory } from '../src/game/inventory/InventoryManager';
-import { worldState } from '../src/game/state/WorldState';
+import { inventory } from '../../src/game/inventory/InventoryManager';
+import { worldState } from '../../src/game/state/WorldState';
 
 describe('inventory',()=>{
   beforeEach(()=>worldState.reset());

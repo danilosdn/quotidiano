@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AutoWalkStuckDetector } from '../src/game/navigation/AutoWalkStuckDetector';
+import { AutoWalkStuckDetector } from '../../src/game/navigation/AutoWalkStuckDetector';
 
 describe('AutoWalkStuckDetector', () => {
   it('requests replans and eventually cancels a blocked walk', () => {

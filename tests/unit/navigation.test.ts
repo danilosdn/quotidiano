@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { NavigationManager } from '../src/game/navigation/NavigationManager';
+import { NavigationManager } from '../../src/game/navigation/NavigationManager';
 
 describe('NavigationManager',()=>{
   it('finds a route around a wall and does not cut corners',()=>{
