@@ -1,0 +1,37 @@
+{
+  "id": "lotte_morning",
+  "start": "hello",
+  "nodes": [
+    {
+      "id": "hello",
+      "speaker": "Lotte",
+      "dutchText": "Hoi! Dit is Pip. Hij vindt nieuwe mensen altijd interessant.",
+      "keyword": "dit is = este é",
+      "starter": "Hoi Pip, ...",
+      "portugueseHint": "Oi! Este é Pip. Ele sempre acha pessoas novas interessantes.",
+      "choices": [
+        { "text": "Hoi Pip! Wat een lieve hond.", "next": "bye" },
+        { "text": "Mag ik hem aaien?", "next": "pet" }
+      ]
+    },
+    {
+      "id": "pet",
+      "speaker": "Lotte",
+      "dutchText": "Natuurlijk. Hij vindt dat heerlijk.",
+      "keyword": "aaien = fazer carinho",
+      "starter": "Dank je!",
+      "portugueseHint": "Claro. Ele adora isso.",
+      "effects": ["PET_PERMISSION"],
+      "end": true
+    },
+    {
+      "id": "bye",
+      "speaker": "Lotte",
+      "dutchText": "Ja, hè? Tot later!",
+      "keyword": "tot later = até mais",
+      "starter": "Tot ...",
+      "portugueseHint": "Sim, né? Até mais!",
+      "end": true
+    }
+  ]
+}

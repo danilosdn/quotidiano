@@ -1,0 +1,25 @@
+{
+  "name": "quotidiano-vertical-slice-v1",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "art": "python3 art-source/generate_assets.py && python3 art-source/generate_extra_assets.py && python3 art-source/generate_v11_assets.py"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0",
+    "rollup": "^4.63.4",
+    "typescript": "5.9.2",
+    "vite": "7.1.7",
+    "vitest": "3.2.4"
+  }
+}

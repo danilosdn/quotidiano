@@ -1,0 +1,28 @@
+{
+  "id": "pieter_morning",
+  "start": "hello",
+  "nodes": [
+    {
+      "id": "hello",
+      "speaker": "Pieter",
+      "dutchText": "Goedemorgen! Alles goed?",
+      "keyword": "alles goed? = tudo bem?",
+      "starter": "Ja, ...",
+      "portugueseHint": "Bom dia! Tudo bem?",
+      "choices": [
+        { "text": "Ja, goed! En met u?", "next": "reply" },
+        { "text": "Een beetje moe, maar goed.", "next": "reply" }
+      ]
+    },
+    {
+      "id": "reply",
+      "speaker": "Pieter",
+      "dutchText": "Mooi zo. Fijne dag!",
+      "keyword": "fijne dag = bom dia / tenha um bom dia",
+      "starter": "Dank u, ...",
+      "portugueseHint": "Que bom. Tenha um ótimo dia!",
+      "effects": ["MET_PIETER"],
+      "end": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Node and build output
+node_modules/
+dist/
+
+# Third-party licensed source packs; preserve locally, never distribute
+vendor-assets/limezu/raw/
+
+# Incoming packages stay private until catalogued and selected
+incoming-assets/*
+!incoming-assets/.gitkeep
+!incoming-assets/README.md
+
+# Generated validation artifacts
+docs/validation-logs/
+screenshots/*
+!screenshots/README.md
+
+# Local tooling and operating-system files
+.DS_Store
+.vite/
+playwright-report/
+test-results/
+coverage/
