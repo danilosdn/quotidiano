@@ -1,0 +1,11 @@
+{
+  "tileSize": 48,
+  "sourcePack": "Modern Interiors Full Version",
+  "credit": "limezu.itch.io",
+  "assets": [
+    { "sourcePath": "1_Interiors/48x48/Theme_Sorter_48x48/4_Bedroom_48x48.png", "runtimePath": "limezu-bedroom-sheet.png", "usage": "bedroom tiles and props" },
+    { "sourcePath": "1_Interiors/48x48/Theme_Sorter_48x48/3_Bathroom_48x48.png", "runtimePath": "limezu-bathroom-sheet.png", "usage": "bathroom tiles and props" },
+    { "sourcePath": "1_Interiors/48x48/Theme_Sorter_48x48/12_Kitchen_48x48.png", "runtimePath": "limezu-kitchen-sheet.png", "usage": "kitchen tiles and props" },
+    { "sourcePath": "1_Interiors/48x48/Theme_Sorter_48x48/2_LivingRoom_48x48.png", "runtimePath": "limezu-living-room-sheet.png", "usage": "living room tiles and props" }
+  ]
+}
