@@ -21,3 +21,4 @@ screenshots/*
 playwright-report/
 test-results/
 coverage/
+tools/asset-browser/inventory.json
