@@ -247,6 +247,16 @@ export class HouseRenderer {
     this.heldItem.setTexture(texture).setVisible(true);
   }
 
+  shutdown(): void {
+    for (const label of this.debugLabels) label.destroy();
+    this.debugLabels.length = 0;
+    this.debugGraphics.clear();
+    this.objects.clear();
+    this.roomShades.clear();
+    this.portableSprites.clear();
+    this.debugVisible = false;
+  }
+
   private visible(id: string, visible: boolean): void { this.objects.get(id)?.setVisible(visible); }
   private texture(id: string, texture: string): void { this.objects.get(id)?.setTexture(texture); }
   private frame(id: string, frame: number): void {

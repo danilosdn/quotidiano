@@ -15,7 +15,8 @@ const phaserStub = `declare module 'phaser' {
     namespace GameObjects { type Image = any; class Sprite { [key:string]: any; setFrame(frame:number): this; } type Rectangle=any; type Arc=any; type Container=any; type Graphics=any; type Text=any; }
     namespace Physics { namespace Arcade { type Sprite = any; } }
     namespace Animations { namespace Events { const ANIMATION_COMPLETE: string; } }
-    class Scene { [key:string]:any; constructor(config?:any); physics:any; add:any; input:any; anims:any; tweens:any; time:any; cameras:any; load:any; scene:any; }
+    namespace Scenes { namespace Events { const SHUTDOWN: string; } }
+    class Scene { constructor(config?:any); renderer:any; game:any; scene:any; sys:any; load:any; input:any; physics:any; cameras:any; textures:any; sound:any; time:any; events:any; registry:any; cache:any; anims:any; children:any; data:any; scale:any; plugins:any; tweens:any; add:any; }
     class Game { constructor(config:any); }
     const AUTO:any; const Math:{Clamp(value:number,min:number,max:number):number}; const Scale:{FIT:any;CENTER_BOTH:any};
   }
@@ -23,6 +24,9 @@ const phaserStub = `declare module 'phaser' {
 }
 `;
 const testStub = `declare module 'vitest' { export const describe:any; export const it:any; export const expect:any; export const test:any; export const beforeEach:any; export const afterEach:any; export const vi:any; }
+declare module 'node:fs' { export function readFileSync(path:string, encoding:'utf8'):string; }
+declare module 'node:path' { export function resolve(...segments:string[]):string; }
+declare const process: { cwd():string };
 declare module '@playwright/test' {
   export interface Locator {
     [key:string]:any;

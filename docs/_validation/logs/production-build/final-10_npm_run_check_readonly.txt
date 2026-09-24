@@ -1,0 +1,20 @@
+timestamp_start_utc=2026-09-24T18:09:56Z
+timestamp_start_sao_paulo=2026-09-24T15:09:56-0300
+command=npm run check:readonly 
+--- output ---
+
+> quotidiano@0.1.0 check:readonly
+> node scripts/check-readonly-typecheck.mjs
+
+
+> quotidiano@0.1.0 check
+> tsc -p tsconfig.app.json --pretty false && tsc -p tsconfig.node.json --pretty false
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+Read-only audit: 89 relevant files remained byte-identical (typecheck exit 2).
+--- result ---
+exit_code=2
+timestamp_end_utc=2026-09-24T18:09:56Z
+timestamp_end_sao_paulo=2026-09-24T15:09:56-0300

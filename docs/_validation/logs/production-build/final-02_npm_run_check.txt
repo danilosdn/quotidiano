@@ -1,0 +1,15 @@
+timestamp_start_utc=2026-09-24T18:09:46Z
+timestamp_start_sao_paulo=2026-09-24T15:09:46-0300
+command=npm run check 
+--- output ---
+
+> quotidiano@0.1.0 check
+> tsc -p tsconfig.app.json --pretty false && tsc -p tsconfig.node.json --pretty false
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+--- result ---
+exit_code=2
+timestamp_end_utc=2026-09-24T18:09:46Z
+timestamp_end_sao_paulo=2026-09-24T15:09:46-0300

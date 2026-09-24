@@ -1,0 +1,21 @@
+=== renderer occurrences ===
+tests/unit/scene-member-collisions.test.ts:6:  'renderer', 'game', 'scene', 'sys', 'load', 'input', 'physics', 'cameras',
+=== houseRenderer occurrences ===
+src/game/scenes/HomeScene.ts:30:  private houseRenderer!: HouseRenderer;
+src/game/scenes/HomeScene.ts:53:  private readonly onDebugKey = (): void => this.toast(this.houseRenderer.toggleDebug() ? 'Debugweergave aan.' : 'Debugweergave uit.');
+src/game/scenes/HomeScene.ts:80:    this.houseRenderer = new HouseRenderer(this);
+src/game/scenes/HomeScene.ts:81:    this.houseRenderer.build();
+src/game/scenes/HomeScene.ts:112:    if (new URLSearchParams(window.location.search).has('debug')) this.houseRenderer.toggleDebug(true);
+src/game/scenes/HomeScene.ts:122:    this.houseRenderer.updatePlayerAttachment(this.player.sprite.x, this.player.sprite.y);
+src/game/scenes/HomeScene.ts:154:      pulse:(objectId) => this.houseRenderer.pulseObject(objectId),
+src/game/scenes/HomeScene.ts:212:    this.houseRenderer.showDebugPath([from, ...route]);
+src/game/scenes/HomeScene.ts:338:    this.houseRenderer.sync(this.world, this.inventory);
+src/game/scenes/HomeScene.ts:367:    if (effect === 'shower') { this.houseRenderer.setShowerEffect(visible); this.player.sprite.setAlpha(visible ? .82 : 1); }
+src/game/scenes/HomeScene.ts:368:    if (effect === 'sink-water') this.houseRenderer.setSinkWater(visible);
+src/game/scenes/HomeScene.ts:373:    if (effect === 'washing' && visible) this.houseRenderer.pulseObject('washing-machine');
+src/game/scenes/HomeScene.ts:460:      toggleDebug:() => this.houseRenderer.toggleDebug()
+src/game/scenes/HomeScene.ts:496:    this.houseRenderer.shutdown();
+tests/unit/home-scene-lifecycle.test.ts:21:    expect(source).toContain('this.houseRenderer.shutdown()');
+tests/unit/scene-member-collisions.test.ts:20:    expect(fields.has('houseRenderer')).toBe(true);
+=== scene inherited-name declarations ===
+Scene member collision audit passed (19 inherited names protected).

@@ -204,6 +204,23 @@ export class UIController {
     });
   }
 
+  resetHandlers(): void {
+    this.onAction = null;
+    this.onPhoneMessageRead = null;
+    this.onOpenDialogue = null;
+    this.onDialogueResponse = null;
+    this.onDialogueText = null;
+    this.onDialogueClosed = null;
+    this.onRequestHint = null;
+    this.onHintLevelChange = null;
+    this.onTtsEnabledChange = null;
+    this.onPhoneClosed = null;
+    this.onInventoryAction = null;
+    this.currentDialogue = null;
+    this.currentHint = null;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
   closePhone(): void { this.phone.classList.remove('open'); }
   isPhoneOpen(): boolean { return this.phone.classList.contains('open'); }
   isInteractionOpen(): boolean { return this.interaction.classList.contains('open'); }

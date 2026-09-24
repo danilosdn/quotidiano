@@ -17,10 +17,13 @@
     "test:offline": "node scripts/run-typescript-script.mjs scripts/offline-test-suite.ts",
     "validate:assets": "python3 scripts/validate-runtime-assets.py",
     "validate:boundaries": "node scripts/validate-house-content-boundaries.mjs",
-    "validate:local": "npm run check:core && npm run check:app-offline && npm run check:tests-offline && npm run validate:house && npm run test:offline && npm run validate:assets && npm run validate:boundaries",
+    "validate:local": "npm run check:core && npm run check:app-offline && npm run check:tests-offline && npm run validate:scene-members && npm run validate:artifacts && npm run validate:house && npm run test:offline && npm run validate:assets && npm run validate:boundaries",
     "sprite-inspector": "vite --config tools/sprite-frame-inspector/vite.config.ts",
     "check:app-offline": "node scripts/check-app-offline.mjs",
-    "check:tests-offline": "node scripts/check-tests-offline.mjs"
+    "check:tests-offline": "node scripts/check-tests-offline.mjs",
+    "validate:scene-members": "node scripts/audit-scene-member-collisions.mjs",
+    "check:readonly": "node scripts/check-readonly-typecheck.mjs",
+    "validate:artifacts": "node scripts/audit-typescript-artifacts.mjs"
   },
   "dependencies": {
     "phaser": "4.2.1"
@@ -31,5 +34,10 @@
     "typescript": "5.7.3",
     "vite": "6.1.0",
     "vitest": "3.0.5"
+  },
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": "22.16.x",
+    "npm": "10.9.x"
   }
 }

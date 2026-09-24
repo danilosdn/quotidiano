@@ -1,0 +1,190 @@
+timestamp_utc=2026-09-24T17:50:23Z
+timestamp_local=2026-09-24T14:50:23-0300
+os=Linux de870e5a3f59 6.18.44 #1 SMP Tue Sep 22 17:26:16 UTC 2026 x86_64 GNU/Linux
+node=v22.16.0
+npm=10.9.2
+pwd=/mnt/data/QUOTIDIANO_HOTFIX_EXTRACT/QUOTIDIANO
+package_lock_present=no
+---- package.json ----
+{
+  "name": "quotidiano",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "tsc -p tsconfig.app.json --pretty false && tsc -p tsconfig.node.json --pretty false",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "audit:assets": "node --experimental-strip-types scripts/audit-assets.ts incoming-assets",
+    "asset-browser": "vite tools/asset-browser --host 127.0.0.1",
+    "check:core": "tsc -p tsconfig.core.json --pretty false",
+    "validate:house": "node scripts/run-typescript-script.mjs scripts/validate-house-v3.ts",
+    "test:offline": "node scripts/run-typescript-script.mjs scripts/offline-test-suite.ts",
+    "validate:assets": "python3 scripts/validate-runtime-assets.py",
+    "validate:boundaries": "node scripts/validate-house-content-boundaries.mjs",
+    "validate:local": "npm run check:core && npm run check:app-offline && npm run check:tests-offline && npm run validate:house && npm run test:offline && npm run validate:assets && npm run validate:boundaries",
+    "sprite-inspector": "vite --config tools/sprite-frame-inspector/vite.config.ts",
+    "check:app-offline": "node scripts/check-app-offline.mjs",
+    "check:tests-offline": "node scripts/check-tests-offline.mjs"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.50.1",
+    "@types/node": "22.10.10",
+    "typescript": "5.7.3",
+    "vite": "6.1.0",
+    "vitest": "3.0.5"
+  }
+}
+---- tsconfig.json ----
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+---- tsconfig.app.json ----
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noEmit": true,
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}
+---- tsconfig.node.json ----
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "types": [
+      "node"
+    ],
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "noEmit": true
+  },
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "scripts/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}
+---- tsconfig.core.json ----
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/game/config/constants.ts",
+    "src/game/time/**/*.ts",
+    "src/game/inventory/**/*.ts",
+    "src/game/interactions/**/*.ts",
+    "src/game/state/**/*.ts",
+    "src/game/dialogue/IntentMatcher.ts",
+    "src/game/dialogue/types.ts",
+    "src/game/navigation/PathFinder.ts",
+    "src/game/navigation/houseNavigation.ts",
+    "src/data/interactions/homeInteractions.ts",
+    "src/game/house/**/*.ts",
+    "src/game/entities/playerFrameMap.ts",
+    "src/data/language/**/*.ts",
+    "src/data/scenarios/**/*.ts",
+    "src/data/dialogues/homeContent.ts",
+    "src/data/phone/**/*.ts",
+    "src/game/language/**/*.ts",
+    "src/game/dialogue/ScriptedDialogueProvider.ts",
+    "src/game/house/actions/**/*.ts",
+    "src/game/house/rooms/**/*.ts"
+  ],
+  "exclude": [
+    "src/game/house/HouseRenderer.ts",
+    "src/game/house/HouseAssetManifest.ts"
+  ]
+}
+---- vite.config.ts ----
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  server: { host: '127.0.0.1', port: 5173 },
+  preview: { host: '127.0.0.1', port: 4173 }
+});
+---- vitest.config.ts ----
+import { defineConfig } from 'vitest/config';
+export default defineConfig({
+  test: { environment: 'node', include: ['tests/unit/**/*.test.ts'] }
+});
+---- playwright.config.ts ----
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  timeout: 45_000,
+  expect: { timeout: 8_000 },
+  fullyParallel: false,
+  reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
+  outputDir: 'test-results',
+  use: {
+    baseURL: 'http://127.0.0.1:4173',
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure'
+  },
+  webServer: {
+    command: 'npm run dev -- --host 127.0.0.1 --port 4173',
+    port: 4173,
+    reuseExistingServer: !process.env.CI,
+    timeout: 30_000
+  },
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }]
+});
+---- .nvmrc ----
+MISSING
+---- .node-version ----
+MISSING
+---- netlify.toml ----
+MISSING

@@ -1,0 +1,10 @@
+timestamp_start_utc=2026-09-24T18:07:51Z
+command=npm install --package-lock-only --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=10000 --registry=https://<internal-npm-mirror>/npm/
+npm error code EAI_AGAIN
+npm error syscall getaddrinfo
+npm error errno EAI_AGAIN
+npm error request to https://<internal-npm-mirror>/npm/@playwright%2ftest failed, reason: getaddrinfo EAI_AGAIN <internal-npm-mirror>
+npm error A complete log of this run can be found in: /home/oai/.npm/_logs/2026-09-24T18_07_51_905Z-debug-0.log
+exit_code=1
+timestamp_end_utc=2026-09-24T18:08:07Z
+package_lock_created=no

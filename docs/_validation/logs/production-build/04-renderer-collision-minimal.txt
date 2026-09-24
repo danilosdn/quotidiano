@@ -1,0 +1,4 @@
+mnt/data/QUOTIDIANO_HOTFIX_WORK/renderer_collision_minimal.ts(4,7): error TS2415: Class 'HomeSceneBroken' incorrectly extends base class 'PhaserSceneShape'.
+  Property 'renderer' is private in type 'HomeSceneBroken' but not in type 'PhaserSceneShape'.
+broken_exit=2
+fixed_exit=0

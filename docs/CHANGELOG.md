@@ -1,48 +1,61 @@
 # Changelog — House V3 corrigida
 
-## 2026-09-24
+## 2026-09-24 — hotfix de build e auditoria de produção
 
-### Arquitetura
+### Compilação
 
-- introduzida pasta `src/game/house/` com layout, registro, renderer, colliders, controller, state service, validação e itens portáteis;
-- extraídas ações para seis módulos de cômodo;
-- introduzido executor reutilizável de sequências;
-- `HomeScene` reduzida à orquestração do ciclo da cena.
+- renomeado o campo privado `HomeScene.renderer` para `HomeScene.houseRenderer`;
+- atualizadas todas as referências do serviço específico da Casa;
+- documentada a causa `TS2415`: colisão de visibilidade com membro público herdado de `Phaser.Scene`;
+- adicionado `audit-scene-member-collisions.mjs`, protegendo 19 nomes herdados;
+- adicionados testes estáticos de regressão para conflito e lifecycle.
 
-### Visual/layout
+### Lifecycle
 
-- substituída grade de caixas por apartamento compacto;
-- removidos labels de produção e chave-emoji;
-- reorganizados quarto, banheiro, cozinha, sala, entrada e lavanderia;
-- adicionados assets/estados necessários e debug F3;
-- criadas prévias técnicas de layout e contatos de frames.
+- input de teclado e ponteiro usa callbacks nomeados;
+- shutdown da cena remove os listeners registrados;
+- handlers da UI são resetados;
+- painéis/prompt são fechados;
+- ponte global de debug é removida de forma segura;
+- estado transitório é reinicializado;
+- `HouseRenderer.shutdown()` destrói recursos de debug;
+- removido risco de resposta telefônica com listener duplicado.
 
-### Player
+### Build reproduzível
 
-- corrigidos walk/idle laterais;
-- centralizado mapa de frames;
-- adicionadas poses/ações para sentar, deitar, telefone, leitura, uso e alimentação;
-- persistida direção e restauração segura.
+- fixados Node `22.16.0` e npm `10.9.2` em `.nvmrc`, `.node-version`, `packageManager` e `engines`;
+- mantidas versões exatas de Phaser/Vite/TypeScript/Vitest/Playwright;
+- adicionado auditor de artefatos TypeScript;
+- adicionado checker de typecheck somente leitura;
+- `.gitignore` ampliado para configs emitidos e `*.tsbuildinfo`;
+- adicionados relatórios de reprodução, lockfile, ambiente e paridade local/produção.
 
-### Interações e estado
+### Resultado real
 
-- implementadas 108 ações em 43 hotspots;
-- objetos portáteis sincronizam sprite e hotspot ao mudar de superfície;
-- mochila de oito slots e item único segurado;
-- save V2, migração V1, preferências, snapshots e estados por cômodo;
-- corrigidos sono duplicado, fechamento do telefone e colisão entre painéis.
+- `npm run validate:local`: PASS;
+- `npm run validate:artifacts`: PASS;
+- `npm run build`: exit 2 porque as dependências não puderam ser instaladas;
+- `package-lock.json` continua ausente e não foi fabricado.
 
-### Idioma
+## 2026-09-24 — implementação House V3 preservada
 
+### Arquitetura e visual
+
+- planta compacta e registro único de objetos;
+- layout, renderer, colliders, controller, state service e validação separados;
+- ações extraídas para seis módulos de cômodo;
+- executor reutilizável de sequências;
+- 54 objetos, 43 hotspots e 108 ações;
+- 65 assets runtime, sem pack raw.
+
+### Player, interação e idioma
+
+- walk/idle corrigidos nas quatro direções;
+- inventário físico e surfaces;
+- save V2 e migração;
 - 12 microcenários, 30 intenções, 95 variações e 60 diálogos;
-- matcher, hints 0–4, input textual, botões fallback e TTS NL integrados;
-- telefone conectado a mensagens/agenda/contatos data-driven.
+- matcher, hints 0–4, input textual e TTS opcional integrados.
 
-### Testes e documentação
+### Segurança remota
 
-- adicionados validadores offline de app, testes, topologia, assets e arquitetura;
-- ampliados testes Vitest/Playwright preparados;
-- corrigida a configuração de `npm run check/build` para evitar emissão acidental e separar app/configs/tests;
-- centralizada a tipagem da ponte `QUOTIDIANO_DEBUG`;
-- adicionados inspector de frames e documentação completa;
-- nenhum commit, push, merge, PR ou deploy foi realizado nesta correção.
+Nenhum commit, push, pull, merge, rebase, reset, pull request, deploy ou alteração remota foi realizado.

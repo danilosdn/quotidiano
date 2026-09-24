@@ -1,15 +1,55 @@
-# House V3 — validação final
+# House V3 — validação final do hotfix
+
+Data: 2026-09-24.
+
+## Escopo
+
+Esta validação cobre:
+
+- a correção do conflito `HomeScene.renderer`;
+- a higiene de lifecycle/listeners da cena;
+- a prevenção de artefatos TypeScript emitidos no source tree;
+- a propriedade de somente leitura de `npm run check`;
+- a preservação dos validadores e conteúdos da House V3;
+- a tentativa real dos gates de produção na ordem exigida.
 
 ## Ambiente observado
 
-- Node: v22.16.0
-- npm: 10.9.2
-- TypeScript global: 5.8.3
-- Chromium: 144.0.7559.96 (Debian)
-- dependências locais: ausentes
-- `package-lock.json`: ausente na entrada e não gerado por falta de acesso ao registro
+- sistema: Linux 6.18.44 x86_64;
+- Node: `v22.16.0`;
+- npm: `10.9.2`;
+- TypeScript global disponível: `5.8.3`;
+- Chromium do sistema: `144.0.7559.96`;
+- dependências locais: ausentes;
+- `package-lock.json`: ausente na entrada e não gerado;
+- `node_modules`: ausente;
+- `dist`: ausente.
 
-## Gate local executado
+## Reprodução da baseline
+
+| Comando antes da correção | Exit | Resultado |
+| --- | ---: | --- |
+| `npm ci` | 1 | lockfile ausente |
+| `npm run build` | 2 | `TS2688`, `vite/client` ausente |
+
+Como o compilador parou antes, o conflito reportado não foi reproduzido pelo build completo. Ele foi confirmado pela declaração presente no source e reproduzido por um caso TypeScript mínimo com o mesmo contrato de visibilidade:
+
+- variante com `private renderer`: exit 2 / `TS2415`;
+- variante com `private houseRenderer`: exit 0.
+
+## Gates adicionados
+
+| Gate | Finalidade |
+| --- | --- |
+| `validate:scene-members` | impedir campos de Scene que colidam com 19 membros herdados |
+| `validate:artifacts` | impedir configs `.js/.d.ts` e `*.tsbuildinfo` acidentais |
+| `check:readonly` | comparar hashes antes/depois de `npm run check` |
+| teste `scene-member-collisions` | regressão Vitest para o nome do campo |
+| teste `home-scene-lifecycle` | contratos de shutdown e remoção de handlers |
+
+O probe negativo do auditor detectou corretamente um `renderer` temporário e saiu com código 1.
+
+## Gate local sem packages externos
 
 Comando:
 
@@ -17,25 +57,21 @@ Comando:
 npm run validate:local
 ```
 
-Resultado: **PASS**.
+Resultado final: **PASS, exit 0**.
 
 | Etapa | Resultado real |
 | --- | --- |
 | `check:core` | PASS — TypeScript estrito do núcleo |
-| `check:app-offline` | PASS — sintaxe/tipos com stub temporário da forma da API Phaser |
-| `check:tests-offline` | PASS — sintaxe de source/tests com stubs temporários de packages |
+| `check:app-offline` | PASS — source do app com stub temporário de forma Phaser |
+| `check:tests-offline` | PASS — source/tests com stubs temporários de packages |
+| `validate:scene-members` | PASS — 19 nomes protegidos |
+| `validate:artifacts` | PASS — nenhum emit/config artefato |
 | `validate:house` | PASS — 43/43 interações alcançáveis, zero issue |
-| `test:offline` | PASS — 9/9 cenários |
-| `validate:assets` | PASS — 65/65 arquivos, chaves únicas e frames válidos |
-| `validate:boundaries` | PASS — seis módulos de cômodo e datasets separados |
+| `test:offline` | PASS — 9/9 |
+| `validate:assets` | PASS — 65/65; dois assets não referenciados estaticamente |
+| `validate:boundaries` | PASS — seis módulos de cômodo, dados separados |
 
-Log literal: `docs/_validation/logs/validate-local.txt`.
-
-A forma final de `npm run check` (`tsc -p tsconfig.app.json` seguido de `tsc -p tsconfig.node.json`) também foi exercitada com pacotes de tipos temporários locais para validar a configuração de TypeScript; ela saiu com código 0. Esse ensaio está em `docs/_validation/logs/check-command-shape-offline.txt` e não substitui os packages reais.
-
-## O que os stubs significam
-
-Os scripts offline criam declarações temporárias mínimas apenas para permitir ao TypeScript verificar a estrutura do app quando `phaser`, `vitest` e `@playwright/test` não estão instalados. Eles são removidos no final e **não substituem** os packages reais nem provam compatibilidade de runtime.
+Os stubs temporários não substituem os packages reais nem provam compatibilidade de runtime.
 
 ## Testes offline aprovados
 
@@ -44,51 +80,60 @@ Os scripts offline criam declarações temporárias mínimas apenas para permiti
 3. mínimos de conteúdo linguístico;
 4. matching natural e rejeição fora de contexto;
 5. capacidade da mochila e item único na mão;
-6. posições de objetos portáteis e ausência de queda abstrata em `WORLD`;
-7. migração de save V1 → V2;
-8. roteamento de todas as ações registradas para handlers;
+6. posições de objetos portáteis e estado físico coerente;
+7. migração de save V1 para V2;
+8. roteamento de todas as ações para handlers;
 9. ordem do action sequence runner.
 
-## Assets
+## Rodada final obrigatória
 
-- imagens: 59;
-- spritesheets: 6;
-- total: 65;
-- texturas estaticamente usadas: 63;
-- warnings: `shoes` e `wardrobe` preservados, mas não referenciados estaticamente;
-- erros: zero.
+Executada depois da última alteração de código:
 
-Contagem de frames: geladeira 8, forno 6, cafeteira 6, torradeira 11, porta 8 e protagonista 2.296.
+| Ordem | Comando | Exit | Interpretação |
+| ---: | --- | ---: | --- |
+| 1 | `npm ci` | 1 | **FAIL/BLOQUEADO** — lockfile ausente |
+| 2 | `npm run check` | 2 | **FAIL/BLOQUEADO** — `vite/client` ausente |
+| 3 | `npm run check:core` | 0 | **PASS** |
+| 4 | `npm test` | 127 | **FAIL/BLOQUEADO** — `vitest` ausente |
+| 5 | `npm run test:e2e` | 1 | **FAIL/BLOQUEADO** — runner Playwright do projeto ausente |
+| 6 | `npm run build` | 2 | **FAIL/BLOQUEADO** — parou no check |
+| 7 | `npm run preview` | 127 | **FAIL/BLOQUEADO** — `vite` ausente |
+| 8 | `npm run validate:local` | 0 | **PASS** |
+| 9 | `npm run validate:artifacts` | 0 | **PASS** |
+| 10 | `npm run check:readonly` | 2 | check falhou, mas 89 arquivos permaneceram byte-idênticos |
 
-## Gates npm não executados
+## BUILD FINAL — evidência exata
 
-| Comando | Status | Motivo |
-| --- | --- | --- |
-| `npm ci` | BLOQUEADO | lockfile ausente e registro inacessível |
-| `npm run check` | NÃO EXECUTADO | Phaser/Vite/types locais ausentes |
-| `npm test` | NÃO EXECUTADO | Vitest ausente |
-| `npm run test:e2e` | NÃO EXECUTADO | Playwright package ausente |
-| `npm run build` | NÃO EXECUTADO | Vite/Phaser ausentes |
-| `npm run preview` | NÃO EXECUTADO | build não gerado |
+```text
+npm run build
+exit code: 2
+start UTC: 2026-09-24T18:09:48Z
+end UTC: 2026-09-24T18:09:49Z
+start America/Sao_Paulo: 2026-09-24T15:09:48-0300
+Node: v22.16.0
+npm: 10.9.2
+erro: TS2688 — Cannot find type definition file for 'vite/client'
+```
 
-O Chromium do sistema existe, mas isso não substitui `@playwright/test`.
+Não há declaração de “build corrigido” ou “produção aprovada”.
+
+## Auditoria de artefatos e read-only
+
+Depois da rodada:
+
+- nenhum `vite.config.js/.d.ts`;
+- nenhum `vitest.config.js/.d.ts`;
+- nenhum `playwright.config.js/.d.ts`;
+- nenhum `*.tsbuildinfo`;
+- nenhum `dist`;
+- nenhum `node_modules`;
+- nenhum lockfile parcial;
+- 89 arquivos relevantes permaneceram com os mesmos hashes durante `npm run check`.
 
 ## Screenshots
 
-Não há screenshots de gameplay alegados. As imagens em `docs/_validation/` são prévias técnicas/contatos gerados de dados e assets. As pastas `screenshots/before`, `screenshots/after` e `screenshots/flows` estão preparadas para a execução futura do E2E real.
+Não foram produzidos screenshots novos de gameplay/preview porque o build e o servidor Vite não puderam executar. As imagens existentes em `docs/_validation/` são prévias técnicas, não prova visual do build de produção.
 
-## Próximo gate em ambiente com rede
+## Conclusão
 
-```bash
-npm install
-rm -rf node_modules
-npm ci
-npm run check
-npm test
-npx playwright install chromium
-npm run test:e2e
-npm run build
-npm run preview
-```
-
-Depois, abrir o preview e inspecionar console, network, profundidade, escala, colisões, todas as direções e screenshots.
+A causa de código `HomeScene.renderer` foi corrigida e possui regressão automatizada. A House V3 continua estruturalmente válida nos gates locais. A aceitação de produção permanece pendente até recuperar/gerar um lockfile legítimo, executar `npm ci` e repetir TypeScript, Vitest, E2E, build e preview com os packages reais.

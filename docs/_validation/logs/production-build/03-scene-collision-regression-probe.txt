@@ -1,0 +1,7 @@
+
+> quotidiano@0.1.0 validate:scene-members
+> node scripts/audit-scene-member-collisions.mjs
+
+Phaser.Scene member collision(s) detected:
+- src/game/scenes/__CollisionProbe.ts:3: renderer
+probe_exit=1 (expected nonzero)

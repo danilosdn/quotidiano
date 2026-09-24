@@ -1,0 +1,10 @@
+01	npm_ci	1
+02	npm_run_check	2
+03	npm_run_check_core	0
+04	npm_test	127
+05	npm_run_test_e2e	1
+06	npm_run_build	2
+07	npm_run_preview	127
+08	npm_run_validate_local	0
+09	npm_run_validate_artifacts	0
+10	npm_run_check_readonly	2

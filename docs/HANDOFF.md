@@ -1,41 +1,69 @@
-# QUOTIDIANO — handoff House V3 corrigida
+# QUOTIDIANO — handoff House V3 / hotfix de build
 
 ## Etapa atual
 
-Casa V3 local implementada e validada estruturalmente. Rua e Café continuam bloqueados.
+O conflito `HomeScene.renderer` foi corrigido localmente e protegido por auditor/teste. A House V3 completa foi preservada. O gate de produção permanece bloqueado pela ausência do lockfile e das dependências locais.
 
-## Fonte
+## Fonte local
 
-A árvore vem de `QUOTIDIANO_HOUSE_V3_CONTINUED.zip` e foi modificada diretamente. Não há `.git` nesta entrega. `docs/GIT_LOG.txt` é apenas histórico textual herdado, não evidência de operações atuais.
+- arquivo de entrada: `QUOTIDIANO_HOUSE_V3_CORRIGIDO_INPUT.zip`;
+- SHA-256: `ee82ba37de764b88d276f6a91690195bf094b2b5d2cf5893c1329595d6949488`;
+- a árvore final não contém `.git`;
+- nenhum commit foi criado.
 
-## O que funciona no código/validação local
+## O que foi corrigido
 
-- layout data-driven com 54 objetos e 43 interações;
-- 43/43 approach points alcançáveis;
-- frames de movimento corrigidos;
-- 108 ações encaminhadas para handlers;
-- inventário físico, surfaces e save V2;
-- 12 microcenários, 30 intenções, 95 variações e 60 diálogos;
-- 65 assets válidos;
-- 9/9 testes offline aprovados;
-- checagem arquitetural sem falhas.
+- `private renderer!: HouseRenderer` → `private houseRenderer!: HouseRenderer`;
+- todas as referências atualizadas;
+- auditor de 19 membros herdados de `Phaser.Scene`;
+- teste estático de colisão;
+- callbacks de input nomeados e removidos no shutdown;
+- `UIController.resetHandlers()`;
+- `HouseRenderer.shutdown()`;
+- ponte de debug e estado transitório limpos;
+- auditor de artefatos TypeScript;
+- auditor de `npm run check` somente leitura;
+- versões Node/npm fixadas.
 
-## O que não foi possível provar neste ambiente
+## Evidência de reprodução
 
-- execução real com Phaser 4.2.1;
-- `npm ci`, Vitest, Playwright, build e preview;
-- screenshots reais;
-- bundle size/FPS/console/network.
+- baseline `npm ci`: exit 1;
+- baseline `npm run build`: exit 2 em `vite/client`;
+- reprodução mínima do conflito: quebrado exit 2, renomeado exit 0;
+- rodada final `npm run build`: exit 2 em `vite/client`.
 
-Motivo: `package-lock.json` ausente na entrada e DNS/acesso ao registro npm indisponível. O lockfile não foi fabricado.
+Tudo está em `docs/_validation/logs/production-build/`.
 
-## Próximos comandos
+## O que passa agora
+
+- `npm run check:core`;
+- `npm run validate:local`;
+- `npm run validate:scene-members`;
+- `npm run validate:artifacts`;
+- 43/43 interações alcançáveis;
+- 9/9 testes offline;
+- 65/65 assets válidos.
+
+## O que não está demonstrado
+
+- `package-lock.json` compatível;
+- instalação limpa com `npm ci`;
+- `npm run check` com packages reais;
+- Vitest;
+- Playwright E2E;
+- build Vite;
+- preview de produção;
+- screenshots de gameplay pós-hotfix.
+
+## Próximo comando recomendado
+
+Primeiro obtenha ou gere legitimamente o lockfile com Node 22.16.0 e npm 10.9.2. Depois:
 
 ```bash
-npm install
-rm -rf node_modules
+rm -rf node_modules dist
 npm ci
 npm run check
+npm run check:core
 npm test
 npx playwright install chromium
 npm run test:e2e
@@ -43,8 +71,8 @@ npm run build
 npm run preview
 ```
 
-Depois, revisar `screenshots/`, corrigir apenas problemas observados e repetir todos os gates.
+Se qualquer código for alterado depois do build, repita `npm run build` e o preview.
 
-## Segurança remota
+## Operações remotas
 
-Nesta execução: nenhum commit, push, pull, merge, rebase, reset, PR, deploy ou alteração remota. O resultado é exclusivamente um ZIP local.
+Não houve commit, push, pull, merge, rebase, reset, pull request, deploy, publicação ou alteração de configuração no GitHub/Netlify.

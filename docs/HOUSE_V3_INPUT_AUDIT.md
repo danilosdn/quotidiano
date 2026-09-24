@@ -1,78 +1,77 @@
-# House V3 — auditoria da entrada anexada
+# House V3 — auditoria da entrada do hotfix
 
-Data da auditoria: 2026-09-24 UTC.
+Data: 2026-09-24.
 
 ## Alvo efetivamente modificado
 
-O trabalho foi realizado sobre a extração local de `QUOTIDIANO_HOUSE_V3_CONTINUED.zip`. O ZIP de entrada continha **81 arquivos** e aproximadamente **300 KB** de conteúdo descompactado do projeto. Não havia `.git`, `node_modules`, `dist` nem `package-lock.json`.
+O trabalho foi realizado sobre a extração local preservada de `QUOTIDIANO_HOUSE_V3_CORRIGIDO_INPUT.zip`.
 
-A árvore recebida continha:
-
-- `package.json` com Phaser 4.2.1 exato, Vite, TypeScript, Vitest e Playwright;
-- `src/` com `BootScene`, `HomeScene`, `Player`, A*, inventário, save, estado e diálogo;
-- `public/assets/runtime/` com protagonista, pisos, paredes e 24 objetos iniciais;
-- `tests/unit/` e `tests/e2e/`;
-- `docs/`, scripts de auditoria e ferramenta de assets;
-- licença selecionada de Modern Interiors.
-
-## Estado do código recebido confirmado no código-fonte
-
-A implementação anexada tinha uma Casa funcional em conceito, mas ainda concentrava a maior parte da composição e das ações em `HomeScene.ts`. A planta era uma grade de seis grandes retângulos, os móveis eram posicionados diretamente na cena, os rótulos de cômodos eram desenhados no mapa, e a chave era representada por emoji. `IntentMatcher` e `HintSystem` existiam, mas a integração de runtime era parcial.
-
-Sistemas preservados e evoluídos:
-
-- Phaser/BootScene/HomeScene;
-- movimento manual e click-to-move por A*;
-- stuck detection;
-- `InteractionRegistry`;
-- inventário de oito slots;
-- estados de itens;
-- `SaveManager`, `GameClock`, `WorldState` e `PlayerState`;
-- provider de diálogo scripted;
-- café da manhã, lavanderia e telefone;
-- testes existentes.
-
-## Diferença local produzida
-
-Comparação por SHA-256 entre a extração inicial e esta árvore:
-
-- arquivos iniciais: **81**;
-- arquivos atuais: **196**;
-- arquivos adicionados: **115**;
-- arquivos alterados: **29**;
-- arquivos removidos: **0**;
-- arquivos preservados byte a byte: **52**.
-
-A lista completa está em `docs/_validation/logs/local-divergence.json`.
-
-## Dependências e scripts
-
-| Tipo | Pacote/versão |
+| Propriedade | Valor |
 | --- | --- |
-| runtime | `phaser` 4.2.1 |
-| desenvolvimento | `vite` 6.1.0 |
-| desenvolvimento | `typescript` 5.7.3 |
-| testes | `vitest` 3.0.5 |
-| E2E | `@playwright/test` 1.50.1 |
-| tipos | `@types/node` 22.10.10 |
+| SHA-256 | `ee82ba37de764b88d276f6a91690195bf094b2b5d2cf5893c1329595d6949488` |
+| tamanho | 485.771 bytes |
+| entradas ZIP | 246 |
+| arquivos extraídos | 196 |
+| `.git` | ausente |
+| `package-lock.json` | ausente |
+| `node_modules` | ausente |
+| `dist` | ausente |
 
-Scripts convencionais: `dev`, `build`, `preview`, `check`, `test`, `test:e2e`. Scripts locais adicionados: `validate:local`, `validate:house`, `test:offline`, `validate:assets`, `validate:boundaries`, `check:app-offline`, `check:tests-offline` e `sprite-inspector`.
+A entrada já continha a implementação extensa da House V3: arquitetura data-driven, assets runtime, testes, conteúdo linguístico e documentação. Ela não foi substituída por um projeto novo.
 
-## Assets anexados
+## Dependências declaradas na entrada
 
-O pack `moderninteriors-win.zip` foi usado somente como fonte licenciada para selecionar os objetos necessários. O ZIP final contém apenas o subset runtime. Modern Exteriors e a adaptação RPG Maker foram referências anteriores e não entram no runtime da Casa.
+| Tipo | Pacote | Versão |
+| --- | --- | --- |
+| runtime | Phaser | `4.2.1` |
+| dev | TypeScript | `5.7.3` |
+| dev | Vite | `6.1.0` |
+| teste | Vitest | `3.0.5` |
+| E2E | Playwright Test | `1.50.1` |
+| tipos | `@types/node` | `22.10.10` |
 
-## Problemas de entrada relevantes
+## Problema de produção confirmado no source
 
-1. ausência de `package-lock.json`;
-2. ausência de dependências instaladas;
-3. ausência de screenshots reais da baseline;
-4. layout e interação espalhados entre cena, dados e posições mágicas;
-5. frames laterais do protagonista invertidos;
-6. save antigo sem snapshot seguro completo;
-7. conteúdo linguístico insuficiente e parcialmente hardcoded;
-8. inventário físico sem posição espacial uniforme ao trocar superfícies.
+`src/game/scenes/HomeScene.ts` declarava um campo privado chamado `renderer` enquanto a classe estende `Phaser.Scene`. Esse nome faz parte da API herdada. O conflito foi corrigido sem reescrever a arquitetura House V3.
 
-## Limite da auditoria
+## Delta de código do hotfix
 
-Documentação herdada foi tratada como pista, não como prova. O estado acima foi confirmado pela estrutura, pelo código e pelos assets da cópia local. O GitHub e o Netlify foram consultados somente para comparação; nenhuma informação pública sobrescreveu silenciosamente arquivos mais novos anexados.
+Antes da atualização documental/evidências, a comparação com a extração imutável mostrou:
+
+### Arquivos alterados
+
+- `.gitignore`;
+- `package.json`;
+- `scripts/check-app-offline.mjs`;
+- `scripts/check-tests-offline.mjs`;
+- `src/game/house/HouseRenderer.ts`;
+- `src/game/scenes/HomeScene.ts`;
+- `src/ui/UIController.ts`.
+
+### Arquivos adicionados
+
+- `.nvmrc`;
+- `.node-version`;
+- `scripts/audit-scene-member-collisions.mjs`;
+- `scripts/audit-typescript-artifacts.mjs`;
+- `scripts/check-readonly-typecheck.mjs`;
+- `tests/unit/home-scene-lifecycle.test.ts`;
+- `tests/unit/scene-member-collisions.test.ts`;
+- documentação e logs de auditoria.
+
+Nenhum source existente foi removido.
+
+## Problemas evidentes encontrados
+
+1. lockfile ausente;
+2. dependências ausentes;
+3. campo `renderer` incompatível com o membro herdado;
+4. listeners da cena sem teardown explícito;
+5. handlers da UI persistentes entre reinicializações;
+6. ausência de gate contra membros herdados;
+7. ausência de gate contra configs TypeScript emitidos;
+8. ambiente Node/npm não fixado no projeto.
+
+## Referências públicas
+
+As URLs públicas fornecidas foram tratadas somente como referências. O target permaneceu o ZIP local. Tentativas automatizadas de recuperar o lockfile remoto não produziram conteúdo utilizável; nenhum arquivo remoto foi usado para sobrescrever a cópia.

@@ -21,10 +21,10 @@ const shim = `declare module 'phaser' {
     }
     namespace Physics { namespace Arcade { type Sprite = any; } }
     namespace Animations { namespace Events { const ANIMATION_COMPLETE: string; } }
+    namespace Scenes { namespace Events { const SHUTDOWN: string; } }
     class Scene {
-      [key: string]: any;
       constructor(config?: any);
-      physics: any; add: any; input: any; anims: any; tweens: any; time: any; cameras: any; load: any; scene: any;
+      renderer:any; game:any; scene:any; sys:any; load:any; input:any; physics:any; cameras:any; textures:any; sound:any; time:any; events:any; registry:any; cache:any; anims:any; children:any; data:any; scale:any; plugins:any; tweens:any; add:any;
     }
     class Game { constructor(config: any); }
     const AUTO: any;

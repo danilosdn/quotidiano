@@ -1,39 +1,58 @@
-# QUOTIDIANO — progresso House V3 corrigida
+# QUOTIDIANO — progresso House V3 / hotfix de produção
+
+Atualizado em 2026-09-24.
 
 ## Entrada e segurança
 
-- localizada e extraída a cópia anexada;
-- confirmado que não havia `.git`, lockfile nem dependências locais;
-- inventariados source, tests, docs e assets;
-- GitHub/branch/commit e Netlify consultados somente como referência;
-- nenhuma operação remota executada.
+- alvo: cópia local de `QUOTIDIANO_HOUSE_V3_CORRIGIDO_INPUT.zip`;
+- SHA-256 da entrada: `ee82ba37de764b88d276f6a91690195bf094b2b5d2cf5893c1329595d6949488`;
+- entrada sem `.git`, `package-lock.json`, `node_modules` ou `dist`;
+- nenhuma operação remota realizada.
 
-## Implementação concluída
+## Reprodução concluída
 
-- nova planta compacta e registro único de objetos;
-- colliders/pathfinding derivados do layout;
-- correção completa das quatro direções do protagonista;
-- renderer/state service/controller/sequence runner separados;
-- ações por quarto, banheiro, cozinha, sala, entrada e lavanderia;
-- inventário físico e surfaces;
-- save V2 e migração;
-- telefone, hints, intents, TTS e conteúdo doméstico data-driven;
-- subset runtime ampliado sem incluir pack raw;
-- modo debug e inspector de frames;
-- testes e validações offline.
+Antes de modificar código:
 
-## Validação atual
+- `npm ci`: exit 1, lockfile ausente;
+- `npm run build`: exit 2, tipos `vite/client` ausentes;
+- o build não chegou ao conflito reportado porque as dependências não estavam instaladas.
 
-`npm run validate:local` passa: TypeScript do núcleo, checagens offline de app/tests, topologia 43/43, 9/9 testes offline, 65/65 assets e boundary validator.
+A causa de `HomeScene.renderer` foi reproduzida separadamente como `TS2415` e documentada.
 
-## Pendente por ambiente
+## Hotfix concluído
 
-- gerar `package-lock.json` legitimamente;
-- instalar dependências com `npm ci`;
-- executar Phaser/Vite, Vitest e Playwright reais;
-- produzir screenshots de gameplay e build/preview;
-- fazer inspeção visual final no browser.
+- `renderer` renomeado para `houseRenderer` em `HomeScene`;
+- proteção automatizada de 19 nomes herdados de `Phaser.Scene`;
+- teste unitário de regressão adicionado;
+- shutdown da cena remove listeners e reseta a UI;
+- renderer limpa recursos de debug no shutdown;
+- risco de listener duplicado da resposta do telefone removido;
+- Node/npm fixados em 22.16.0/10.9.2;
+- auditoria de artefatos TypeScript e typecheck somente leitura adicionadas.
 
-## Escopo preservado
+## House V3 preservada
 
-Rua, Café e cidade não foram implementados. A porta externa permanece preparada, mas bloqueia transição nesta fase.
+- 54 objetos;
+- 43 interações, todas alcançáveis no validador;
+- 108 ações;
+- inventário físico e save V2;
+- 12 microcenários, 30 intenções, 95 variações e 60 diálogos;
+- 65 assets runtime;
+- Rua e Café não iniciados.
+
+## Validação final disponível
+
+`npm run validate:local`: exit 0.
+
+`npm run validate:artifacts`: exit 0.
+
+`npm run check:readonly`: exit 2 por dependência ausente, mas confirmou que 89 arquivos relevantes permaneceram byte a byte idênticos.
+
+## Bloqueios restantes
+
+- `package-lock.json` não pôde ser recuperado ou gerado;
+- `npm ci` permanece bloqueado;
+- Vitest, Playwright, Vite e Phaser reais não puderam ser instalados;
+- build, preview e screenshots reais de produção não estão aprovados.
+
+Consulte `PRODUCTION_BUILD_REPRODUCTION.md` e `PACKAGE_LOCK_AUDIT.md`.

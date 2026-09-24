@@ -1,0 +1,10 @@
+timestamp_utc=2026-09-24T18:17:13Z
+files=233
+bytes=942322
+package_lock_present=no
+git_present=no
+node_modules_present=no
+dist_present=no
+required_docs=present
+secret_scan=clean
+unexpected_ts_artifacts=none

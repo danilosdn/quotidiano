@@ -27,7 +27,7 @@ const ui = (): UIController => (globalThis as typeof globalThis & { QUOTIDIANO_U
 
 export class HomeScene extends Phaser.Scene {
   private player!: Player;
-  private renderer!: HouseRenderer;
+  private houseRenderer!: HouseRenderer;
   private readonly interactions = new InteractionRegistry();
   private readonly saves = new SaveManager();
   private readonly dialogues = new ScriptedDialogueProvider();
@@ -44,18 +44,41 @@ export class HomeScene extends Phaser.Scene {
   private currentDialogueId: string | null = null;
   private lastRoomId = '';
   private toastUntil = 0;
+  private debugBridge: QuotidianoDebugBridge | null = null;
 
+  private readonly onInteractKey = (): void => this.interactNearest();
+  private readonly onPhoneKey = (): void => { void this.togglePhone(); };
+  private readonly onInventoryKey = (): void => this.toggleInventory();
+  private readonly onEscapeKey = (): void => this.handleEscape();
+  private readonly onDebugKey = (): void => this.toast(this.houseRenderer.toggleDebug() ? 'Debugweergave aan.' : 'Debugweergave uit.');
+  private readonly onPointerDown = (pointer: Phaser.Input.Pointer): void => {
+    if (!this.player.state.isFree() || ui().isAnyPanelOpen() || this.runner.isRunning) return;
+    const point = {
+      x: Phaser.Math.Clamp(pointer.worldX, 24, HOUSE_LAYOUT.width - 24),
+      y: Phaser.Math.Clamp(pointer.worldY, 24, HOUSE_LAYOUT.height - 24)
+    };
+    const clicked = this.activeInteractions()
+      .map((entry) => ({ entry, distance:Math.hypot(entry.actionPoint.x-point.x, entry.actionPoint.y-point.y) }))
+      .sort((left, right) => left.distance-right.distance)[0];
+    if (clicked && clicked.distance < 58) {
+      this.pendingInteraction = clicked.entry;
+      this.routePlayer(clicked.entry.approachPoint);
+    } else {
+      this.pendingInteraction = null;
+      this.routePlayer(point);
+    }
+  };
   constructor() { super('HomeScene'); }
 
   create(): void {
+    this.resetTransientSceneState();
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.shutdownScene, this);
     this.stateService = new HouseStateService(this.saves);
     this.world = this.stateService.world;
     this.inventory = this.stateService.inventory;
     this.hintSystem = new HintSystem(this.stateService.preferences.hintLevel);
-
-    this.renderer = new HouseRenderer(this);
-    this.renderer.build();
-
+    this.houseRenderer = new HouseRenderer(this);
+    this.houseRenderer.build();
     const snapshot = this.safeRestoreSnapshot(this.stateService.restoredPlayer);
     this.player = new Player(this, snapshot.x, snapshot.y, (point) => this.pathFinder.isWalkable(point));
     this.restorePlayer(snapshot);
@@ -86,7 +109,7 @@ export class HomeScene extends Phaser.Scene {
     this.refreshHud();
     this.installDebugBridge();
 
-    if (new URLSearchParams(window.location.search).has('debug')) this.renderer.toggleDebug(true);
+    if (new URLSearchParams(window.location.search).has('debug')) this.houseRenderer.toggleDebug(true);
     this.time.addEvent({ delay:15000, loop:true, callback:() => this.autosave() });
     this.time.delayedCall(420, () => {
       if (this.world.alarmState === 'RINGING' && !ui().isAnyPanelOpen()) this.openDialogue('alarm_start');
@@ -96,7 +119,7 @@ export class HomeScene extends Phaser.Scene {
 
   update(_time: number, delta: number): void {
     const result = this.player.update(delta);
-    this.renderer.updatePlayerAttachment(this.player.sprite.x, this.player.sprite.y);
+    this.houseRenderer.updatePlayerAttachment(this.player.sprite.x, this.player.sprite.y);
 
     if (result === 'failed') {
       this.pendingInteraction = null;
@@ -128,7 +151,7 @@ export class HomeScene extends Phaser.Scene {
       wait:(ms) => new Promise((resolve) => this.time.delayedCall(ms, resolve)),
       advanceTime:(minutes) => { this.stateService.advanceTime(minutes); this.refreshHud(); },
       sync:() => this.syncVisualState(),
-      pulse:(objectId) => this.renderer.pulseObject(objectId),
+      pulse:(objectId) => this.houseRenderer.pulseObject(objectId),
       toast:(text, ms) => this.toast(text, ms),
       dialogue:(dialogueId) => this.openDialogue(dialogueId),
       autosave:() => this.autosave()
@@ -172,30 +195,13 @@ export class HomeScene extends Phaser.Scene {
 
   private bindInput(): void {
     const keyboard = this.input.keyboard!;
-    keyboard.on('keydown-E', () => this.interactNearest());
-    keyboard.on('keydown-SPACE', () => this.interactNearest());
-    keyboard.on('keydown-P', () => { void this.togglePhone(); });
-    keyboard.on('keydown-I', () => this.toggleInventory());
-    keyboard.on('keydown-ESC', () => this.handleEscape());
-    keyboard.on('keydown-F3', () => this.toast(this.renderer.toggleDebug() ? 'Debugweergave aan.' : 'Debugweergave uit.'));
-
-    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
-      if (!this.player.state.isFree() || ui().isAnyPanelOpen() || this.runner.isRunning) return;
-      const point = {
-        x: Phaser.Math.Clamp(pointer.worldX, 24, HOUSE_LAYOUT.width - 24),
-        y: Phaser.Math.Clamp(pointer.worldY, 24, HOUSE_LAYOUT.height - 24)
-      };
-      const clicked = this.activeInteractions()
-        .map((entry) => ({ entry, distance:Math.hypot(entry.actionPoint.x-point.x, entry.actionPoint.y-point.y) }))
-        .sort((left, right) => left.distance-right.distance)[0];
-      if (clicked && clicked.distance < 58) {
-        this.pendingInteraction = clicked.entry;
-        this.routePlayer(clicked.entry.approachPoint);
-      } else {
-        this.pendingInteraction = null;
-        this.routePlayer(point);
-      }
-    });
+    keyboard.on('keydown-E', this.onInteractKey);
+    keyboard.on('keydown-SPACE', this.onInteractKey);
+    keyboard.on('keydown-P', this.onPhoneKey);
+    keyboard.on('keydown-I', this.onInventoryKey);
+    keyboard.on('keydown-ESC', this.onEscapeKey);
+    keyboard.on('keydown-F3', this.onDebugKey);
+    this.input.on('pointerdown', this.onPointerDown);
   }
 
   private routePlayer(destination: Point): boolean {
@@ -203,7 +209,7 @@ export class HomeScene extends Phaser.Scene {
     const route = this.pathFinder.findPath(from, destination);
     if (!route?.length) { this.toast('Ik kan daar niet komen.'); return false; }
     this.player.navigation.setPath(destination, route, this.player.sprite, (start, goal) => this.pathFinder.findPath(start, goal));
-    this.renderer.showDebugPath([from, ...route]);
+    this.houseRenderer.showDebugPath([from, ...route]);
     return true;
   }
 
@@ -329,7 +335,7 @@ export class HomeScene extends Phaser.Scene {
   }
 
   private syncVisualState(): void {
-    this.renderer.sync(this.world, this.inventory);
+    this.houseRenderer.sync(this.world, this.inventory);
     this.refreshHud();
   }
 
@@ -358,13 +364,13 @@ export class HomeScene extends Phaser.Scene {
   }
 
   private setEffect(effect: HouseEffectName, visible: boolean): void {
-    if (effect === 'shower') { this.renderer.setShowerEffect(visible); this.player.sprite.setAlpha(visible ? .82 : 1); }
-    if (effect === 'sink-water') this.renderer.setSinkWater(visible);
+    if (effect === 'shower') { this.houseRenderer.setShowerEffect(visible); this.player.sprite.setAlpha(visible ? .82 : 1); }
+    if (effect === 'sink-water') this.houseRenderer.setSinkWater(visible);
     if (effect === 'sleep') {
       if (visible) this.cameras.main.fadeOut(500, 8, 15, 25);
       else this.cameras.main.fadeIn(550, 8, 15, 25);
     }
-    if (effect === 'washing' && visible) this.renderer.pulseObject('washing-machine');
+    if (effect === 'washing' && visible) this.houseRenderer.pulseObject('washing-machine');
   }
 
   private pointFor(objectId: string, kind: 'approach' | 'action'): Point {
@@ -451,8 +457,42 @@ export class HomeScene extends Phaser.Scene {
       },
       perform:(objectId,actionId) => this.controller.perform(objectId,actionId),
       clearSave:() => this.saves.clear(),
-      toggleDebug:() => this.renderer.toggleDebug()
+      toggleDebug:() => this.houseRenderer.toggleDebug()
     };
+    this.debugBridge = bridge;
     globalThis.QUOTIDIANO_DEBUG = bridge;
+  }
+
+  private resetTransientSceneState(): void {
+    this.pendingInteraction = null;
+    this.currentDialogueId = null;
+    this.lastRoomId = '';
+    this.toastUntil = 0;
+    this.session.seatedAt = null;
+    this.session.lyingOnBed = false;
+    this.session.busy = false;
+  }
+
+  private shutdownScene(): void {
+    const keyboard = this.input.keyboard;
+    keyboard?.off('keydown-E', this.onInteractKey);
+    keyboard?.off('keydown-SPACE', this.onInteractKey);
+    keyboard?.off('keydown-P', this.onPhoneKey);
+    keyboard?.off('keydown-I', this.onInventoryKey);
+    keyboard?.off('keydown-ESC', this.onEscapeKey);
+    keyboard?.off('keydown-F3', this.onDebugKey);
+    this.input.off('pointerdown', this.onPointerDown);
+    const controller = ui();
+    controller.resetHandlers();
+    controller.closePhone();
+    controller.closeInteraction();
+    controller.hidePrompt();
+
+    if (globalThis.QUOTIDIANO_DEBUG === this.debugBridge) globalThis.QUOTIDIANO_DEBUG = undefined;
+    this.debugBridge = null;
+    this.pendingInteraction = null;
+    this.currentDialogueId = null;
+    this.session.busy = false;
+    this.houseRenderer.shutdown();
   }
 }

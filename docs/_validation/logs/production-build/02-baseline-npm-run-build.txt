@@ -1,0 +1,21 @@
+COMMAND: npm run build
+START_UTC: 2026-09-24T17:50:34Z
+PWD: /mnt/data/QUOTIDIANO_HOTFIX_EXTRACT/QUOTIDIANO
+NODE: v22.16.0
+NPM: 10.9.2
+OS: Linux de870e5a3f59 6.18.44 #1 SMP Tue Sep 22 17:26:16 UTC 2026 x86_64 GNU/Linux
+--- STDOUT/STDERR ---
+
+> quotidiano@0.1.0 build
+> npm run check && vite build
+
+
+> quotidiano@0.1.0 check
+> tsc -p tsconfig.app.json --pretty false && tsc -p tsconfig.node.json --pretty false
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+--- END OUTPUT ---
+EXIT_CODE: 2
+END_UTC: 2026-09-24T17:50:35Z
