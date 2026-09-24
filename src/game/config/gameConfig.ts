@@ -1,28 +1,19 @@
 import Phaser from 'phaser';
+import { GAME_HEIGHT, GAME_WIDTH } from './constants';
 import { BootScene } from '../scenes/BootScene';
-import { TitleScene } from '../scenes/TitleScene';
 import { HomeScene } from '../scenes/HomeScene';
-import { StreetScene } from '../scenes/StreetScene';
-import { CafeScene } from '../scenes/CafeScene';
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  parent: 'game-root',
-  width: 1280,
-  height: 720,
-  backgroundColor: '#efe4cf',
-  transparent: false,
-  pixelArt: false,
-  antialias: true,
+  width: GAME_WIDTH,
+  height: GAME_HEIGHT,
+  backgroundColor: '#10131a',
+  pixelArt: true,
+  roundPixels: true,
   physics: {
     default: 'arcade',
-    arcade: { debug: false, gravity: { x: 0, y: 0 } }
+    arcade: { gravity: { x: 0, y: 0 }, debug: false }
   },
-  scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 1280,
-    height: 720
-  },
-  scene: [BootScene, TitleScene, HomeScene, StreetScene, CafeScene]
+  scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+  scene: [BootScene, HomeScene]
 };

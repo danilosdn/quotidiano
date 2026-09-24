@@ -1,0 +1,16 @@
+QUOTIDIANO semantic history
+
+21c600b test: cover casa morning flow
+92a9364 feat: deepen living room interactions
+9c9dfe1 test: validate house navigation targets
+f92ac51 docs: update final casa handoff
+8794858 feat: complete deeper house interaction loops
+5607371 docs: finalize phase one handoff
+45b467c feat: deepen house morning routine
+537720c feat: route movement through house topology
+f23d656 refactor: separate house interaction data
+b02bcb2 docs: record casa validation status
+d5f633e test: house core systems
+746f137 feat: house interactive foundation
+ab23485 chore: audit limezu assets
+c7e4374 chore: initialize project

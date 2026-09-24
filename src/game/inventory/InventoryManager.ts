@@ -1,32 +1,33 @@
-import { InventoryItem, worldState } from '../state/WorldState';
-
-export const ITEM_CATALOG: Record<string, Omit<InventoryItem, 'quantity'>> = {
-  keys: { id: 'keys', nameNl: 'sleutels', namePt: 'chaves', icon: 'keys', description: 'As chaves de casa.' },
-  phone: { id: 'phone', nameNl: 'telefoon', namePt: 'telefone', icon: 'phone', description: 'Seu telefone.' },
-  wallet: { id: 'wallet', nameNl: 'portemonnee', namePt: 'carteira', icon: 'wallet', description: 'Sua carteira.' },
-  coffee: { id: 'coffee', nameNl: 'koffie', namePt: 'café', icon: 'coffee_cup', description: 'Café recém-preparado por Sanne.' }
-};
+import type { InventoryItem, ItemLocation } from '../state/types';
 
 export class InventoryManager {
-  readonly capacity = 8;
-  get items(): InventoryItem[] { return worldState.data.inventory; }
-  has(id: string): boolean { return this.items.some(i => i.id === id && i.quantity > 0); }
-  add(id: string, quantity = 1): boolean {
-    const existing = this.items.find(i => i.id === id);
-    if (existing) { existing.quantity += quantity; worldState.touch(); return true; }
-    if (this.items.length >= this.capacity || !ITEM_CATALOG[id]) return false;
-    this.items.push({ ...ITEM_CATALOG[id], quantity });
-    worldState.touch();
+  static readonly CAPACITY = 8;
+  private readonly items: InventoryItem[];
+  constructor(items: InventoryItem[]) { this.items = items; }
+  all(): readonly InventoryItem[] { return this.items; }
+  bagItems(): readonly InventoryItem[] { return this.items.filter((i) => i.location === 'IN_BAG'); }
+  has(id: string, location: ItemLocation = 'IN_BAG'): boolean { return this.items.some((i) => i.id === id && i.location === location); }
+  anywhere(id: string): boolean { return this.items.some((i) => i.id === id); }
+  get(id: string): InventoryItem | undefined { return this.items.find((i) => i.id === id); }
+  add(id: string, label: string): boolean { return this.set(id, label, 'IN_BAG'); }
+  set(id: string, label: string, location: ItemLocation): boolean {
+    if (location === 'IN_BAG' && !this.has(id, 'IN_BAG') && this.bagItems().length >= InventoryManager.CAPACITY) return false;
+    const existing = this.items.find((i) => i.id === id);
+    if (existing) { existing.label = label; existing.location = location; }
+    else this.items.push({ id, label, location });
     return true;
   }
-  remove(id: string, quantity = 1): boolean {
-    const idx = this.items.findIndex(i => i.id === id);
-    if (idx < 0 || this.items[idx].quantity < quantity) return false;
-    this.items[idx].quantity -= quantity;
-    if (this.items[idx].quantity <= 0) this.items.splice(idx, 1);
-    worldState.touch();
+  move(id: string, location: ItemLocation): boolean {
+    const item = this.items.find((i) => i.id === id);
+    if (!item) return false;
+    if (location === 'IN_BAG' && item.location !== 'IN_BAG' && this.bagItems().length >= InventoryManager.CAPACITY) return false;
+    item.location = location;
+    return true;
+  }
+  remove(id: string): boolean {
+    const index = this.items.findIndex((i) => i.id === id);
+    if (index < 0) return false;
+    this.items.splice(index, 1);
     return true;
   }
 }
-
-export const inventory = new InventoryManager();

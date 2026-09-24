@@ -1,20 +1,33 @@
 import Phaser from 'phaser';
 
 export class BootScene extends Phaser.Scene {
-  constructor(){super('BootScene');}
-  preload():void{
-    const a='assets/';
-    this.load.atlas('protagonist',`${a}characters/protagonist.png`,`${a}characters/protagonist.json`);
-    this.load.atlas('npcs',`${a}npc/npcs.png`,`${a}npc/npcs.json`);
-    this.load.atlas('pip',`${a}npc/pip.png`,`${a}npc/pip.json`);
-    const images:Record<string,string>={
-      home_floor:'home/base_floor.png',home_walls:'home/walls_back.png',home_fg:'home/foreground.png',bed:'home/bed.png',sofa:'home/sofa.png',coffee_table:'home/coffee_table.png',dining_table:'home/dining_table.png',chair:'home/chair.png',fridge:'home/fridge.png',fridge_open:'home/fridge_open.png',kitchen_counter:'home/kitchen_counter.png',wardrobe:'home/wardrobe.png',wardrobe_open:'home/wardrobe_open.png',plant:'home/plant.png',home_door:'home/door.png',home_door_open:'home/door_open.png',shower:'home/shower.png',vanity:'home/vanity.png',keys:'home/keys.png',backpack:'home/backpack.png',phone:'home/phone.png',wallet:'home/wallet.png',home_coffee:'home/coffee_cup.png',
-      street_ground:'street/base_ground.png',street_buildings:'street/buildings_back.png',street_fg:'street/foreground.png',street_player_house:'street/player_house.png',street_cafe_facade:'street/cafe_facade.png',street_flower_bed:'street/flower_bed.png',street_mailbox:'street/mailbox.png',street_fence:'street/fence.png',street_lamp:'street/street_lamp.png',bike_rack:'street/bike_rack.png',bench:'street/bench.png',bike:'street/bike.png',tree:'street/tree.png',bus_sign:'street/bus_sign.png',cafe_board:'street/cafe_board.png',outdoor_table:'street/outdoor_table.png',street_cafe_door:'street/cafe_door.png',
-      cafe_floor:'cafe/base_floor.png',cafe_walls:'cafe/walls_back.png',cafe_fg:'cafe/foreground.png',cafe_counter:'cafe/counter.png',display:'cafe/display.png',menu_board:'cafe/menu_board.png',cafe_table:'cafe/table.png',cafe_chair:'cafe/chair.png',cafe_plant:'cafe/plant.png',lamp:'cafe/lamp.png',coffee_cup:'cafe/coffee_cup.png',cafe_door:'cafe/door.png',cafe_bin:'cafe/bin.png'
-    };
-    Object.entries(images).forEach(([k,v])=>this.load.image(k,a+v));
-    for(const key of ['step','door','pickup','sit','coffee','payment','ambient_home','ambient_street','ambient_cafe']) this.load.audio(key,`${a}audio/${key}.wav`);
-    const g=this.add.graphics(); g.fillStyle(0xf1e6d0,1);g.fillRect(0,0,1280,720); const t=this.add.text(640,350,'QUOTIDIANO',{fontFamily:'system-ui',fontSize:'34px',color:'#30473d'}).setOrigin(.5); this.load.on('progress',(p:number)=>t.setText(`QUOTIDIANO\n${Math.round(p*100)}%`).setAlign('center'));
+  constructor() { super('BootScene'); }
+  preload(): void {
+    this.load.image('floor-wood', '/assets/runtime/environment/floor_wood.png');
+    this.load.image('floor-parquet', '/assets/runtime/environment/floor_parquet.png');
+    this.load.image('floor-tile', '/assets/runtime/environment/floor_tile.png');
+    this.load.image('wall-light', '/assets/runtime/environment/wall_light.png');
+    this.load.image('bed', '/assets/runtime/objects/bed.png');
+    this.load.image('wardrobe', '/assets/runtime/objects/wardrobe.png');
+    this.load.image('shower', '/assets/runtime/objects/shower.png');
+    this.load.image('bathroom-sink', '/assets/runtime/objects/bathroom_sink.png');
+    this.load.image('toilet', '/assets/runtime/objects/toilet.png');
+    this.load.image('sofa', '/assets/runtime/objects/sofa.png');
+    this.load.image('tv', '/assets/runtime/objects/tv.png');
+    this.load.image('floor-lamp', '/assets/runtime/objects/floor_lamp.png');
+    this.load.image('bookshelf', '/assets/runtime/objects/bookshelf.png');
+    this.load.image('washing-machine', '/assets/runtime/objects/washing_machine.png');
+    this.load.image('kitchen-counter', '/assets/runtime/objects/kitchen_counter.png');
+    this.load.image('dining-table', '/assets/runtime/objects/dining_table.png');
+    this.load.image('dining-chair', '/assets/runtime/objects/dining_chair.png');
+    this.load.image('breakfast-plate', '/assets/runtime/objects/breakfast_plate.png');
+    this.load.image('coffee-serving', '/assets/runtime/objects/coffee_serving.png');
+    this.load.spritesheet('fridge', '/assets/runtime/objects/fridge.png', { frameWidth: 96, frameHeight: 144 });
+    this.load.spritesheet('oven', '/assets/runtime/objects/oven.png', { frameWidth: 48, frameHeight: 96 });
+    this.load.spritesheet('coffee', '/assets/runtime/objects/coffee.png', { frameWidth: 48, frameHeight: 96 });
+    this.load.spritesheet('toaster', '/assets/runtime/objects/toaster.png', { frameWidth: 48, frameHeight: 96 });
+    this.load.spritesheet('front-door', '/assets/runtime/objects/front_door.png', { frameWidth: 96, frameHeight: 144 });
+    this.load.spritesheet('player', '/assets/runtime/characters/player_quotidiano.png', { frameWidth: 48, frameHeight: 48 });
   }
-  create():void{this.scene.start('TitleScene');}
+  create(): void { this.scene.start('HomeScene'); }
 }

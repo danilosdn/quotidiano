@@ -1,10 +1,7 @@
-import { DialogueNode, DialogueScript } from './DialogueTypes';
+import type { DialogueLine, DialogueProvider } from './types';
+import dialogues from '../../data/dialogues/home.json';
 
-export class ScriptedDialogueProvider {
-  private nodes: Map<string, DialogueNode>;
-  constructor(readonly script: DialogueScript) { this.nodes = new Map(script.nodes.map(n => [n.id,n])); }
-  start(): DialogueNode { return this.get(this.script.start); }
-  get(id: string): DialogueNode {
-    const node=this.nodes.get(id); if(!node) throw new Error(`Dialogue node not found: ${id}`); return node;
-  }
+export class ScriptedDialogueProvider implements DialogueProvider {
+  private readonly byId = new Map((dialogues as DialogueLine[]).map((d) => [d.id, d]));
+  get(id: string): DialogueLine | undefined { return this.byId.get(id); }
 }

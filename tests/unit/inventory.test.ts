@@ -1,15 +1,15 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-import { inventory } from '../../src/game/inventory/InventoryManager';
-import { worldState } from '../../src/game/state/WorldState';
+import { describe, expect, it } from 'vitest';
+import { InventoryManager } from '../../src/game/inventory/InventoryManager';
 
-describe('inventory',()=>{
-  beforeEach(()=>worldState.reset());
-  it('collects and consumes keys/coffee',()=>{
-    expect(inventory.has('keys')).toBe(false);
-    expect(inventory.add('keys')).toBe(true);
-    expect(inventory.has('keys')).toBe(true);
-    expect(inventory.add('coffee')).toBe(true);
-    expect(inventory.remove('coffee')).toBe(true);
-    expect(inventory.has('coffee')).toBe(false);
+describe('InventoryManager', () => {
+  it('moves world items into the bag without duplicating them', () => {
+    const manager = new InventoryManager([{ id:'keys', label:'Sleutels', location:'WORLD' }]);
+    expect(manager.add('keys','Sleutels')).toBe(true);
+    expect(manager.has('keys')).toBe(true);
+    expect(manager.all()).toHaveLength(1);
+  });
+  it('enforces the eight-slot bag capacity', () => {
+    const manager = new InventoryManager(Array.from({length:8},(_,i)=>({id:`i${i}`,label:`I${i}`,location:'IN_BAG' as const})));
+    expect(manager.add('extra','Extra')).toBe(false);
   });
 });

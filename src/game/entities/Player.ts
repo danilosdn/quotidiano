@@ -1,106 +1,78 @@
 import Phaser from 'phaser';
-import { Point } from '../navigation/NavigationManager';
-import { AutoWalkStuckDetector } from '../navigation/AutoWalkStuckDetector';
-import { Facing } from '../interactions/InteractionTypes';
+import { PLAYER_SPEED } from '../config/constants';
+import { PlayerState } from '../state/PlayerState';
+import { NavigationManager } from '../navigation/NavigationManager';
+import type { Point } from '../interactions/types';
 
-export type PlayerState = 'PLAYER_FREE'|'PLAYER_AUTOWALK'|'PLAYER_INTERACTING'|'PLAYER_SITTING'|'PLAYER_LYING'|'PLAYER_DIALOGUE'|'PLAYER_TRANSITION'|'PLAYER_INVENTORY';
+export class Player {
+  readonly sprite: Phaser.Physics.Arcade.Sprite;
+  readonly state = new PlayerState();
+  readonly navigation = new NavigationManager();
+  private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+  private keys: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
+  private facing: 'up'|'down'|'left'|'right' = 'down';
+  private lastWalkable: Point;
 
-export class Player extends Phaser.Physics.Arcade.Sprite {
-  state: PlayerState='PLAYER_FREE';
-  facing: Facing='down';
-  private path: Point[]=[];
-  private pathIndex=0;
-  private speed=185;
-  private lastStepAt=0;
-  private autoTarget?: Point;
-  private stuck = new AutoWalkStuckDetector();
-  private repath?: (target:Point)=>Point[];
-  private onAutoWalkFailed?: ()=>void;
-  onStep?:()=>void;
-
-  constructor(scene: Phaser.Scene,x:number,y:number){
-    super(scene,x,y,'protagonist','idle_down');
-    scene.add.existing(this); scene.physics.add.existing(this);
-    this.setOrigin(.5,.86); this.setDepth(y);
-    const body=this.body as Phaser.Physics.Arcade.Body; body.setSize(28,30); body.setOffset(18,48); body.setCollideWorldBounds(true);
+  constructor(private readonly scene: Phaser.Scene, x: number, y: number, private readonly isWalkable: (point: Point) => boolean = () => true) {
+    this.sprite = scene.physics.add.sprite(x, y, 'player', 186).setDepth(y).setOrigin(0.5, 0.88);
+    this.sprite.body!.setSize(22, 16).setOffset(13, 29);
+    this.cursors = scene.input.keyboard!.createCursorKeys();
+    this.keys = scene.input.keyboard!.addKeys('W,A,S,D') as typeof this.keys;
+    this.lastWalkable = { x, y };
     this.createAnimations();
   }
 
   private createAnimations(): void {
-    for(const dir of ['down','left','right','up'] as Facing[]){
-      const key=`player-walk-${dir}`;
-      if(!this.scene.anims.exists(key)) this.scene.anims.create({key,frames:this.scene.anims.generateFrameNames('protagonist',{prefix:`walk_${dir}_`,start:0,end:7}),frameRate:10,repeat:-1});
+    const make = (key: string, frames: number[]) => {
+      if (!this.scene.anims.exists(key)) this.scene.anims.create({ key, frames: frames.map((frame) => ({ key: 'player', frame })), frameRate: 9, repeat: -1 });
+    };
+    make('walk-down', [298,299,300,301,302,303]);
+    make('walk-up', [286,287,288,289,290,291]);
+    make('walk-left', [280,281,282,283,284,285]);
+    make('walk-right', [292,293,294,295,296,297]);
+  }
+
+  update(delta: number): 'arrived' | 'failed' | null {
+    if (this.state.mode === 'FREE' || this.state.mode === 'AUTOWALK') this.enforceWalkablePosition();
+    const manualX = Number(this.keys.D.isDown || this.cursors.right.isDown) - Number(this.keys.A.isDown || this.cursors.left.isDown);
+    const manualY = Number(this.keys.S.isDown || this.cursors.down.isDown) - Number(this.keys.W.isDown || this.cursors.up.isDown);
+    if (this.state.isFree() && (manualX || manualY)) {
+      this.navigation.cancel(this.sprite);
+      this.state.set('FREE');
+      const len = Math.hypot(manualX, manualY) || 1;
+      this.sprite.setVelocity(manualX / len * PLAYER_SPEED, manualY / len * PLAYER_SPEED);
+      this.animateFromVelocity();
+    } else if (this.state.isFree() && this.navigation.hasTarget()) {
+      this.state.set('AUTOWALK');
+      const result = this.navigation.update(this.sprite, delta, PLAYER_SPEED);
+      this.animateFromVelocity();
+      if (result === 'arrived' || result === 'failed') { this.state.set('FREE'); return result; }
+    } else if (this.state.mode === 'FREE') {
+      this.sprite.setVelocity(0,0); this.sprite.anims.stop(); this.setIdleFrame();
     }
+    this.sprite.setDepth(Math.round(this.sprite.y));
+    return null;
   }
 
-  configureAutoWalk(repath:(target:Point)=>Point[],onFailed:()=>void):void{
-    this.repath=repath; this.onAutoWalkFailed=onFailed;
+  place(x: number, y: number): void {
+    this.sprite.setPosition(x, y);
+    this.lastWalkable = { x, y };
   }
 
-  setState(state: PlayerState | string | number): this {
-    super.setState(state);
-    if (typeof state !== 'string' || !state.startsWith('PLAYER_')) return this;
-    this.state=state as PlayerState;
-    if(state!=='PLAYER_AUTOWALK'){
-      this.path=[]; this.autoTarget=undefined; this.stuck.stop();
-    }
-    return this;
-  }
-  setFacing(f:Facing):void{this.facing=f; if(this.state!=='PLAYER_AUTOWALK') this.setFrame(`idle_${f}`);}
-  pose(frame:string,state:PlayerState):void{this.setState(state); this.stop(); this.setFrame(frame);}
-  free():void{this.state='PLAYER_FREE';this.path=[];this.autoTarget=undefined;this.stuck.stop();this.stop();this.setFrame(`idle_${this.facing}`);}
-
-  startPath(path: Point[], target?:Point): void {
-    if(!path.length) return;
-    this.path=path; this.pathIndex=0; this.state='PLAYER_AUTOWALK';
-    this.autoTarget={...(target ?? path[path.length-1])};
-    this.stuck.begin({x:this.x,y:this.y});
-  }
-  cancelPath():void{
-    if(this.state==='PLAYER_AUTOWALK'){
-      this.path=[];this.pathIndex=0;this.autoTarget=undefined;this.stuck.stop();this.state='PLAYER_FREE';this.stop();this.setFrame(`idle_${this.facing}`);
-    }
-  }
-  stop():this{this.setVelocity(0,0);this.anims.stop();return this;}
-
-  manual(vx:number,vy:number):void{
-    if(this.state!=='PLAYER_FREE'&&this.state!=='PLAYER_AUTOWALK') return;
-    if(vx||vy){
-      if(this.state==='PLAYER_AUTOWALK') this.cancelPath();
-      const mag=Math.hypot(vx,vy)||1; vx=vx/mag*this.speed; vy=vy/mag*this.speed; this.setVelocity(vx,vy);
-      this.facing=this.directionFromVelocity(vx,vy); this.anims.play(`player-walk-${this.facing}`,true); this.maybeStep();
-    } else if(this.state==='PLAYER_FREE'){this.stop();this.setFrame(`idle_${this.facing}`);}
+  private enforceWalkablePosition(): void {
+    const current = { x: this.sprite.x, y: this.sprite.y };
+    if (this.isWalkable(current)) this.lastWalkable = current;
+    else this.sprite.setPosition(this.lastWalkable.x, this.lastWalkable.y).setVelocity(0, 0);
   }
 
-  updateAuto(deltaMs=16.67):void{
-    this.setDepth(this.y);
-    if(this.state!=='PLAYER_AUTOWALK') return;
-    const target=this.path[this.pathIndex];
-    if(!target){this.finishAutoWalk();return;}
-    const dx=target.x-this.x,dy=target.y-this.y,dist=Math.hypot(dx,dy);
-    if(dist<10){this.pathIndex++;this.stuck.replanSucceeded({x:this.x,y:this.y});return;}
-    const vx=dx/dist*this.speed,vy=dy/dist*this.speed;
-    this.setVelocity(vx,vy);this.facing=this.directionFromVelocity(vx,vy);this.anims.play(`player-walk-${this.facing}`,true);this.maybeStep();
-
-    const action=this.stuck.sample({x:this.x,y:this.y},deltaMs,Math.hypot(vx,vy)>1);
-    if(action==='replan'&&this.autoTarget&&this.repath){
-      const next=this.repath(this.autoTarget);
-      if(next.length){
-        this.path=next;this.pathIndex=0;this.stuck.replanSucceeded({x:this.x,y:this.y});
-      } else this.failAutoWalk();
-    } else if(action==='cancel') this.failAutoWalk();
+  private animateFromVelocity(): void {
+    const { x, y } = this.sprite.body!.velocity;
+    if (Math.abs(x) > Math.abs(y)) this.facing = x < 0 ? 'left' : 'right'; else if (Math.abs(y) > 0) this.facing = y < 0 ? 'up' : 'down';
+    if (Math.abs(x) + Math.abs(y) > 0.1) this.sprite.play(`walk-${this.facing}`, true);
   }
-
-  private finishAutoWalk():void{
-    this.stop();this.path=[];this.pathIndex=0;this.autoTarget=undefined;this.stuck.stop();this.state='PLAYER_FREE';this.setFrame(`idle_${this.facing}`);
+  face(dir: 'up'|'down'|'left'|'right'): void { this.facing = dir; this.sprite.anims.stop(); this.setIdleFrame(); }
+  private setIdleFrame(): void {
+    const frame = { down: 186, up: 174, left: 180, right: 184 }[this.facing];
+    this.sprite.setFrame(frame);
   }
-
-  private failAutoWalk():void{
-    this.stop();this.path=[];this.pathIndex=0;this.autoTarget=undefined;this.stuck.stop();this.state='PLAYER_FREE';this.setFrame(`idle_${this.facing}`);this.onAutoWalkFailed?.();
-  }
-
-  private directionFromVelocity(vx:number,vy:number):Facing{
-    if(Math.abs(vx)>Math.abs(vy)) return vx<0?'left':'right'; return vy<0?'up':'down';
-  }
-  private maybeStep():void{const now=this.scene.time.now;if(now-this.lastStepAt>310){this.lastStepAt=now;this.onStep?.();}}
 }

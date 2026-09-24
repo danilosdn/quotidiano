@@ -1,0 +1,44 @@
+[
+  {
+    "id": "morning_message",
+    "speaker": "Lotte",
+    "level": "A1",
+    "textNL": "Goedemorgen! Heb je straks tijd voor koffie?",
+    "hintPT": "Bom dia! Você tem tempo para um café mais tarde?",
+    "intents": [
+      "ACCEPT_COFFEE",
+      "DECLINE_COFFEE"
+    ],
+    "responses": [
+      {
+        "text": "Ja, graag.",
+        "intent": "ACCEPT_COFFEE"
+      },
+      {
+        "text": "Vandaag lukt het niet.",
+        "intent": "DECLINE_COFFEE"
+      }
+    ]
+  },
+  {
+    "id": "keys_reminder",
+    "speaker": "Jij",
+    "level": "A1",
+    "textNL": "Waar zijn mijn sleutels?",
+    "hintPT": "Onde estão minhas chaves?"
+  },
+  {
+    "id": "breakfast_ready",
+    "speaker": "Jij",
+    "level": "A1",
+    "textNL": "Koffie en ontbijt zijn klaar.",
+    "hintPT": "Café e café da manhã estão prontos."
+  },
+  {
+    "id": "book_excerpt",
+    "speaker": "Boek",
+    "level": "A1",
+    "textNL": "Buiten regent het, maar binnen is het warm en rustig.",
+    "hintPT": "Lá fora está chovendo, mas dentro está quente e tranquilo."
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/game/config/constants.ts",
+    "src/game/time/**/*.ts",
+    "src/game/inventory/**/*.ts",
+    "src/game/interactions/**/*.ts",
+    "src/game/state/**/*.ts",
+    "src/game/dialogue/IntentMatcher.ts",
+    "src/game/dialogue/types.ts",
+    "src/game/navigation/PathFinder.ts",
+    "src/game/navigation/houseNavigation.ts",
+    "src/data/interactions/homeInteractions.ts"
+  ]
+}

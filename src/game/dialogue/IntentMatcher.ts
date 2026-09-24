@@ -1,19 +1,12 @@
-const INTENTS: Record<string, string[]> = {
-  ORDER_COFFEE: ['koffie','een koffie','ik wil koffie','koffie alsjeblieft','koffie graag'],
-  ORDER_TEA: ['thee','hebben jullie thee','ik wil thee'],
-  NOT_SURE: ['ik weet het niet','ik weet het nog niet','weet ik niet'],
-  WITH_MILK: ['met melk','melk graag'],
-  BLACK: ['zwart','zonder melk','zwart graag']
-};
-
-export function normalizeText(value: string): string {
-  return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z\s]/g,' ').replace(/\s+/g,' ').trim();
-}
-
-export function matchIntent(value: string): string | null {
-  const n=normalizeText(value);
-  for(const [intent,phrases] of Object.entries(INTENTS)) {
-    if(phrases.some(p => n===normalizeText(p) || n.includes(normalizeText(p)))) return intent;
+export class IntentMatcher {
+  private normalize(text: string): string {
+    return text.toLocaleLowerCase('nl-NL').normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9\s]/g, '').trim();
   }
-  return null;
+  match(input: string, candidates: Record<string, string[]>): string | null {
+    const normalized = this.normalize(input);
+    for (const [intent, variants] of Object.entries(candidates)) {
+      if (variants.some((v) => this.normalize(v) === normalized)) return intent;
+    }
+    return null;
+  }
 }

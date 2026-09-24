@@ -1,0 +1,877 @@
+{
+  "generatedAt": "2026-09-23T15:42:39.278Z",
+  "roots": [
+    "/mnt/data/moderninteriors-win.zip",
+    "/mnt/data/modernexteriors-win.zip",
+    "/mnt/data/Modern_Exteriors_RPG_Maker_MV.zip"
+  ],
+  "total": 93605,
+  "counts": {
+    ".txt": 8,
+    ".png": 91247,
+    ".gif": 2256,
+    ".ase": 70,
+    ".aseprite": 23,
+    ".pdf": 1
+  },
+  "scales": {
+    "unknown": 314,
+    "48x48": 31029,
+    "32x32": 31125,
+    "16x16": 31137
+  },
+  "categories": {
+    "other": 70578,
+    "ui": 3917,
+    "animated": 4520,
+    "character": 2916,
+    "home": 138,
+    "kitchen": 3774,
+    "bathroom": 1488,
+    "bedroom": 5001,
+    "living": 1107,
+    "street": 166
+  },
+  "sample": [
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/THIRD-PARTY TOOLS.txt",
+      "ext": ".txt",
+      "scale": "unknown",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/LICENSE.txt",
+      "ext": ".txt",
+      "scale": "unknown",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/READ_ME.txt",
+      "ext": ".txt",
+      "scale": "unknown",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_thinking_emotes_animation_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_thinking_emotes_animation_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_thinking_emotes_animation_16x16.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/UI_16x16.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/Palettes/palette_interiors.png",
+      "ext": ".png",
+      "scale": "unknown",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/Palettes/palette_interiors_x3.png",
+      "ext": ".png",
+      "scale": "unknown",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_down_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_mail_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_thinking_emote_dots_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_green_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_tear_drop_emote_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_up.gif",
+      "ext": ".gif",
+      "scale": "unknown",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_red_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_angry_emote_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_red_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_tear_drop_emote_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_green_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_down_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_down_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_thinking_emote_dots_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_mail_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_red_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_up_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_angry_emote_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_angry_emote_48x48.gif",
+      "ext": ".gif",
+      "scale": "48x48",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_arrow_pointing_up_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_timer_green_to_green_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_tear_drop_emote_16x16.gif",
+      "ext": ".gif",
+      "scale": "16x16",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_mail_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/4_User_Interface_Elements/Animated_Spritesheets/UI_thinking_emote_dots_32x32.gif",
+      "ext": ".gif",
+      "scale": "32x32",
+      "category": "animated"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/16x16/Room_Builder_16x16.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/16x16/Interiors_16x16.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/32x32/Interiors_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/32x32/Room_Builder_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/48x48/Room_Builder_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "ui"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/1_Interiors/48x48/Interiors_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "other"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/2_Characters/Character_Generator/HOW_TO_CHARACTER_GENERATOR.png",
+      "ext": ".png",
+      "scale": "unknown",
+      "category": "character"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/2_Characters/Character_Generator/Spritesheet_animations_GUIDE.png",
+      "ext": ".png",
+      "scale": "unknown",
+      "category": "character"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/2_Characters/Character_Generator/CHARACTER_GENERATOR.txt",
+      "ext": ".txt",
+      "scale": "unknown",
+      "category": "character"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/16x16/Generic_Home_1_Layer_2_.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/16x16/Generic_Home_1_Layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/16x16/Generic_Home_1_preview_16x16.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/32x32/Generic_Home_1_Layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/32x32/Generic_Home_1_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/32x32/Generic_Home_1_Layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/48x48/Generic_Home_1_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/48x48/Generic_Home_1_Layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Generic_Home_Designs/48x48/Generic_Home_1_Layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/16x16/Ice_Cream_Shop_Design_layer_3.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/16x16/Ice_Cream_Shop_Design_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/16x16/Ice_Cream_Shop_Design_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/16x16/Ice_Cream_Shop_Design_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/32x32/Ice_Cream_Shop_Design_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/32x32/Ice_Cream_Shop_Design_layer_3_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/32x32/Ice_Cream_Shop_Design_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/32x32/Ice_Cream_Shop_Design_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/48x48/Ice_Cream_Shop_Design_layer_3_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/48x48/Ice_Cream_Shop_Design_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/48x48/Ice_Cream_Shop_Design_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Ice-Cream_Shop_Designs/48x48/Ice_Cream_Shop_Design_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/16x16/Shooting_Range_Design_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/16x16/Shooting_Range_Design_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/16x16/Shooting_Range_Design_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/32x32/Shooting_Range_Design_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/32x32/Shooting_Range_Design_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/32x32/Shooting_Range_Design_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/48x48/Shooting_Range_Design_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/48x48/Shooting_Range_Design_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Shooting_Range_Designs/48x48/Shooting_Range_Design_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_2_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_2_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_2_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/16x16/Condominium_Design_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_2_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_2_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_2_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/32x32/Condominium_Design_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_2_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_2_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Condominium_Designs/48x48/Condominium_Design_2_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_2_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_2_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/16x16/Gym_2_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_2_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_2_layer_1_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_2_preview_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/32x32/Gym_layer_2_32x32.png",
+      "ext": ".png",
+      "scale": "32x32",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_2_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_layer_2_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_2_preview_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Gym_Designs/48x48/Gym_2_layer_1_48x48.png",
+      "ext": ".png",
+      "scale": "48x48",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_1_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_1_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_1_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_4_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_4_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_4_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_entrance_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_entrance_preview.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_entrance_layer_2.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    },
+    {
+      "source": "/mnt/data/moderninteriors-win.zip",
+      "path": "moderninteriors-win/6_Home_Designs/Museum_Designs/16x16/Museum_room_2_layer_1.png",
+      "ext": ".png",
+      "scale": "16x16",
+      "category": "home"
+    }
+  ]
+}
