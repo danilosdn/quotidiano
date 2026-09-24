@@ -38,11 +38,6 @@ export class NavigationManager {
     const dx = target.x - sprite.x, dy = target.y - sprite.y;
     const distance = Math.hypot(dx, dy);
     if (distance < 8) {
-      // Snap onto the waypoint before turning. Without this, the sprite turns
-      // toward the next waypoint while still ~8px away and clips concave corners
-      // between adjacent walkable rectangles, which makes enforceWalkablePosition
-      // teleport it back every frame and deadlocks the route.
-      sprite.setPosition(target.x, target.y);
       this.route.shift();
       if (!this.route.length) { this.cancel(sprite); return 'arrived'; }
       return 'moving';

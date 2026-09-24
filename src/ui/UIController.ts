@@ -9,10 +9,6 @@ export class UIController {
   private interaction = document.getElementById('interaction-panel')!;
   private phone = document.getElementById('phone-panel')!;
   private clock = document.getElementById('clock')!;
-  // While a transient toast is on screen it takes precedence over the ambient
-  // proximity prompt ("E · ..."), so gameplay feedback is not overwritten on
-  // the very next frame by the nearby-object hint.
-  private toastTimer: number | null = null;
   onAction: ((interactionId: string, actionId: string) => void) | null = null;
   onPhoneMessageRead: (() => void) | null = null;
   onOpenDialogue: ((dialogueId: string) => void) | null = null;
@@ -20,24 +16,9 @@ export class UIController {
   onDialogueClosed: (() => void) | null = null;
 
   setClock(text: string): void { this.clock.textContent = `${text} · A1`; }
-  showPrompt(text: string): void {
-    if (this.toastTimer !== null) return;
-    this.prompt.textContent = text;
-    this.prompt.classList.add('visible');
-  }
-  hidePrompt(): void {
-    if (this.toastTimer !== null) return;
-    this.prompt.classList.remove('visible');
-  }
-  toast(text: string, ms = 1500): void {
-    if (this.toastTimer !== null) window.clearTimeout(this.toastTimer);
-    this.prompt.textContent = text;
-    this.prompt.classList.add('visible');
-    this.toastTimer = window.setTimeout(() => {
-      this.toastTimer = null;
-      this.prompt.classList.remove('visible');
-    }, ms);
-  }
+  showPrompt(text: string): void { this.prompt.textContent = text; this.prompt.classList.add('visible'); }
+  hidePrompt(): void { this.prompt.classList.remove('visible'); }
+  toast(text: string, ms = 1500): void { this.showPrompt(text); window.setTimeout(() => this.hidePrompt(), ms); }
 
   openInteraction(entry: InteractionDefinition): void {
     this.phone.classList.remove('open');

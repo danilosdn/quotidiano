@@ -44,3 +44,13 @@
 **CASA QUALITY GATE: NOT YET PASSED.**
 
 StreetScene and CafeScene remain intentionally unimplemented/unlocked. The next execution must first restore dependency installation, run the full gate, fix any Phaser 4/runtime issues found by real execution, inspect the rendered House, and generate the required real screenshots.
+
+
+## Continuation pass — 2026-09-24T09:42:43+00:00
+
+- Preserved the existing checkout and continued without reset, merge, push or deploy.
+- Generated `docs/HOUSE_V3_CONTENT_AUDIT.md` from the current source tree.
+- Added `scripts/validate-house-content-boundaries.mjs`, a dependency-free architecture/content boundary check.
+- Re-ran available validation commands; exact results are recorded in `docs/VALIDATION.md`.
+- Note: node_modules was not present; dependency-backed checks were not run in this pass.
+- Note: package-lock.json was absent, so npm ci was intentionally not attempted.

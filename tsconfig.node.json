@@ -3,13 +3,11 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "target": "ES2022",
     "allowImportingTsExtensions": true,
-    "strict": true,
     "noEmit": true,
-    "types": [
-      "node"
-    ],
-    "target": "ES2022"
+    "strict": true,
+    "types": ["node"]
   },
   "include": [
     "vite.config.ts",

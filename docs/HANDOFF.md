@@ -1,3 +1,37 @@
+# QUOTIDIANO — Handoff
+
+Updated: 2026-09-24T09:42:43+00:00
+
+## Current stage
+
+House V3 architecture/interactions. Street and Café remain gated until the Casa quality gate passes with dependency-backed tests and the complete morning flow.
+
+## Branch and base
+
+- Working branch: `feature/house-v3-architecture-interactions`
+- HEAD before this continuation pass: `f0b0fdf`
+- Origin of working tree: `extracted QUOTIDIANO_PHASE1_CANDIDATE.zip`
+
+## What works / what is present
+
+- Existing House V3 source and previous refactoring were preserved without reset.
+- A generated architecture/content audit is available at `docs/HOUSE_V3_CONTENT_AUDIT.md`.
+- A dependency-free boundary validator is available at `scripts/validate-house-content-boundaries.mjs`.
+- Exact command outputs for this pass are in `docs/VALIDATION.md`.
+
+## Partial / unresolved
+
+- node_modules was not present; dependency-backed checks were not run in this pass.
+- package-lock.json was absent, so npm ci was intentionally not attempted.
+
+## Next recommended command
+
+```bash
+npm ci && npm run check && npm test -- --run && npm run test:e2e && npm run build
+```
+
+## Previous handoff content (preserved)
+
 # HANDOFF
 
 ## Etapa atual
@@ -81,3 +115,4 @@ timeout 18s npm install --package-lock-only --ignore-scripts --no-audit --no-fun
 ```bash
 npm install --package-lock-only && npm ci && npm run check && npm test && npx playwright install chromium && npm run test:e2e && npm run build && npm run preview
 ```
+
