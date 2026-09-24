@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "lib": ["ES2022", "DOM"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -20,6 +23,20 @@
     "src/game/dialogue/types.ts",
     "src/game/navigation/PathFinder.ts",
     "src/game/navigation/houseNavigation.ts",
-    "src/data/interactions/homeInteractions.ts"
+    "src/data/interactions/homeInteractions.ts",
+    "src/game/house/**/*.ts",
+    "src/game/entities/playerFrameMap.ts",
+    "src/data/language/**/*.ts",
+    "src/data/scenarios/**/*.ts",
+    "src/data/dialogues/homeContent.ts",
+    "src/data/phone/**/*.ts",
+    "src/game/language/**/*.ts",
+    "src/game/dialogue/ScriptedDialogueProvider.ts",
+    "src/game/house/actions/**/*.ts",
+    "src/game/house/rooms/**/*.ts"
+  ],
+  "exclude": [
+    "src/game/house/HouseRenderer.ts",
+    "src/game/house/HouseAssetManifest.ts"
   ]
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { HOME_INTERACTIONS } from '../../src/data/interactions/homeInteractions';
 import { createHousePathFinder } from '../../src/game/navigation/houseNavigation';
+import { HOUSE_LAYOUT } from '../../src/game/house/HouseLayout';
 import { createInitialWorldState } from '../../src/game/state/WorldState';
 
 describe('Home interaction data', () => {
@@ -8,7 +9,7 @@ describe('Home interaction data', () => {
     const pathFinder = createHousePathFinder();
     for (const interaction of HOME_INTERACTIONS) {
       expect(pathFinder.isWalkable(interaction.approachPoint), interaction.id).toBe(true);
-      expect(pathFinder.findPath({ x: 156, y: 196 }, interaction.approachPoint)?.length, interaction.id).toBeTruthy();
+      expect(pathFinder.findPath(HOUSE_LAYOUT.spawn, interaction.approachPoint)?.length, interaction.id).toBeTruthy();
     }
   });
 

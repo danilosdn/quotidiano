@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QUOTIDIANO · Sprite Frame Inspector</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div><span class="eyebrow">Ferramenta local de desenvolvimento</span><h1>Player Sprite Frame Inspector</h1></div>
+      <p>Atlas LimeZu adaptado: 56 colunas × 41 linhas, frames de 48×48.</p>
+    </header>
+    <section class="workspace">
+      <article class="stage-card">
+        <div class="checker"><canvas id="preview" width="384" height="384"></canvas></div>
+        <div class="status"><strong id="frame-label">frame 0</strong><span id="coordinate-label">linha 0 · coluna 0</span></div>
+      </article>
+      <aside class="controls">
+        <label>Animação<select id="animation"></select></label>
+        <label>Frame<input id="frame" type="number" min="0" max="2295" value="0"></label>
+        <label>Velocidade<input id="fps" type="range" min="1" max="18" value="9"><output id="fps-output">9 fps</output></label>
+        <div class="button-row"><button id="previous">← anterior</button><button id="play">reproduzir</button><button id="next">próximo →</button></div>
+        <label class="check"><input id="onion" type="checkbox"> mostrar frames vizinhos</label>
+        <label class="check"><input id="grid" type="checkbox" checked> mostrar grade e origem</label>
+        <button id="open-atlas">alternar atlas completo</button>
+        <p class="note">Mapa autoritativo: <code>src/game/entities/playerFrameMap.ts</code>. Esta ferramenta repete os índices apenas para inspeção visual; <code>npm run validate:house</code> detecta divergências conhecidas.</p>
+      </aside>
+    </section>
+    <section id="atlas-card" class="atlas-card hidden"><canvas id="atlas"></canvas></section>
+    <section class="sequence-card"><h2>Sequência selecionada</h2><div id="sequence"></div></section>
+  </main>
+  <script src="./main.js" defer></script>
+</body>
+</html>

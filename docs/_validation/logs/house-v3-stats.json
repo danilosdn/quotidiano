@@ -1,0 +1,60 @@
+{
+  "objects": 54,
+  "interactions": 43,
+  "actions": 108,
+  "byRoom": {
+    "bedroom": {
+      "objects": 11,
+      "interactions": 9,
+      "actions": 27
+    },
+    "bathroom": {
+      "objects": 9,
+      "interactions": 8,
+      "actions": 17
+    },
+    "kitchen": {
+      "objects": 12,
+      "interactions": 8,
+      "actions": 19
+    },
+    "living": {
+      "objects": 9,
+      "interactions": 7,
+      "actions": 16
+    },
+    "entry": {
+      "objects": 9,
+      "interactions": 7,
+      "actions": 19
+    },
+    "laundry": {
+      "objects": 4,
+      "interactions": 4,
+      "actions": 10
+    }
+  },
+  "scenarios": 12,
+  "scenarioIds": [
+    "morning-alarm",
+    "curtain-weather",
+    "choose-outfit",
+    "morning-hygiene",
+    "make-breakfast",
+    "phone-message",
+    "find-keys",
+    "read-mail",
+    "do-laundry",
+    "evening-routine",
+    "visitor-at-door",
+    "missing-food"
+  ],
+  "intents": 30,
+  "variants": 95,
+  "dialogues": 60,
+  "assets": {
+    "images": 59,
+    "sprites": 6,
+    "total": 65
+  }
+}

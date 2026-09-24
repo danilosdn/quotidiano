@@ -1,56 +1,43 @@
-# House V3 — Content and Architecture Audit
+# House V3 — auditoria de arquitetura e conteúdo
 
-Generated: 2026-09-24T09:42:43+00:00
+Gerado sobre a árvore final local em 2026-09-24 UTC.
 
-This report is generated from the checked-out source tree. It is intentionally non-destructive and is meant to make handoff and validation reproducible.
+## Resumo
 
-## Summary
+- `src/`: 50 arquivos, cerca de 4.256 linhas de texto/código;
+- `tests/`: 15 arquivos, cerca de 619 linhas;
+- objetos: 54;
+- interações: 43;
+- ações: 108;
+- assets: 65;
+- microcenários/intents/variações/diálogos: 12/30/95/60.
 
-- Source/data files scanned: **43**
-- TypeScript/TSX files: **35**
-- Room action/interaction module candidates: **0**
-- Dialogue data module candidates: **1**
-- Phone/message/contact data candidates: **0**
-- Files over 500 lines: **1**
+## Limites arquiteturais confirmados
 
-## Home scene modules
+- `HomeScene.ts` orquestra serviços e ciclo da cena; não contém a planta ou datasets de telefone;
+- seis módulos de ações por cômodo;
+- dados de diálogo, intenção, telefone e cenários separados;
+- registro único para render/collider/interação;
+- renderer e collision builder dedicados;
+- save/state service separado;
+- executor de sequências reutilizável;
+- validação de topologia e assets executável sem Phaser.
 
-- `src/game/scenes/HomeScene.ts` — 384 lines
+## Módulos principais
 
-## UI controller modules
+```text
+src/game/house/HouseLayout.ts
+src/game/house/HouseObjectRegistry.ts
+src/game/house/HouseRenderer.ts
+src/game/house/HouseCollisionBuilder.ts
+src/game/house/HouseInteractionController.ts
+src/game/house/HouseStateService.ts
+src/game/house/HouseValidator.ts
+src/game/house/HousePortableItemLayout.ts
+src/game/house/actions/
+src/game/house/rooms/
+```
 
-- `src/ui/UIController.ts` — 75 lines
+## Resultado do boundary validator
 
-## Room action modules
-
-- None detected.
-
-## Dialogue data modules
-
-- `src/data/dialogues/home.json` — 45 lines
-
-## Phone/content data modules
-
-- None detected.
-
-## Dutch content candidates
-
-- `scripts/smoke-core.ts` — 47 lines
-- `src/data/dialogues/home.json` — 45 lines
-- `src/data/interactions/homeInteractions.ts` — 22 lines
-- `src/game/scenes/HomeScene.ts` — 384 lines
-- `src/ui/UIController.ts` — 75 lines
-- `tests/e2e/home.spec.ts` — 123 lines
-- `tests/unit/intent-matcher.test.ts` — 15 lines
-- `tests/unit/inventory.test.ts` — 16 lines
-
-## Files over 500 lines
-
-- `docs/asset-audit.json` — 878 lines
-
-## Boundary goals
-
-- Scene classes should orchestrate lifecycle and rendering, not own dialogue copy or phone datasets.
-- Room-specific physical actions should remain in room modules behind a shared runtime/context contract.
-- Dialogue, messages, contacts and agenda entries should be imported from data modules.
-- Validation should reject duplicate IDs, missing targets and unreachable approach points before runtime.
+64 arquivos de código/dados foram escaneados. Foram encontrados uma HomeScene, um UIController, seis módulos de cômodo, dois módulos de diálogo e um módulo de telefone. Falhas: zero.

@@ -1,4 +1,9 @@
-QUOTIDIANO semantic history
+HISTÓRICO TEXTUAL HERDADO DA CÓPIA ANEXADA
+
+Este arquivo não representa operações Git feitas na correção House V3 atual.
+A árvore final não contém .git, e nenhum commit foi realizado nesta execução.
+
+Histórico semântico preservado do pacote de entrada:
 
 21c600b test: cover casa morning flow
 92a9364 feat: deepen living room interactions

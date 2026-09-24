@@ -5,11 +5,16 @@ import { UIController } from './ui/UIController';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div id="game-shell">
-  <div id="game"></div>
-  <div class="hud"><div class="chip"><strong>QUOTIDIANO</strong> · Casa</div><div class="chip" id="clock">Ma 07:00 · A1</div></div>
-  <div id="prompt"></div>
-  <section id="interaction-panel" class="panel"></section>
-  <section id="phone-panel" class="panel"></section>
+  <div id="game" aria-label="QUOTIDIANO speelwereld"></div>
+  <div class="hud hud-top">
+    <div class="chip brand-chip"><strong>QUOTIDIANO</strong><span id="location">Thuis</span></div>
+    <div class="chip" id="clock">Dag 1 · 07:00</div>
+    <div class="chip" id="hint-level">Hulp 1/4</div>
+  </div>
+  <div class="hud hud-bottom"><div class="objective-chip"><span>Nu</span><strong id="objective">Begin rustig aan je ochtend.</strong></div></div>
+  <div id="prompt" role="status" aria-live="polite"></div>
+  <section id="interaction-panel" class="panel" aria-live="polite"></section>
+  <section id="phone-panel" class="panel phone-panel"></section>
 </div>`;
 
 const ui = new UIController();

@@ -1,0 +1,138 @@
+QUOTIDIANO House V3 — final local validation
+UTC: 2026-09-24T17:06:57Z
+Node: v22.16.0
+npm: 10.9.2
+TypeScript: Version 5.8.3
+Chromium: Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)
+
+
+> quotidiano@0.1.0 validate:local
+> npm run check:core && npm run check:app-offline && npm run check:tests-offline && npm run validate:house && npm run test:offline && npm run validate:assets && npm run validate:boundaries
+
+
+> quotidiano@0.1.0 check:core
+> tsc -p tsconfig.core.json --pretty false
+
+
+> quotidiano@0.1.0 check:app-offline
+> node scripts/check-app-offline.mjs
+
+Offline app syntax/type check passed (temporary Phaser shape stub; real package check still required).
+
+> quotidiano@0.1.0 check:tests-offline
+> node scripts/check-tests-offline.mjs
+
+Offline source/test syntax check passed (temporary package shape stubs; real test runners still required).
+
+> quotidiano@0.1.0 validate:house
+> node scripts/run-typescript-script.mjs scripts/validate-house-v3.ts
+
+{
+  "valid": true,
+  "frameIssues": [],
+  "house": {
+    "valid": true,
+    "issues": [],
+    "reachableInteractions": 43,
+    "interactionCount": 43
+  }
+}
+
+> quotidiano@0.1.0 test:offline
+> node scripts/run-typescript-script.mjs scripts/offline-test-suite.ts
+
+{
+  "passed": true,
+  "total": 9,
+  "passedCount": 9,
+  "failedCount": 0,
+  "results": [
+    {
+      "name": "house topology and interactions are valid",
+      "passed": true
+    },
+    {
+      "name": "player direction and action frame map is coherent",
+      "passed": true
+    },
+    {
+      "name": "language content meets House V3 minimums",
+      "passed": true
+    },
+    {
+      "name": "intent matcher accepts natural variants and rejects unrelated text",
+      "passed": true
+    },
+    {
+      "name": "inventory enforces capacity and a single held item",
+      "passed": true
+    },
+    {
+      "name": "portable items keep coherent surface positions and never fall into an abstract world state",
+      "passed": true
+    },
+    {
+      "name": "legacy save migrates to version 2 without losing flags",
+      "passed": true
+    },
+    {
+      "name": "every registered house action is accepted by its room handler",
+      "passed": true
+    },
+    {
+      "name": "action sequence runner preserves declared order",
+      "passed": true
+    }
+  ]
+}
+
+> quotidiano@0.1.0 validate:assets
+> python3 scripts/validate-runtime-assets.py
+
+{
+  "valid": true,
+  "assetCount": 65,
+  "uniqueKeys": 65,
+  "usedTextureKeys": 63,
+  "spriteFrameCounts": {
+    "fridge": 8,
+    "oven": 6,
+    "coffee": 6,
+    "toaster": 11,
+    "front-door": 8,
+    "player": 2296
+  },
+  "issues": [],
+  "warnings": [
+    "2 manifest assets are not statically referenced: shoes, wardrobe"
+  ]
+}
+
+> quotidiano@0.1.0 validate:boundaries
+> node scripts/validate-house-content-boundaries.mjs
+
+{
+  "filesScanned": 64,
+  "homeScenes": [
+    "src/game/scenes/HomeScene.ts"
+  ],
+  "uiControllers": [
+    "src/ui/UIController.ts"
+  ],
+  "roomModules": [
+    "src/game/house/rooms/BathroomActions.ts",
+    "src/game/house/rooms/BedroomActions.ts",
+    "src/game/house/rooms/EntryActions.ts",
+    "src/game/house/rooms/KitchenActions.ts",
+    "src/game/house/rooms/LaundryActions.ts",
+    "src/game/house/rooms/LivingRoomActions.ts"
+  ],
+  "dialogueData": [
+    "src/data/dialogues/home.json",
+    "src/data/dialogues/homeContent.ts"
+  ],
+  "phoneData": [
+    "src/data/phone/homePhone.ts"
+  ],
+  "failures": []
+}

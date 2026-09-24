@@ -1,0 +1,4230 @@
+{
+  "layout": {
+    "width": 960,
+    "height": 720,
+    "wallThickness": 16,
+    "spawn": {
+      "x": 228,
+      "y": 246
+    },
+    "safeResumePoint": {
+      "x": 228,
+      "y": 246
+    },
+    "rooms": [
+      {
+        "id": "bedroom",
+        "label": "Slaapkamer",
+        "bounds": {
+          "x": 36,
+          "y": 36,
+          "w": 324,
+          "h": 252
+        },
+        "floorTexture": "floor-wood",
+        "wallTexture": "wall-light",
+        "lightStateKey": "bedroomLightOn"
+      },
+      {
+        "id": "bathroom",
+        "label": "Badkamer",
+        "bounds": {
+          "x": 372,
+          "y": 36,
+          "w": 216,
+          "h": 252
+        },
+        "floorTexture": "floor-tile",
+        "wallTexture": "wall-light",
+        "lightStateKey": "bathroomLightOn"
+      },
+      {
+        "id": "kitchen",
+        "label": "Keuken en eethoek",
+        "bounds": {
+          "x": 600,
+          "y": 36,
+          "w": 324,
+          "h": 330
+        },
+        "floorTexture": "floor-parquet",
+        "wallTexture": "wall-light",
+        "lightStateKey": "kitchenLightOn"
+      },
+      {
+        "id": "living",
+        "label": "Woonkamer",
+        "bounds": {
+          "x": 36,
+          "y": 300,
+          "w": 444,
+          "h": 384
+        },
+        "floorTexture": "floor-wood",
+        "wallTexture": "wall-light",
+        "lightStateKey": "livingLightOn"
+      },
+      {
+        "id": "entry",
+        "label": "Hal en entree",
+        "bounds": {
+          "x": 492,
+          "y": 300,
+          "w": 180,
+          "h": 384
+        },
+        "floorTexture": "floor-parquet",
+        "wallTexture": "wall-light",
+        "lightStateKey": "entryLightOn"
+      },
+      {
+        "id": "laundry",
+        "label": "Wasruimte",
+        "bounds": {
+          "x": 684,
+          "y": 378,
+          "w": 240,
+          "h": 306
+        },
+        "floorTexture": "floor-tile",
+        "wallTexture": "wall-light",
+        "lightStateKey": "laundryLightOn"
+      }
+    ],
+    "openings": [
+      {
+        "id": "bedroom-living",
+        "from": "bedroom",
+        "to": "living",
+        "rect": {
+          "x": 286,
+          "y": 270,
+          "w": 62,
+          "h": 48
+        },
+        "floorTexture": "floor-wood"
+      },
+      {
+        "id": "bathroom-entry",
+        "from": "bathroom",
+        "to": "entry",
+        "rect": {
+          "x": 444,
+          "y": 270,
+          "w": 72,
+          "h": 48
+        },
+        "floorTexture": "floor-tile"
+      },
+      {
+        "id": "kitchen-entry",
+        "from": "kitchen",
+        "to": "entry",
+        "rect": {
+          "x": 582,
+          "y": 284,
+          "w": 48,
+          "h": 72
+        },
+        "floorTexture": "floor-parquet"
+      },
+      {
+        "id": "living-entry",
+        "from": "living",
+        "to": "entry",
+        "rect": {
+          "x": 462,
+          "y": 430,
+          "w": 48,
+          "h": 104
+        },
+        "floorTexture": "floor-wood"
+      },
+      {
+        "id": "entry-laundry",
+        "from": "entry",
+        "to": "laundry",
+        "rect": {
+          "x": 666,
+          "y": 500,
+          "w": 48,
+          "h": 76
+        },
+        "floorTexture": "floor-parquet"
+      },
+      {
+        "id": "front-door",
+        "from": "entry",
+        "to": "outside",
+        "rect": {
+          "x": 546,
+          "y": 652,
+          "w": 72,
+          "h": 48
+        },
+        "floorTexture": "floor-parquet"
+      }
+    ]
+  },
+  "objects": [
+    {
+      "id": "bedroom-window",
+      "label": "Raam en gordijnen",
+      "room": "bedroom",
+      "render": {
+        "texture": "bedroom-window",
+        "x": 224,
+        "y": 74,
+        "layer": "wall"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "open-window",
+            "label": "Raam openen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "close-window",
+            "label": "Raam sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "toggle-curtains",
+            "label": "Gordijnen openen / sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "look-outside",
+            "label": "Naar buiten kijken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 224,
+          "y": 144
+        },
+        "actionPoint": {
+          "x": 224,
+          "y": 74
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 82,
+        "persistentState": "windowOpen"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 119"
+    },
+    {
+      "id": "bedroom-art",
+      "label": "Poster",
+      "room": "bedroom",
+      "render": {
+        "texture": "bedroom-art",
+        "x": 116,
+        "y": 65,
+        "layer": "wall",
+        "scale": 0.75
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 479"
+    },
+    {
+      "id": "bedroom-rug",
+      "label": "Vloerkleed",
+      "room": "bedroom",
+      "render": {
+        "texture": "bedroom-rug",
+        "x": 186,
+        "y": 235,
+        "layer": "floor",
+        "scale": 1.5
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 381"
+    },
+    {
+      "id": "bed",
+      "label": "Bed",
+      "room": "bedroom",
+      "render": {
+        "texture": "bed",
+        "x": 105,
+        "y": 129
+      },
+      "collision": {
+        "x": 48,
+        "y": 72,
+        "w": 116,
+        "h": 92
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "sit",
+            "label": "Op de rand zitten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "lie",
+            "label": "Gaan liggen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "sleep",
+            "label": "Slapen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "stand",
+            "label": "Opstaan",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "make",
+            "label": "Bed opmaken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 184,
+          "y": 154
+        },
+        "actionPoint": {
+          "x": 145,
+          "y": 142
+        },
+        "facing": "left",
+        "type": "important",
+        "priority": 80,
+        "radius": 90,
+        "persistentState": "bedMade"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles"
+    },
+    {
+      "id": "nightstand",
+      "label": "Nachtkastje",
+      "room": "bedroom",
+      "render": {
+        "texture": "side-table",
+        "x": 184,
+        "y": 103
+      },
+      "collision": {
+        "x": 166,
+        "y": 70,
+        "w": 38,
+        "h": 45
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "open-drawer",
+            "label": "Lade openen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "close-drawer",
+            "label": "Lade sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "examine",
+            "label": "Bekijken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 185,
+          "y": 152
+        },
+        "actionPoint": {
+          "x": 184,
+          "y": 103
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 72,
+        "persistentState": "nightstandOpen"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 45"
+    },
+    {
+      "id": "bedside-lamp",
+      "label": "Nachtlamp",
+      "room": "bedroom",
+      "render": {
+        "texture": "bedside-lamp-on",
+        "x": 174,
+        "y": 76,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Licht aan / uit",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 185,
+          "y": 152
+        },
+        "actionPoint": {
+          "x": 174,
+          "y": 80
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 72
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom lamp derivative"
+    },
+    {
+      "id": "alarm-clock",
+      "label": "Wekker",
+      "room": "bedroom",
+      "render": {
+        "texture": "alarm-clock",
+        "x": 193,
+        "y": 94,
+        "layer": "surface",
+        "scale": 1.5
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "stop",
+            "label": "Uitzetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "snooze",
+            "label": "Sluimeren",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "set",
+            "label": "Tijd instellen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 185,
+          "y": 152
+        },
+        "actionPoint": {
+          "x": 193,
+          "y": 94
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 72,
+        "persistentState": "alarmState"
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "wardrobe",
+      "label": "Kledingkast",
+      "room": "bedroom",
+      "render": {
+        "texture": "wardrobe-closed-v3",
+        "x": 314,
+        "y": 106
+      },
+      "collision": {
+        "x": 270,
+        "y": 48,
+        "w": 82,
+        "h": 104
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Openen / sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "dress",
+            "label": "Kleding kiezen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store-clothes",
+            "label": "Kleding opbergen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 300,
+          "y": 184
+        },
+        "actionPoint": {
+          "x": 314,
+          "y": 106
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 92,
+        "persistentState": "wardrobeOpen"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 538–539"
+    },
+    {
+      "id": "desk",
+      "label": "Bureau",
+      "room": "bedroom",
+      "render": {
+        "texture": "desk",
+        "x": 228,
+        "y": 218
+      },
+      "collision": {
+        "x": 179,
+        "y": 188,
+        "w": 98,
+        "h": 48
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "sit",
+            "label": "Gaan zitten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "write",
+            "label": "Schrijven",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "stand",
+            "label": "Opstaan",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 227,
+          "y": 258
+        },
+        "actionPoint": {
+          "x": 228,
+          "y": 218
+        },
+        "facing": "up",
+        "type": "seat",
+        "priority": 50,
+        "radius": 86
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 29"
+    },
+    {
+      "id": "laptop",
+      "label": "Laptop",
+      "room": "bedroom",
+      "render": {
+        "texture": "laptop",
+        "x": 228,
+        "y": 199,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Aan / uit",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "email",
+            "label": "E-mail openen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 227,
+          "y": 258
+        },
+        "actionPoint": {
+          "x": 228,
+          "y": 202
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 82,
+        "persistentState": "laptopOn"
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "backpack",
+      "label": "Rugzak",
+      "room": "bedroom",
+      "render": {
+        "texture": "backpack",
+        "x": 317,
+        "y": 235
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "leave",
+            "label": "Neerzetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "inspect",
+            "label": "Inhoud bekijken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 302,
+          "y": 250
+        },
+        "actionPoint": {
+          "x": 317,
+          "y": 235
+        },
+        "facing": "right",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 70
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 437"
+    },
+    {
+      "id": "bathroom-mat",
+      "label": "Badmat",
+      "room": "bathroom",
+      "render": {
+        "texture": "bathroom-mat",
+        "x": 515,
+        "y": 238,
+        "layer": "floor"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 77"
+    },
+    {
+      "id": "bathroom-mirror",
+      "label": "Spiegel",
+      "room": "bathroom",
+      "render": {
+        "texture": "bathroom-mirror",
+        "x": 420,
+        "y": 72,
+        "layer": "wall"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "look",
+            "label": "Kijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "hair",
+            "label": "Haar doen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 420,
+          "y": 164
+        },
+        "actionPoint": {
+          "x": 420,
+          "y": 72
+        },
+        "facing": "up",
+        "type": "observation",
+        "priority": 20,
+        "radius": 76
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 66"
+    },
+    {
+      "id": "bathroom-sink",
+      "label": "Wastafel",
+      "room": "bathroom",
+      "render": {
+        "texture": "bathroom-sink",
+        "x": 420,
+        "y": 115
+      },
+      "collision": {
+        "x": 379,
+        "y": 68,
+        "w": 82,
+        "h": 72
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "wash-hands",
+            "label": "Handen wassen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "wash-face",
+            "label": "Gezicht wassen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 420,
+          "y": 169
+        },
+        "actionPoint": {
+          "x": 420,
+          "y": 115
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 80
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles"
+    },
+    {
+      "id": "toothbrush",
+      "label": "Tandenborstel",
+      "room": "bathroom",
+      "render": {
+        "texture": "toothbrush-cup",
+        "x": 458,
+        "y": 112,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "brush",
+            "label": "Tanden poetsen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store",
+            "label": "Terugzetten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 455,
+          "y": 169
+        },
+        "actionPoint": {
+          "x": 458,
+          "y": 112
+        },
+        "facing": "up",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 72
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "shower",
+      "label": "Douche",
+      "room": "bathroom",
+      "render": {
+        "texture": "shower",
+        "x": 540,
+        "y": 113
+      },
+      "collision": {
+        "x": 500,
+        "y": 48,
+        "w": 76,
+        "h": 112
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "shower",
+            "label": "Douchen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 492,
+          "y": 174
+        },
+        "actionPoint": {
+          "x": 526,
+          "y": 166
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 92,
+        "persistentState": "showeredToday"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles"
+    },
+    {
+      "id": "toilet",
+      "label": "Toilet",
+      "room": "bathroom",
+      "render": {
+        "texture": "toilet",
+        "x": 404,
+        "y": 220
+      },
+      "collision": {
+        "x": 383,
+        "y": 178,
+        "w": 42,
+        "h": 78
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "use",
+            "label": "Gebruiken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "flush",
+            "label": "Doorspoelen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 454,
+          "y": 220
+        },
+        "actionPoint": {
+          "x": 404,
+          "y": 220
+        },
+        "facing": "left",
+        "type": "important",
+        "priority": 80,
+        "radius": 76
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles"
+    },
+    {
+      "id": "bathroom-shelf",
+      "label": "Badkamerkast",
+      "room": "bathroom",
+      "render": {
+        "texture": "bathroom-shelf",
+        "x": 552,
+        "y": 218
+      },
+      "collision": {
+        "x": 523,
+        "y": 184,
+        "w": 54,
+        "h": 70
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "open",
+            "label": "Openen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-products",
+            "label": "Verzorgingsproducten pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "close",
+            "label": "Sluiten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 506,
+          "y": 232
+        },
+        "actionPoint": {
+          "x": 552,
+          "y": 218
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 78
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 83"
+    },
+    {
+      "id": "towel-rack",
+      "label": "Handdoek",
+      "room": "bathroom",
+      "render": {
+        "texture": "towel-rack",
+        "x": 470,
+        "y": 226
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "use",
+            "label": "Afdrogen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "hang",
+            "label": "Ophangen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 468,
+          "y": 252
+        },
+        "actionPoint": {
+          "x": 470,
+          "y": 226
+        },
+        "facing": "down",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 66
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 143"
+    },
+    {
+      "id": "bathroom-bin",
+      "label": "Prullenbak",
+      "room": "bathroom",
+      "render": {
+        "texture": "bathroom-bin",
+        "x": 545,
+        "y": 258
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "discard",
+            "label": "Afval weggooien",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 520,
+          "y": 252
+        },
+        "actionPoint": {
+          "x": 545,
+          "y": 258
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 65
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 138"
+    },
+    {
+      "id": "oven",
+      "label": "Fornuis",
+      "room": "kitchen",
+      "render": {
+        "texture": "oven",
+        "kind": "sprite",
+        "x": 636,
+        "y": 108,
+        "frame": 0
+      },
+      "collision": {
+        "x": 612,
+        "y": 58,
+        "w": 54,
+        "h": 84
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Aan / uit",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "cook",
+            "label": "Koken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 640,
+          "y": 174
+        },
+        "actionPoint": {
+          "x": 636,
+          "y": 108
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 86,
+        "persistentState": "ovenOn"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "kitchen-sink",
+      "label": "Aanrecht en gootsteen",
+      "room": "kitchen",
+      "render": {
+        "texture": "kitchen-counter",
+        "x": 718,
+        "y": 106
+      },
+      "collision": {
+        "x": 672,
+        "y": 62,
+        "w": 92,
+        "h": 72
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "wash-hands",
+            "label": "Handen wassen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "wash-food",
+            "label": "Eten wassen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "wash-dishes",
+            "label": "Afwas doen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 718,
+          "y": 174
+        },
+        "actionPoint": {
+          "x": 718,
+          "y": 106
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 86
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "coffee",
+      "label": "Koffiezetapparaat",
+      "room": "kitchen",
+      "render": {
+        "texture": "coffee",
+        "kind": "sprite",
+        "x": 778,
+        "y": 113,
+        "frame": 0,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "brew",
+            "label": "Koffie zetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take",
+            "label": "Kopje pakken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 778,
+          "y": 174
+        },
+        "actionPoint": {
+          "x": 778,
+          "y": 113
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 82,
+        "persistentState": "coffeeReady"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "toaster",
+      "label": "Broodrooster",
+      "room": "kitchen",
+      "render": {
+        "texture": "toaster",
+        "kind": "sprite",
+        "x": 822,
+        "y": 113,
+        "frame": 0,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toast",
+            "label": "Brood roosteren",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 820,
+          "y": 174
+        },
+        "actionPoint": {
+          "x": 822,
+          "y": 113
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 82,
+        "persistentState": "toastReady"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "fridge",
+      "label": "Koelkast",
+      "room": "kitchen",
+      "render": {
+        "texture": "fridge",
+        "kind": "sprite",
+        "x": 880,
+        "y": 112,
+        "frame": 0
+      },
+      "collision": {
+        "x": 849,
+        "y": 48,
+        "w": 64,
+        "h": 116
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Openen / sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-breakfast",
+            "label": "Brood pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "put-back",
+            "label": "Terugzetten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 878,
+          "y": 184
+        },
+        "actionPoint": {
+          "x": 880,
+          "y": 112
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 96,
+        "persistentState": "fridgeOpen"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "kitchen-bin",
+      "label": "Afvalbak",
+      "room": "kitchen",
+      "render": {
+        "texture": "bathroom-bin",
+        "x": 902,
+        "y": 194
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "discard",
+            "label": "Afval weggooien",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 872,
+          "y": 202
+        },
+        "actionPoint": {
+          "x": 902,
+          "y": 194
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 68
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 138"
+    },
+    {
+      "id": "dining-table",
+      "label": "Eettafel",
+      "room": "kitchen",
+      "render": {
+        "texture": "dining-table",
+        "x": 786,
+        "y": 286
+      },
+      "collision": {
+        "x": 738,
+        "y": 244,
+        "w": 96,
+        "h": 72
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "place-breakfast",
+            "label": "Ontbijt neerzetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "sit",
+            "label": "Gaan zitten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "eat",
+            "label": "Ontbijten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "drink",
+            "label": "Drinken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "stand",
+            "label": "Opstaan",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 702,
+          "y": 328
+        },
+        "actionPoint": {
+          "x": 702,
+          "y": 286
+        },
+        "facing": "up",
+        "type": "seat",
+        "priority": 50,
+        "radius": 98,
+        "persistentState": "breakfastEaten"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "dining-chair-left",
+      "label": "Eetkamerstoel",
+      "room": "kitchen",
+      "render": {
+        "texture": "dining-chair",
+        "x": 702,
+        "y": 286
+      },
+      "collision": {
+        "x": 684,
+        "y": 260,
+        "w": 36,
+        "h": 42
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles"
+    },
+    {
+      "id": "dining-chair-right",
+      "label": "Eetkamerstoel",
+      "room": "kitchen",
+      "render": {
+        "texture": "dining-chair",
+        "x": 868,
+        "y": 286,
+        "flipX": true
+      },
+      "collision": {
+        "x": 850,
+        "y": 260,
+        "w": 36,
+        "h": 42
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles"
+    },
+    {
+      "id": "breakfast-plate",
+      "label": "Ontbijtbord",
+      "room": "kitchen",
+      "render": {
+        "texture": "breakfast-plate",
+        "x": 775,
+        "y": 270,
+        "layer": "surface",
+        "visible": false
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "coffee-serving",
+      "label": "Koffiekop",
+      "room": "kitchen",
+      "render": {
+        "texture": "coffee-serving",
+        "x": 806,
+        "y": 272,
+        "layer": "surface",
+        "visible": false
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Kitchen Singles"
+    },
+    {
+      "id": "kitchen-plant",
+      "label": "Keukenplant",
+      "room": "kitchen",
+      "render": {
+        "texture": "plant",
+        "x": 900,
+        "y": 300
+      },
+      "collision": {
+        "x": 884,
+        "y": 264,
+        "w": 32,
+        "h": 44
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "observe",
+            "label": "Bekijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "water",
+            "label": "Water geven",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 868,
+          "y": 318
+        },
+        "actionPoint": {
+          "x": 900,
+          "y": 300
+        },
+        "facing": "right",
+        "type": "observation",
+        "priority": 20,
+        "radius": 66
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
+      "id": "living-lights",
+      "label": "Lichtsnoer",
+      "room": "living",
+      "render": {
+        "texture": "string-lights",
+        "x": 258,
+        "y": 326,
+        "layer": "wall",
+        "scale": 1.5
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 12"
+    },
+    {
+      "id": "living-rug",
+      "label": "Vloerkleed",
+      "room": "living",
+      "render": {
+        "texture": "bedroom-rug",
+        "x": 258,
+        "y": 502,
+        "layer": "floor",
+        "scale": 2
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 381"
+    },
+    {
+      "id": "tv",
+      "label": "Televisie",
+      "room": "living",
+      "render": {
+        "texture": "tv",
+        "x": 258,
+        "y": 357
+      },
+      "collision": {
+        "x": 214,
+        "y": 316,
+        "w": 88,
+        "h": 70
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Aan / uit",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "watch",
+            "label": "Even kijken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 258,
+          "y": 411
+        },
+        "actionPoint": {
+          "x": 258,
+          "y": 357
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 86,
+        "persistentState": "tvOn"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles"
+    },
+    {
+      "id": "bookshelf",
+      "label": "Boekenkast",
+      "room": "living",
+      "render": {
+        "texture": "bookshelf",
+        "x": 72,
+        "y": 390
+      },
+      "collision": {
+        "x": 52,
+        "y": 346,
+        "w": 40,
+        "h": 76
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "examine",
+            "label": "Bekijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-book",
+            "label": "Boek pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "read-book",
+            "label": "Lezen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "return-book",
+            "label": "Terugzetten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 114,
+          "y": 395
+        },
+        "actionPoint": {
+          "x": 72,
+          "y": 390
+        },
+        "facing": "left",
+        "type": "important",
+        "priority": 80,
+        "radius": 82
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 122"
+    },
+    {
+      "id": "living-plant",
+      "label": "Kamerplant",
+      "room": "living",
+      "render": {
+        "texture": "plant",
+        "x": 420,
+        "y": 387
+      },
+      "collision": {
+        "x": 405,
+        "y": 352,
+        "w": 30,
+        "h": 50
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "observe",
+            "label": "Bekijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "water",
+            "label": "Water geven",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 390,
+          "y": 414
+        },
+        "actionPoint": {
+          "x": 420,
+          "y": 387
+        },
+        "facing": "right",
+        "type": "observation",
+        "priority": 20,
+        "radius": 70
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
+      "id": "coffee-table",
+      "label": "Salontafel",
+      "room": "living",
+      "render": {
+        "texture": "coffee-table",
+        "x": 258,
+        "y": 458
+      },
+      "collision": {
+        "x": 213,
+        "y": 426,
+        "w": 90,
+        "h": 55
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "place-item",
+            "label": "Iets neerzetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-item",
+            "label": "Iets pakken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 335,
+          "y": 470
+        },
+        "actionPoint": {
+          "x": 258,
+          "y": 458
+        },
+        "facing": "left",
+        "type": "important",
+        "priority": 80,
+        "radius": 82
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 51"
+    },
+    {
+      "id": "sofa",
+      "label": "Bank",
+      "room": "living",
+      "render": {
+        "texture": "sofa",
+        "x": 258,
+        "y": 548
+      },
+      "collision": {
+        "x": 207,
+        "y": 530,
+        "w": 102,
+        "h": 42
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "sit",
+            "label": "Zitten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "relax",
+            "label": "Ontspannen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "stand",
+            "label": "Opstaan",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 258,
+          "y": 598
+        },
+        "actionPoint": {
+          "x": 258,
+          "y": 540
+        },
+        "facing": "up",
+        "type": "seat",
+        "priority": 50,
+        "radius": 92
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles"
+    },
+    {
+      "id": "living-lamp",
+      "label": "Staande lamp",
+      "room": "living",
+      "render": {
+        "texture": "floor-lamp",
+        "x": 414,
+        "y": 550
+      },
+      "collision": {
+        "x": 398,
+        "y": 515,
+        "w": 32,
+        "h": 60
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Aan / uit",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 380,
+          "y": 576
+        },
+        "actionPoint": {
+          "x": 414,
+          "y": 550
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 76,
+        "persistentState": "livingLightOn"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 86"
+    },
+    {
+      "id": "side-table",
+      "label": "Bijzettafel",
+      "room": "living",
+      "render": {
+        "texture": "side-table",
+        "x": 112,
+        "y": 550
+      },
+      "collision": {
+        "x": 94,
+        "y": 520,
+        "w": 36,
+        "h": 45
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "place-item",
+            "label": "Iets neerzetten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-item",
+            "label": "Iets pakken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 148,
+          "y": 565
+        },
+        "actionPoint": {
+          "x": 112,
+          "y": 550
+        },
+        "facing": "left",
+        "type": "important",
+        "priority": 80,
+        "radius": 68
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 45"
+    },
+    {
+      "id": "entry-console",
+      "label": "Halmeubel",
+      "room": "entry",
+      "render": {
+        "texture": "entry-console",
+        "x": 548,
+        "y": 380
+      },
+      "collision": {
+        "x": 502,
+        "y": 338,
+        "w": 94,
+        "h": 70
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "examine",
+            "label": "Bekijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "place-item",
+            "label": "Iets neerleggen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 548,
+          "y": 432
+        },
+        "actionPoint": {
+          "x": 548,
+          "y": 380
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 82
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 19"
+    },
+    {
+      "id": "entry-mirror",
+      "label": "Halspiegel",
+      "room": "entry",
+      "render": {
+        "texture": "round-mirror",
+        "x": 630,
+        "y": 350,
+        "layer": "wall"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "look",
+            "label": "Kijken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "hair",
+            "label": "Haar controleren",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 626,
+          "y": 414
+        },
+        "actionPoint": {
+          "x": 630,
+          "y": 350
+        },
+        "facing": "up",
+        "type": "observation",
+        "priority": 20,
+        "radius": 72
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 27"
+    },
+    {
+      "id": "key-bowl",
+      "label": "Schaaltje",
+      "room": "entry",
+      "render": {
+        "texture": "key-bowl",
+        "x": 535,
+        "y": 354,
+        "layer": "surface"
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "keys",
+      "label": "Sleutels",
+      "room": "entry",
+      "render": {
+        "texture": "keys",
+        "x": 535,
+        "y": 354,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "leave",
+            "label": "Neerleggen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 548,
+          "y": 432
+        },
+        "actionPoint": {
+          "x": 535,
+          "y": 354
+        },
+        "facing": "up",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 78
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "mail",
+      "label": "Post",
+      "room": "entry",
+      "render": {
+        "texture": "mail",
+        "x": 568,
+        "y": 359,
+        "layer": "surface"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Brief pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "read",
+            "label": "Lezen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store",
+            "label": "Opbergen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 548,
+          "y": 432
+        },
+        "actionPoint": {
+          "x": 568,
+          "y": 359
+        },
+        "facing": "up",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 72,
+        "persistentState": "mailRead"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / UI mail crop"
+    },
+    {
+      "id": "coat",
+      "label": "Jas",
+      "room": "entry",
+      "render": {
+        "texture": "coat",
+        "x": 638,
+        "y": 527,
+        "layer": "wall"
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "wear",
+            "label": "Aantrekken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "remove",
+            "label": "Uittrekken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "hang",
+            "label": "Ophangen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 610,
+          "y": 540
+        },
+        "actionPoint": {
+          "x": 638,
+          "y": 527
+        },
+        "facing": "right",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 70
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "umbrella",
+      "label": "Paraplu",
+      "room": "entry",
+      "render": {
+        "texture": "umbrella",
+        "x": 638,
+        "y": 588
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take",
+            "label": "Pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store",
+            "label": "Terugzetten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 610,
+          "y": 590
+        },
+        "actionPoint": {
+          "x": 638,
+          "y": 588
+        },
+        "facing": "right",
+        "type": "inventory",
+        "priority": 70,
+        "radius": 70
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "doormat",
+      "label": "Deurmat",
+      "room": "entry",
+      "render": {
+        "texture": "doormat",
+        "x": 582,
+        "y": 628,
+        "layer": "floor",
+        "scale": 1.5
+      },
+      "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "front-door",
+      "label": "Voordeur",
+      "room": "entry",
+      "render": {
+        "texture": "front-door",
+        "kind": "sprite",
+        "x": 582,
+        "y": 651,
+        "frame": 0
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "open",
+            "label": "Openen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "close",
+            "label": "Sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "unlock",
+            "label": "Ontgrendelen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "lock",
+            "label": "Vergrendelen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "leave-house",
+            "label": "Naar buiten",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 582,
+          "y": 610
+        },
+        "actionPoint": {
+          "x": 582,
+          "y": 651
+        },
+        "facing": "down",
+        "type": "critical",
+        "priority": 100,
+        "radius": 92,
+        "persistentState": "doorLocked"
+      },
+      "sourceAsset": "Modern Interiors / animated door spritesheet"
+    },
+    {
+      "id": "washing-machine",
+      "label": "Wasmachine",
+      "room": "laundry",
+      "render": {
+        "texture": "washing-machine",
+        "x": 742,
+        "y": 450
+      },
+      "collision": {
+        "x": 721,
+        "y": 414,
+        "w": 42,
+        "h": 70
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Openen / sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "load",
+            "label": "Was laden",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "wash",
+            "label": "Programma starten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "remove",
+            "label": "Was uitnemen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 742,
+          "y": 510
+        },
+        "actionPoint": {
+          "x": 742,
+          "y": 450
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 88,
+        "persistentState": "laundryState"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles"
+    },
+    {
+      "id": "laundry-shelf",
+      "label": "Wasplank",
+      "room": "laundry",
+      "render": {
+        "texture": "bathroom-shelf",
+        "x": 864,
+        "y": 448
+      },
+      "collision": {
+        "x": 824,
+        "y": 405,
+        "w": 76,
+        "h": 80
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "take-detergent",
+            "label": "Wasmiddel pakken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store",
+            "label": "Opbergen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 810,
+          "y": 465
+        },
+        "actionPoint": {
+          "x": 864,
+          "y": 448
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 82
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 83"
+    },
+    {
+      "id": "laundry-basket",
+      "label": "Wasmand",
+      "room": "laundry",
+      "render": {
+        "texture": "laundry-basket",
+        "x": 835,
+        "y": 565
+      },
+      "collision": {
+        "x": 817,
+        "y": 532,
+        "w": 36,
+        "h": 50
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "add-clothes",
+            "label": "Kleding erin doen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take-clothes",
+            "label": "Kleding pakken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 795,
+          "y": 570
+        },
+        "actionPoint": {
+          "x": 835,
+          "y": 565
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 78
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 95"
+    },
+    {
+      "id": "drying-rack",
+      "label": "Droogrek",
+      "room": "laundry",
+      "render": {
+        "texture": "towel-rack",
+        "x": 884,
+        "y": 590
+      },
+      "collision": {
+        "x": 868,
+        "y": 555,
+        "w": 32,
+        "h": 45
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "hang",
+            "label": "Was ophangen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "take",
+            "label": "Droge was pakken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 840,
+          "y": 620
+        },
+        "actionPoint": {
+          "x": 884,
+          "y": 590
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 80,
+        "radius": 72
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 143"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "bedroom-window",
+      "objectId": "Raam en gordijnen",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "open-window",
+          "label": "Raam openen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "close-window",
+          "label": "Raam sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "toggle-curtains",
+          "label": "Gordijnen openen / sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "look-outside",
+          "label": "Naar buiten kijken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 224,
+        "y": 144
+      },
+      "actionPoint": {
+        "x": 224,
+        "y": 74
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 82,
+      "persistentState": "windowOpen"
+    },
+    {
+      "id": "bed",
+      "objectId": "Bed",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "sit",
+          "label": "Op de rand zitten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "lie",
+          "label": "Gaan liggen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "sleep",
+          "label": "Slapen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "stand",
+          "label": "Opstaan",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "make",
+          "label": "Bed opmaken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 184,
+        "y": 154
+      },
+      "actionPoint": {
+        "x": 145,
+        "y": 142
+      },
+      "facing": "left",
+      "type": "important",
+      "priority": 80,
+      "radius": 90,
+      "persistentState": "bedMade"
+    },
+    {
+      "id": "nightstand",
+      "objectId": "Nachtkastje",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "open-drawer",
+          "label": "Lade openen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "close-drawer",
+          "label": "Lade sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "examine",
+          "label": "Bekijken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 185,
+        "y": 152
+      },
+      "actionPoint": {
+        "x": 184,
+        "y": 103
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 72,
+      "persistentState": "nightstandOpen"
+    },
+    {
+      "id": "bedside-lamp",
+      "objectId": "Nachtlamp",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Licht aan / uit",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 185,
+        "y": 152
+      },
+      "actionPoint": {
+        "x": 174,
+        "y": 80
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 72
+    },
+    {
+      "id": "alarm-clock",
+      "objectId": "Wekker",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "stop",
+          "label": "Uitzetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "snooze",
+          "label": "Sluimeren",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "set",
+          "label": "Tijd instellen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 185,
+        "y": 152
+      },
+      "actionPoint": {
+        "x": 193,
+        "y": 94
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 72,
+      "persistentState": "alarmState"
+    },
+    {
+      "id": "wardrobe",
+      "objectId": "Kledingkast",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Openen / sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "dress",
+          "label": "Kleding kiezen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store-clothes",
+          "label": "Kleding opbergen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 300,
+        "y": 184
+      },
+      "actionPoint": {
+        "x": 314,
+        "y": 106
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 92,
+      "persistentState": "wardrobeOpen"
+    },
+    {
+      "id": "desk",
+      "objectId": "Bureau",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "sit",
+          "label": "Gaan zitten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "write",
+          "label": "Schrijven",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "stand",
+          "label": "Opstaan",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 227,
+        "y": 258
+      },
+      "actionPoint": {
+        "x": 228,
+        "y": 218
+      },
+      "facing": "up",
+      "type": "seat",
+      "priority": 50,
+      "radius": 86
+    },
+    {
+      "id": "laptop",
+      "objectId": "Laptop",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Aan / uit",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "email",
+          "label": "E-mail openen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 227,
+        "y": 258
+      },
+      "actionPoint": {
+        "x": 228,
+        "y": 202
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 82,
+      "persistentState": "laptopOn"
+    },
+    {
+      "id": "backpack",
+      "objectId": "Rugzak",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "leave",
+          "label": "Neerzetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "inspect",
+          "label": "Inhoud bekijken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 302,
+        "y": 250
+      },
+      "actionPoint": {
+        "x": 317,
+        "y": 235
+      },
+      "facing": "right",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 70
+    },
+    {
+      "id": "bathroom-mirror",
+      "objectId": "Spiegel",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "look",
+          "label": "Kijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "hair",
+          "label": "Haar doen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 420,
+        "y": 164
+      },
+      "actionPoint": {
+        "x": 420,
+        "y": 72
+      },
+      "facing": "up",
+      "type": "observation",
+      "priority": 20,
+      "radius": 76
+    },
+    {
+      "id": "bathroom-sink",
+      "objectId": "Wastafel",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "wash-hands",
+          "label": "Handen wassen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "wash-face",
+          "label": "Gezicht wassen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 420,
+        "y": 169
+      },
+      "actionPoint": {
+        "x": 420,
+        "y": 115
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 80
+    },
+    {
+      "id": "toothbrush",
+      "objectId": "Tandenborstel",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "brush",
+          "label": "Tanden poetsen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store",
+          "label": "Terugzetten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 455,
+        "y": 169
+      },
+      "actionPoint": {
+        "x": 458,
+        "y": 112
+      },
+      "facing": "up",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 72
+    },
+    {
+      "id": "shower",
+      "objectId": "Douche",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "shower",
+          "label": "Douchen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 492,
+        "y": 174
+      },
+      "actionPoint": {
+        "x": 526,
+        "y": 166
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 92,
+      "persistentState": "showeredToday"
+    },
+    {
+      "id": "toilet",
+      "objectId": "Toilet",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "use",
+          "label": "Gebruiken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "flush",
+          "label": "Doorspoelen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 454,
+        "y": 220
+      },
+      "actionPoint": {
+        "x": 404,
+        "y": 220
+      },
+      "facing": "left",
+      "type": "important",
+      "priority": 80,
+      "radius": 76
+    },
+    {
+      "id": "bathroom-shelf",
+      "objectId": "Badkamerkast",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "open",
+          "label": "Openen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-products",
+          "label": "Verzorgingsproducten pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "close",
+          "label": "Sluiten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 506,
+        "y": 232
+      },
+      "actionPoint": {
+        "x": 552,
+        "y": 218
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 78
+    },
+    {
+      "id": "towel-rack",
+      "objectId": "Handdoek",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "use",
+          "label": "Afdrogen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "hang",
+          "label": "Ophangen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 468,
+        "y": 252
+      },
+      "actionPoint": {
+        "x": 470,
+        "y": 226
+      },
+      "facing": "down",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 66
+    },
+    {
+      "id": "bathroom-bin",
+      "objectId": "Prullenbak",
+      "room": "bathroom",
+      "actions": [
+        {
+          "id": "discard",
+          "label": "Afval weggooien",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 520,
+        "y": 252
+      },
+      "actionPoint": {
+        "x": 545,
+        "y": 258
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 65
+    },
+    {
+      "id": "oven",
+      "objectId": "Fornuis",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Aan / uit",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "cook",
+          "label": "Koken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 640,
+        "y": 174
+      },
+      "actionPoint": {
+        "x": 636,
+        "y": 108
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 86,
+      "persistentState": "ovenOn"
+    },
+    {
+      "id": "kitchen-sink",
+      "objectId": "Aanrecht en gootsteen",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "wash-hands",
+          "label": "Handen wassen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "wash-food",
+          "label": "Eten wassen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "wash-dishes",
+          "label": "Afwas doen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 718,
+        "y": 174
+      },
+      "actionPoint": {
+        "x": 718,
+        "y": 106
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 86
+    },
+    {
+      "id": "coffee",
+      "objectId": "Koffiezetapparaat",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "brew",
+          "label": "Koffie zetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take",
+          "label": "Kopje pakken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 778,
+        "y": 174
+      },
+      "actionPoint": {
+        "x": 778,
+        "y": 113
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 82,
+      "persistentState": "coffeeReady"
+    },
+    {
+      "id": "toaster",
+      "objectId": "Broodrooster",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "toast",
+          "label": "Brood roosteren",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 820,
+        "y": 174
+      },
+      "actionPoint": {
+        "x": 822,
+        "y": 113
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 82,
+      "persistentState": "toastReady"
+    },
+    {
+      "id": "fridge",
+      "objectId": "Koelkast",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Openen / sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-breakfast",
+          "label": "Brood pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "put-back",
+          "label": "Terugzetten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 878,
+        "y": 184
+      },
+      "actionPoint": {
+        "x": 880,
+        "y": 112
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 96,
+      "persistentState": "fridgeOpen"
+    },
+    {
+      "id": "kitchen-bin",
+      "objectId": "Afvalbak",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "discard",
+          "label": "Afval weggooien",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 872,
+        "y": 202
+      },
+      "actionPoint": {
+        "x": 902,
+        "y": 194
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 68
+    },
+    {
+      "id": "dining-table",
+      "objectId": "Eettafel",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "place-breakfast",
+          "label": "Ontbijt neerzetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "sit",
+          "label": "Gaan zitten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "eat",
+          "label": "Ontbijten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "drink",
+          "label": "Drinken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "stand",
+          "label": "Opstaan",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 702,
+        "y": 328
+      },
+      "actionPoint": {
+        "x": 702,
+        "y": 286
+      },
+      "facing": "up",
+      "type": "seat",
+      "priority": 50,
+      "radius": 98,
+      "persistentState": "breakfastEaten"
+    },
+    {
+      "id": "kitchen-plant",
+      "objectId": "Keukenplant",
+      "room": "kitchen",
+      "actions": [
+        {
+          "id": "observe",
+          "label": "Bekijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "water",
+          "label": "Water geven",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 868,
+        "y": 318
+      },
+      "actionPoint": {
+        "x": 900,
+        "y": 300
+      },
+      "facing": "right",
+      "type": "observation",
+      "priority": 20,
+      "radius": 66
+    },
+    {
+      "id": "tv",
+      "objectId": "Televisie",
+      "room": "living",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Aan / uit",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "watch",
+          "label": "Even kijken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 258,
+        "y": 411
+      },
+      "actionPoint": {
+        "x": 258,
+        "y": 357
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 86,
+      "persistentState": "tvOn"
+    },
+    {
+      "id": "bookshelf",
+      "objectId": "Boekenkast",
+      "room": "living",
+      "actions": [
+        {
+          "id": "examine",
+          "label": "Bekijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-book",
+          "label": "Boek pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "read-book",
+          "label": "Lezen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "return-book",
+          "label": "Terugzetten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 114,
+        "y": 395
+      },
+      "actionPoint": {
+        "x": 72,
+        "y": 390
+      },
+      "facing": "left",
+      "type": "important",
+      "priority": 80,
+      "radius": 82
+    },
+    {
+      "id": "living-plant",
+      "objectId": "Kamerplant",
+      "room": "living",
+      "actions": [
+        {
+          "id": "observe",
+          "label": "Bekijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "water",
+          "label": "Water geven",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 390,
+        "y": 414
+      },
+      "actionPoint": {
+        "x": 420,
+        "y": 387
+      },
+      "facing": "right",
+      "type": "observation",
+      "priority": 20,
+      "radius": 70
+    },
+    {
+      "id": "coffee-table",
+      "objectId": "Salontafel",
+      "room": "living",
+      "actions": [
+        {
+          "id": "place-item",
+          "label": "Iets neerzetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-item",
+          "label": "Iets pakken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 335,
+        "y": 470
+      },
+      "actionPoint": {
+        "x": 258,
+        "y": 458
+      },
+      "facing": "left",
+      "type": "important",
+      "priority": 80,
+      "radius": 82
+    },
+    {
+      "id": "sofa",
+      "objectId": "Bank",
+      "room": "living",
+      "actions": [
+        {
+          "id": "sit",
+          "label": "Zitten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "relax",
+          "label": "Ontspannen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "stand",
+          "label": "Opstaan",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 258,
+        "y": 598
+      },
+      "actionPoint": {
+        "x": 258,
+        "y": 540
+      },
+      "facing": "up",
+      "type": "seat",
+      "priority": 50,
+      "radius": 92
+    },
+    {
+      "id": "living-lamp",
+      "objectId": "Staande lamp",
+      "room": "living",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Aan / uit",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 380,
+        "y": 576
+      },
+      "actionPoint": {
+        "x": 414,
+        "y": 550
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 76,
+      "persistentState": "livingLightOn"
+    },
+    {
+      "id": "side-table",
+      "objectId": "Bijzettafel",
+      "room": "living",
+      "actions": [
+        {
+          "id": "place-item",
+          "label": "Iets neerzetten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-item",
+          "label": "Iets pakken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 148,
+        "y": 565
+      },
+      "actionPoint": {
+        "x": 112,
+        "y": 550
+      },
+      "facing": "left",
+      "type": "important",
+      "priority": 80,
+      "radius": 68
+    },
+    {
+      "id": "entry-console",
+      "objectId": "Halmeubel",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "examine",
+          "label": "Bekijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "place-item",
+          "label": "Iets neerleggen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 548,
+        "y": 432
+      },
+      "actionPoint": {
+        "x": 548,
+        "y": 380
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 82
+    },
+    {
+      "id": "entry-mirror",
+      "objectId": "Halspiegel",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "look",
+          "label": "Kijken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "hair",
+          "label": "Haar controleren",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 626,
+        "y": 414
+      },
+      "actionPoint": {
+        "x": 630,
+        "y": 350
+      },
+      "facing": "up",
+      "type": "observation",
+      "priority": 20,
+      "radius": 72
+    },
+    {
+      "id": "keys",
+      "objectId": "Sleutels",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "leave",
+          "label": "Neerleggen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 548,
+        "y": 432
+      },
+      "actionPoint": {
+        "x": 535,
+        "y": 354
+      },
+      "facing": "up",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 78
+    },
+    {
+      "id": "mail",
+      "objectId": "Post",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Brief pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "read",
+          "label": "Lezen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store",
+          "label": "Opbergen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 548,
+        "y": 432
+      },
+      "actionPoint": {
+        "x": 568,
+        "y": 359
+      },
+      "facing": "up",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 72,
+      "persistentState": "mailRead"
+    },
+    {
+      "id": "coat",
+      "objectId": "Jas",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "wear",
+          "label": "Aantrekken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "remove",
+          "label": "Uittrekken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "hang",
+          "label": "Ophangen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 610,
+        "y": 540
+      },
+      "actionPoint": {
+        "x": 638,
+        "y": 527
+      },
+      "facing": "right",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 70
+    },
+    {
+      "id": "umbrella",
+      "objectId": "Paraplu",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "take",
+          "label": "Pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store",
+          "label": "Terugzetten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 610,
+        "y": 590
+      },
+      "actionPoint": {
+        "x": 638,
+        "y": 588
+      },
+      "facing": "right",
+      "type": "inventory",
+      "priority": 70,
+      "radius": 70
+    },
+    {
+      "id": "front-door",
+      "objectId": "Voordeur",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "open",
+          "label": "Openen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "close",
+          "label": "Sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "unlock",
+          "label": "Ontgrendelen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "lock",
+          "label": "Vergrendelen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "leave-house",
+          "label": "Naar buiten",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 582,
+        "y": 610
+      },
+      "actionPoint": {
+        "x": 582,
+        "y": 651
+      },
+      "facing": "down",
+      "type": "critical",
+      "priority": 100,
+      "radius": 92,
+      "persistentState": "doorLocked"
+    },
+    {
+      "id": "washing-machine",
+      "objectId": "Wasmachine",
+      "room": "laundry",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Openen / sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "load",
+          "label": "Was laden",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "wash",
+          "label": "Programma starten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "remove",
+          "label": "Was uitnemen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 742,
+        "y": 510
+      },
+      "actionPoint": {
+        "x": 742,
+        "y": 450
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 88,
+      "persistentState": "laundryState"
+    },
+    {
+      "id": "laundry-shelf",
+      "objectId": "Wasplank",
+      "room": "laundry",
+      "actions": [
+        {
+          "id": "take-detergent",
+          "label": "Wasmiddel pakken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store",
+          "label": "Opbergen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 810,
+        "y": 465
+      },
+      "actionPoint": {
+        "x": 864,
+        "y": 448
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 82
+    },
+    {
+      "id": "laundry-basket",
+      "objectId": "Wasmand",
+      "room": "laundry",
+      "actions": [
+        {
+          "id": "add-clothes",
+          "label": "Kleding erin doen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take-clothes",
+          "label": "Kleding pakken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 795,
+        "y": 570
+      },
+      "actionPoint": {
+        "x": 835,
+        "y": 565
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 78
+    },
+    {
+      "id": "drying-rack",
+      "objectId": "Droogrek",
+      "room": "laundry",
+      "actions": [
+        {
+          "id": "hang",
+          "label": "Was ophangen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "take",
+          "label": "Droge was pakken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 840,
+        "y": 620
+      },
+      "actionPoint": {
+        "x": 884,
+        "y": 590
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 80,
+      "radius": 72
+    }
+  ],
+  "assets": {
+    "images": [
+      {
+        "key": "floor-wood",
+        "path": "/assets/runtime/environment/floor_wood.png"
+      },
+      {
+        "key": "floor-parquet",
+        "path": "/assets/runtime/environment/floor_parquet.png"
+      },
+      {
+        "key": "floor-tile",
+        "path": "/assets/runtime/environment/floor_tile.png"
+      },
+      {
+        "key": "wall-light",
+        "path": "/assets/runtime/environment/wall_light.png"
+      },
+      {
+        "key": "bed",
+        "path": "/assets/runtime/objects/bed.png"
+      },
+      {
+        "key": "wardrobe",
+        "path": "/assets/runtime/objects/wardrobe.png"
+      },
+      {
+        "key": "wardrobe-closed-v3",
+        "path": "/assets/runtime/objects/wardrobe_closed_v3.png"
+      },
+      {
+        "key": "wardrobe-open-v3",
+        "path": "/assets/runtime/objects/wardrobe_open_v3.png"
+      },
+      {
+        "key": "bedroom-window",
+        "path": "/assets/runtime/objects/bedroom_window.png"
+      },
+      {
+        "key": "bedroom-rug",
+        "path": "/assets/runtime/objects/bedroom_rug.png"
+      },
+      {
+        "key": "bedroom-art",
+        "path": "/assets/runtime/objects/bedroom_art.png"
+      },
+      {
+        "key": "side-table",
+        "path": "/assets/runtime/objects/side_table.png"
+      },
+      {
+        "key": "bedside-lamp-on",
+        "path": "/assets/runtime/objects/bedside_lamp_on.png"
+      },
+      {
+        "key": "bedside-lamp-off",
+        "path": "/assets/runtime/objects/bedside_lamp_off.png"
+      },
+      {
+        "key": "alarm-clock",
+        "path": "/assets/runtime/objects/alarm_clock.png"
+      },
+      {
+        "key": "desk",
+        "path": "/assets/runtime/objects/desk.png"
+      },
+      {
+        "key": "laptop",
+        "path": "/assets/runtime/objects/laptop.png"
+      },
+      {
+        "key": "backpack",
+        "path": "/assets/runtime/objects/backpack.png"
+      },
+      {
+        "key": "shower",
+        "path": "/assets/runtime/objects/shower.png"
+      },
+      {
+        "key": "bathroom-sink",
+        "path": "/assets/runtime/objects/bathroom_sink.png"
+      },
+      {
+        "key": "bathroom-mirror",
+        "path": "/assets/runtime/objects/bathroom_mirror.png"
+      },
+      {
+        "key": "bathroom-mat",
+        "path": "/assets/runtime/objects/bathroom_mat.png"
+      },
+      {
+        "key": "bathroom-shelf",
+        "path": "/assets/runtime/objects/bathroom_shelf.png"
+      },
+      {
+        "key": "toilet",
+        "path": "/assets/runtime/objects/toilet.png"
+      },
+      {
+        "key": "towel-rack",
+        "path": "/assets/runtime/objects/towel_rack.png"
+      },
+      {
+        "key": "bathroom-bin",
+        "path": "/assets/runtime/objects/bathroom_bin.png"
+      },
+      {
+        "key": "toothbrush-cup",
+        "path": "/assets/runtime/objects/toothbrush_cup.png"
+      },
+      {
+        "key": "kitchen-counter",
+        "path": "/assets/runtime/objects/kitchen_counter.png"
+      },
+      {
+        "key": "dining-table",
+        "path": "/assets/runtime/objects/dining_table.png"
+      },
+      {
+        "key": "dining-chair",
+        "path": "/assets/runtime/objects/dining_chair.png"
+      },
+      {
+        "key": "breakfast-plate",
+        "path": "/assets/runtime/objects/breakfast_plate.png"
+      },
+      {
+        "key": "coffee-serving",
+        "path": "/assets/runtime/objects/coffee_serving.png"
+      },
+      {
+        "key": "sofa",
+        "path": "/assets/runtime/objects/sofa.png"
+      },
+      {
+        "key": "tv",
+        "path": "/assets/runtime/objects/tv.png"
+      },
+      {
+        "key": "floor-lamp",
+        "path": "/assets/runtime/objects/floor_lamp.png"
+      },
+      {
+        "key": "bookshelf",
+        "path": "/assets/runtime/objects/bookshelf.png"
+      },
+      {
+        "key": "coffee-table",
+        "path": "/assets/runtime/objects/coffee_table.png"
+      },
+      {
+        "key": "plant",
+        "path": "/assets/runtime/objects/plant.png"
+      },
+      {
+        "key": "string-lights",
+        "path": "/assets/runtime/objects/string_lights.png"
+      },
+      {
+        "key": "washing-machine",
+        "path": "/assets/runtime/objects/washing_machine.png"
+      },
+      {
+        "key": "laundry-basket",
+        "path": "/assets/runtime/objects/laundry_basket.png"
+      },
+      {
+        "key": "entry-console",
+        "path": "/assets/runtime/objects/entry_console.png"
+      },
+      {
+        "key": "round-mirror",
+        "path": "/assets/runtime/objects/round_mirror.png"
+      },
+      {
+        "key": "keys",
+        "path": "/assets/runtime/objects/keys.png"
+      },
+      {
+        "key": "phone",
+        "path": "/assets/runtime/objects/phone.png"
+      },
+      {
+        "key": "wallet",
+        "path": "/assets/runtime/objects/wallet.png"
+      },
+      {
+        "key": "key-bowl",
+        "path": "/assets/runtime/objects/key_bowl.png"
+      },
+      {
+        "key": "mail",
+        "path": "/assets/runtime/objects/mail.png"
+      },
+      {
+        "key": "coat",
+        "path": "/assets/runtime/objects/coat.png"
+      },
+      {
+        "key": "umbrella",
+        "path": "/assets/runtime/objects/umbrella.png"
+      },
+      {
+        "key": "doormat",
+        "path": "/assets/runtime/objects/doormat.png"
+      },
+      {
+        "key": "bread",
+        "path": "/assets/runtime/objects/bread.png"
+      },
+      {
+        "key": "toast",
+        "path": "/assets/runtime/objects/toast.png"
+      },
+      {
+        "key": "book",
+        "path": "/assets/runtime/objects/book.png"
+      },
+      {
+        "key": "mug",
+        "path": "/assets/runtime/objects/mug.png"
+      },
+      {
+        "key": "detergent",
+        "path": "/assets/runtime/objects/detergent.png"
+      },
+      {
+        "key": "clothes-bundle",
+        "path": "/assets/runtime/objects/clothes_bundle.png"
+      },
+      {
+        "key": "remote",
+        "path": "/assets/runtime/objects/remote.png"
+      },
+      {
+        "key": "shoes",
+        "path": "/assets/runtime/objects/shoes.png"
+      }
+    ],
+    "sprites": [
+      {
+        "key": "fridge",
+        "path": "/assets/runtime/objects/fridge.png",
+        "frameWidth": 96,
+        "frameHeight": 144
+      },
+      {
+        "key": "oven",
+        "path": "/assets/runtime/objects/oven.png",
+        "frameWidth": 48,
+        "frameHeight": 96
+      },
+      {
+        "key": "coffee",
+        "path": "/assets/runtime/objects/coffee.png",
+        "frameWidth": 48,
+        "frameHeight": 96
+      },
+      {
+        "key": "toaster",
+        "path": "/assets/runtime/objects/toaster.png",
+        "frameWidth": 48,
+        "frameHeight": 96
+      },
+      {
+        "key": "front-door",
+        "path": "/assets/runtime/objects/front_door.png",
+        "frameWidth": 96,
+        "frameHeight": 144
+      },
+      {
+        "key": "player",
+        "path": "/assets/runtime/characters/player_quotidiano.png",
+        "frameWidth": 48,
+        "frameHeight": 48
+      }
+    ]
+  },
+  "playerFrames": {
+    "idle": {
+      "right": 168,
+      "up": 174,
+      "left": 180,
+      "down": 186
+    },
+    "walk": {
+      "right": [
+        280,
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "up": [
+        286,
+        287,
+        288,
+        289,
+        290,
+        291
+      ],
+      "left": [
+        292,
+        293,
+        294,
+        295,
+        296,
+        297
+      ],
+      "down": [
+        298,
+        299,
+        300,
+        301,
+        302,
+        303
+      ]
+    },
+    "sit": {
+      "left": 504,
+      "right": 510,
+      "up": 504,
+      "down": 510
+    },
+    "lie": [
+      448,
+      449,
+      450,
+      451,
+      452,
+      453
+    ],
+    "phone": [
+      728,
+      729,
+      730,
+      731,
+      732,
+      733,
+      734,
+      735,
+      736,
+      737,
+      738,
+      739
+    ],
+    "read": [
+      840,
+      841,
+      842,
+      843,
+      844,
+      845,
+      846,
+      847,
+      848,
+      849,
+      850,
+      851
+    ],
+    "use": {
+      "right": [
+        1176,
+        1177,
+        1178,
+        1179,
+        1180,
+        1181
+      ],
+      "left": [
+        1180,
+        1181,
+        1182,
+        1183,
+        1184,
+        1185
+      ],
+      "up": [
+        1186,
+        1187,
+        1188,
+        1189,
+        1190,
+        1191
+      ],
+      "down": [
+        1196,
+        1197,
+        1198,
+        1199
+      ]
+    },
+    "eat": {
+      "right": [
+        1288,
+        1289,
+        1290,
+        1291,
+        1292,
+        1293
+      ],
+      "left": [
+        1296,
+        1297,
+        1298,
+        1299,
+        1300,
+        1301
+      ],
+      "up": [
+        1302,
+        1303,
+        1304,
+        1305,
+        1306,
+        1307
+      ],
+      "down": [
+        1316,
+        1317,
+        1318,
+        1319
+      ]
+    }
+  }
+}

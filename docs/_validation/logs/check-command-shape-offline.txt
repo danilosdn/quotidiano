@@ -1,0 +1,4 @@
+
+> quotidiano@0.1.0 check
+> tsc -p tsconfig.app.json --pretty false && tsc -p tsconfig.node.json --pretty false
+
