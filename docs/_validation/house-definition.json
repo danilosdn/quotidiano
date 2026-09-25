@@ -4,12 +4,12 @@
     "height": 720,
     "wallThickness": 16,
     "spawn": {
-      "x": 228,
-      "y": 246
+      "x": 188,
+      "y": 156
     },
     "safeResumePoint": {
-      "x": 228,
-      "y": 246
+      "x": 188,
+      "y": 156
     },
     "rooms": [
       {
@@ -47,7 +47,7 @@
           "w": 324,
           "h": 330
         },
-        "floorTexture": "floor-parquet",
+        "floorTexture": "floor-tile",
         "wallTexture": "wall-light",
         "lightStateKey": "kitchenLightOn"
       },
@@ -97,9 +97,9 @@
         "from": "bedroom",
         "to": "living",
         "rect": {
-          "x": 286,
+          "x": 244,
           "y": 270,
-          "w": 62,
+          "w": 68,
           "h": 48
         },
         "floorTexture": "floor-wood"
@@ -109,9 +109,9 @@
         "from": "bathroom",
         "to": "entry",
         "rect": {
-          "x": 444,
+          "x": 438,
           "y": 270,
-          "w": 72,
+          "w": 76,
           "h": 48
         },
         "floorTexture": "floor-tile"
@@ -121,12 +121,12 @@
         "from": "kitchen",
         "to": "entry",
         "rect": {
-          "x": 582,
-          "y": 284,
+          "x": 584,
+          "y": 288,
           "w": 48,
-          "h": 72
+          "h": 76
         },
-        "floorTexture": "floor-parquet"
+        "floorTexture": "floor-tile"
       },
       {
         "id": "living-entry",
@@ -173,8 +173,8 @@
       "room": "bedroom",
       "render": {
         "texture": "bedroom-window",
-        "x": 224,
-        "y": 74,
+        "x": 220,
+        "y": 76,
         "layer": "wall"
       },
       "interaction": {
@@ -205,12 +205,12 @@
           }
         ],
         "approachPoint": {
-          "x": 224,
+          "x": 220,
           "y": 144
         },
         "actionPoint": {
-          "x": 224,
-          "y": 74
+          "x": 220,
+          "y": 76
         },
         "facing": "up",
         "type": "important",
@@ -226,8 +226,8 @@
       "room": "bedroom",
       "render": {
         "texture": "bedroom-art",
-        "x": 116,
-        "y": 65,
+        "x": 110,
+        "y": 66,
         "layer": "wall",
         "scale": 0.75
       },
@@ -239,10 +239,10 @@
       "room": "bedroom",
       "render": {
         "texture": "bedroom-rug",
-        "x": 186,
-        "y": 235,
+        "x": 142,
+        "y": 190,
         "layer": "floor",
-        "scale": 1.5
+        "scale": 1.15
       },
       "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 381"
     },
@@ -252,14 +252,14 @@
       "room": "bedroom",
       "render": {
         "texture": "bed",
-        "x": 105,
-        "y": 129
+        "x": 104,
+        "y": 144
       },
       "collision": {
         "x": 48,
-        "y": 72,
-        "w": 116,
-        "h": 92
+        "y": 88,
+        "w": 112,
+        "h": 94
       },
       "interaction": {
         "actions": [
@@ -295,12 +295,12 @@
           }
         ],
         "approachPoint": {
-          "x": 184,
-          "y": 154
+          "x": 185,
+          "y": 166
         },
         "actionPoint": {
-          "x": 145,
-          "y": 142
+          "x": 144,
+          "y": 144
         },
         "facing": "left",
         "type": "important",
@@ -316,12 +316,12 @@
       "room": "bedroom",
       "render": {
         "texture": "side-table",
-        "x": 184,
-        "y": 103
+        "x": 176,
+        "y": 101
       },
       "collision": {
-        "x": 166,
-        "y": 70,
+        "x": 157,
+        "y": 68,
         "w": 38,
         "h": 45
       },
@@ -347,12 +347,12 @@
           }
         ],
         "approachPoint": {
-          "x": 185,
-          "y": 152
+          "x": 178,
+          "y": 150
         },
         "actionPoint": {
-          "x": 184,
-          "y": 103
+          "x": 176,
+          "y": 101
         },
         "facing": "up",
         "type": "important",
@@ -368,7 +368,7 @@
       "room": "bedroom",
       "render": {
         "texture": "bedside-lamp-on",
-        "x": 174,
+        "x": 176,
         "y": 76,
         "layer": "surface"
       },
@@ -382,11 +382,11 @@
           }
         ],
         "approachPoint": {
-          "x": 185,
-          "y": 152
+          "x": 178,
+          "y": 150
         },
         "actionPoint": {
-          "x": 174,
+          "x": 176,
           "y": 80
         },
         "facing": "up",
@@ -402,8 +402,8 @@
       "room": "bedroom",
       "render": {
         "texture": "alarm-clock",
-        "x": 193,
-        "y": 94,
+        "x": 192,
+        "y": 93,
         "layer": "surface",
         "scale": 1.5
       },
@@ -429,12 +429,12 @@
           }
         ],
         "approachPoint": {
-          "x": 185,
-          "y": 152
+          "x": 178,
+          "y": 150
         },
         "actionPoint": {
-          "x": 193,
-          "y": 94
+          "x": 192,
+          "y": 93
         },
         "facing": "up",
         "type": "important",
@@ -445,71 +445,19 @@
       "sourceAsset": "QUOTIDIANO project-owned pixel prop"
     },
     {
-      "id": "wardrobe",
-      "label": "Kledingkast",
-      "room": "bedroom",
-      "render": {
-        "texture": "wardrobe-closed-v3",
-        "x": 314,
-        "y": 106
-      },
-      "collision": {
-        "x": 270,
-        "y": 48,
-        "w": 82,
-        "h": 104
-      },
-      "interaction": {
-        "actions": [
-          {
-            "id": "toggle",
-            "label": "Openen / sluiten",
-            "conditions": [],
-            "effects": []
-          },
-          {
-            "id": "dress",
-            "label": "Kleding kiezen",
-            "conditions": [],
-            "effects": []
-          },
-          {
-            "id": "store-clothes",
-            "label": "Kleding opbergen",
-            "conditions": [],
-            "effects": []
-          }
-        ],
-        "approachPoint": {
-          "x": 300,
-          "y": 184
-        },
-        "actionPoint": {
-          "x": 314,
-          "y": 106
-        },
-        "facing": "up",
-        "type": "important",
-        "priority": 80,
-        "radius": 92,
-        "persistentState": "wardrobeOpen"
-      },
-      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 538–539"
-    },
-    {
       "id": "desk",
       "label": "Bureau",
       "room": "bedroom",
       "render": {
         "texture": "desk",
-        "x": 228,
-        "y": 218
+        "x": 226,
+        "y": 112
       },
       "collision": {
-        "x": 179,
-        "y": 188,
+        "x": 176,
+        "y": 88,
         "w": 98,
-        "h": 48
+        "h": 42
       },
       "interaction": {
         "actions": [
@@ -533,12 +481,12 @@
           }
         ],
         "approachPoint": {
-          "x": 227,
-          "y": 258
+          "x": 226,
+          "y": 164
         },
         "actionPoint": {
-          "x": 228,
-          "y": 218
+          "x": 226,
+          "y": 112
         },
         "facing": "up",
         "type": "seat",
@@ -553,8 +501,8 @@
       "room": "bedroom",
       "render": {
         "texture": "laptop",
-        "x": 228,
-        "y": 199,
+        "x": 226,
+        "y": 98,
         "layer": "surface"
       },
       "interaction": {
@@ -573,12 +521,12 @@
           }
         ],
         "approachPoint": {
-          "x": 227,
-          "y": 258
+          "x": 226,
+          "y": 164
         },
         "actionPoint": {
-          "x": 228,
-          "y": 202
+          "x": 226,
+          "y": 100
         },
         "facing": "up",
         "type": "important",
@@ -589,13 +537,65 @@
       "sourceAsset": "QUOTIDIANO project-owned pixel prop"
     },
     {
+      "id": "wardrobe",
+      "label": "Kledingkast",
+      "room": "bedroom",
+      "render": {
+        "texture": "wardrobe-closed-v3",
+        "x": 306,
+        "y": 144
+      },
+      "collision": {
+        "x": 264,
+        "y": 86,
+        "w": 80,
+        "h": 116
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "toggle",
+            "label": "Openen / sluiten",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "dress",
+            "label": "Kleding kiezen",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "store-clothes",
+            "label": "Kleding opbergen",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 288,
+          "y": 222
+        },
+        "actionPoint": {
+          "x": 306,
+          "y": 144
+        },
+        "facing": "up",
+        "type": "important",
+        "priority": 80,
+        "radius": 92,
+        "persistentState": "wardrobeOpen"
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 538–539"
+    },
+    {
       "id": "backpack",
       "label": "Rugzak",
       "room": "bedroom",
       "render": {
         "texture": "backpack",
-        "x": 317,
-        "y": 235
+        "x": 300,
+        "y": 236
       },
       "interaction": {
         "actions": [
@@ -619,12 +619,12 @@
           }
         ],
         "approachPoint": {
-          "x": 302,
-          "y": 250
+          "x": 274,
+          "y": 244
         },
         "actionPoint": {
-          "x": 317,
-          "y": 235
+          "x": 300,
+          "y": 236
         },
         "facing": "right",
         "type": "inventory",
@@ -634,13 +634,30 @@
       "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 437"
     },
     {
+      "id": "bedroom-plant",
+      "label": "Plant",
+      "room": "bedroom",
+      "render": {
+        "texture": "plant",
+        "x": 78,
+        "y": 246
+      },
+      "collision": {
+        "x": 60,
+        "y": 214,
+        "w": 34,
+        "h": 44
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
       "id": "bathroom-mat",
       "label": "Badmat",
       "room": "bathroom",
       "render": {
         "texture": "bathroom-mat",
         "x": 515,
-        "y": 238,
+        "y": 232,
         "layer": "floor"
       },
       "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 77"
@@ -651,7 +668,7 @@
       "room": "bathroom",
       "render": {
         "texture": "bathroom-mirror",
-        "x": 420,
+        "x": 424,
         "y": 72,
         "layer": "wall"
       },
@@ -671,11 +688,11 @@
           }
         ],
         "approachPoint": {
-          "x": 420,
+          "x": 424,
           "y": 164
         },
         "actionPoint": {
-          "x": 420,
+          "x": 424,
           "y": 72
         },
         "facing": "up",
@@ -691,14 +708,14 @@
       "room": "bathroom",
       "render": {
         "texture": "bathroom-sink",
-        "x": 420,
-        "y": 115
+        "x": 424,
+        "y": 114
       },
       "collision": {
-        "x": 379,
+        "x": 384,
         "y": 68,
-        "w": 82,
-        "h": 72
+        "w": 80,
+        "h": 68
       },
       "interaction": {
         "actions": [
@@ -716,12 +733,12 @@
           }
         ],
         "approachPoint": {
-          "x": 420,
-          "y": 169
+          "x": 424,
+          "y": 168
         },
         "actionPoint": {
-          "x": 420,
-          "y": 115
+          "x": 424,
+          "y": 114
         },
         "facing": "up",
         "type": "important",
@@ -762,8 +779,8 @@
           }
         ],
         "approachPoint": {
-          "x": 455,
-          "y": 169
+          "x": 452,
+          "y": 168
         },
         "actionPoint": {
           "x": 458,
@@ -782,14 +799,14 @@
       "room": "bathroom",
       "render": {
         "texture": "shower",
-        "x": 540,
-        "y": 113
+        "x": 530,
+        "y": 112
       },
       "collision": {
-        "x": 500,
+        "x": 492,
         "y": 48,
         "w": 76,
-        "h": 112
+        "h": 114
       },
       "interaction": {
         "actions": [
@@ -801,12 +818,12 @@
           }
         ],
         "approachPoint": {
-          "x": 492,
+          "x": 486,
           "y": 174
         },
         "actionPoint": {
-          "x": 526,
-          "y": 166
+          "x": 518,
+          "y": 164
         },
         "facing": "right",
         "type": "important",
@@ -822,14 +839,14 @@
       "room": "bathroom",
       "render": {
         "texture": "toilet",
-        "x": 404,
-        "y": 220
+        "x": 402,
+        "y": 222
       },
       "collision": {
-        "x": 383,
-        "y": 178,
+        "x": 380,
+        "y": 184,
         "w": 42,
-        "h": 78
+        "h": 74
       },
       "interaction": {
         "actions": [
@@ -847,12 +864,12 @@
           }
         ],
         "approachPoint": {
-          "x": 454,
-          "y": 220
+          "x": 450,
+          "y": 224
         },
         "actionPoint": {
-          "x": 404,
-          "y": 220
+          "x": 402,
+          "y": 222
         },
         "facing": "left",
         "type": "important",
@@ -867,13 +884,13 @@
       "room": "bathroom",
       "render": {
         "texture": "bathroom-shelf",
-        "x": 552,
-        "y": 218
+        "x": 553,
+        "y": 220
       },
       "collision": {
-        "x": 523,
+        "x": 525,
         "y": 184,
-        "w": 54,
+        "w": 52,
         "h": 70
       },
       "interaction": {
@@ -902,8 +919,8 @@
           "y": 232
         },
         "actionPoint": {
-          "x": 552,
-          "y": 218
+          "x": 553,
+          "y": 220
         },
         "facing": "right",
         "type": "important",
@@ -918,8 +935,9 @@
       "room": "bathroom",
       "render": {
         "texture": "towel-rack",
-        "x": 470,
-        "y": 226
+        "x": 476,
+        "y": 117,
+        "layer": "wall"
       },
       "interaction": {
         "actions": [
@@ -943,14 +961,14 @@
           }
         ],
         "approachPoint": {
-          "x": 468,
-          "y": 252
+          "x": 476,
+          "y": 170
         },
         "actionPoint": {
-          "x": 470,
-          "y": 226
+          "x": 476,
+          "y": 117
         },
-        "facing": "down",
+        "facing": "up",
         "type": "inventory",
         "priority": 70,
         "radius": 66
@@ -963,8 +981,8 @@
       "room": "bathroom",
       "render": {
         "texture": "bathroom-bin",
-        "x": 545,
-        "y": 258
+        "x": 546,
+        "y": 256
       },
       "interaction": {
         "actions": [
@@ -976,12 +994,12 @@
           }
         ],
         "approachPoint": {
-          "x": 520,
-          "y": 252
+          "x": 516,
+          "y": 254
         },
         "actionPoint": {
-          "x": 545,
-          "y": 258
+          "x": 546,
+          "y": 256
         },
         "facing": "right",
         "type": "important",
@@ -989,6 +1007,17 @@
         "radius": 65
       },
       "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 138"
+    },
+    {
+      "id": "bathroom-plant",
+      "label": "Plant",
+      "room": "bathroom",
+      "render": {
+        "texture": "plant",
+        "x": 402,
+        "y": 258
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
     },
     {
       "id": "oven",
@@ -1044,13 +1073,13 @@
       "room": "kitchen",
       "render": {
         "texture": "kitchen-counter",
-        "x": 718,
+        "x": 772,
         "y": 106
       },
       "collision": {
-        "x": 672,
+        "x": 700,
         "y": 62,
-        "w": 92,
+        "w": 144,
         "h": 72
       },
       "interaction": {
@@ -1075,11 +1104,11 @@
           }
         ],
         "approachPoint": {
-          "x": 718,
+          "x": 772,
           "y": 174
         },
         "actionPoint": {
-          "x": 718,
+          "x": 772,
           "y": 106
         },
         "facing": "up",
@@ -1096,8 +1125,8 @@
       "render": {
         "texture": "coffee",
         "kind": "sprite",
-        "x": 778,
-        "y": 113,
+        "x": 804,
+        "y": 110,
         "frame": 0,
         "layer": "surface"
       },
@@ -1117,12 +1146,12 @@
           }
         ],
         "approachPoint": {
-          "x": 778,
+          "x": 804,
           "y": 174
         },
         "actionPoint": {
-          "x": 778,
-          "y": 113
+          "x": 804,
+          "y": 110
         },
         "facing": "up",
         "type": "important",
@@ -1139,8 +1168,8 @@
       "render": {
         "texture": "toaster",
         "kind": "sprite",
-        "x": 822,
-        "y": 113,
+        "x": 754,
+        "y": 110,
         "frame": 0,
         "layer": "surface"
       },
@@ -1154,12 +1183,12 @@
           }
         ],
         "approachPoint": {
-          "x": 820,
+          "x": 754,
           "y": 174
         },
         "actionPoint": {
-          "x": 822,
-          "y": 113
+          "x": 754,
+          "y": 110
         },
         "facing": "up",
         "type": "important",
@@ -1177,12 +1206,12 @@
         "texture": "fridge",
         "kind": "sprite",
         "x": 880,
-        "y": 112,
+        "y": 126,
         "frame": 0
       },
       "collision": {
-        "x": 849,
-        "y": 48,
+        "x": 850,
+        "y": 62,
         "w": 64,
         "h": 116
       },
@@ -1208,12 +1237,12 @@
           }
         ],
         "approachPoint": {
-          "x": 878,
-          "y": 184
+          "x": 880,
+          "y": 196
         },
         "actionPoint": {
           "x": 880,
-          "y": 112
+          "y": 126
         },
         "facing": "up",
         "type": "important",
@@ -1229,8 +1258,8 @@
       "room": "kitchen",
       "render": {
         "texture": "bathroom-bin",
-        "x": 902,
-        "y": 194
+        "x": 678,
+        "y": 150
       },
       "interaction": {
         "actions": [
@@ -1242,14 +1271,14 @@
           }
         ],
         "approachPoint": {
-          "x": 872,
-          "y": 202
+          "x": 704,
+          "y": 178
         },
         "actionPoint": {
-          "x": 902,
-          "y": 194
+          "x": 678,
+          "y": 150
         },
-        "facing": "right",
+        "facing": "left",
         "type": "important",
         "priority": 80,
         "radius": 68
@@ -1267,7 +1296,7 @@
       },
       "collision": {
         "x": 738,
-        "y": 244,
+        "y": 246,
         "w": 96,
         "h": 72
       },
@@ -1305,11 +1334,11 @@
           }
         ],
         "approachPoint": {
-          "x": 702,
-          "y": 328
+          "x": 786,
+          "y": 342
         },
         "actionPoint": {
-          "x": 702,
+          "x": 786,
           "y": 286
         },
         "facing": "up",
@@ -1326,11 +1355,11 @@
       "room": "kitchen",
       "render": {
         "texture": "dining-chair",
-        "x": 702,
+        "x": 710,
         "y": 286
       },
       "collision": {
-        "x": 684,
+        "x": 692,
         "y": 260,
         "w": 36,
         "h": 42
@@ -1343,12 +1372,12 @@
       "room": "kitchen",
       "render": {
         "texture": "dining-chair",
-        "x": 868,
+        "x": 862,
         "y": 286,
         "flipX": true
       },
       "collision": {
-        "x": 850,
+        "x": 844,
         "y": 260,
         "w": 36,
         "h": 42
@@ -1387,12 +1416,12 @@
       "room": "kitchen",
       "render": {
         "texture": "plant",
-        "x": 900,
-        "y": 300
+        "x": 896,
+        "y": 294
       },
       "collision": {
-        "x": 884,
-        "y": 264,
+        "x": 880,
+        "y": 260,
         "w": 32,
         "h": 44
       },
@@ -1412,12 +1441,12 @@
           }
         ],
         "approachPoint": {
-          "x": 868,
-          "y": 318
+          "x": 864,
+          "y": 320
         },
         "actionPoint": {
-          "x": 900,
-          "y": 300
+          "x": 896,
+          "y": 294
         },
         "facing": "right",
         "type": "observation",
@@ -1427,28 +1456,15 @@
       "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
     },
     {
-      "id": "living-lights",
-      "label": "Lichtsnoer",
-      "room": "living",
-      "render": {
-        "texture": "string-lights",
-        "x": 258,
-        "y": 326,
-        "layer": "wall",
-        "scale": 1.5
-      },
-      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 12"
-    },
-    {
       "id": "living-rug",
       "label": "Vloerkleed",
       "room": "living",
       "render": {
         "texture": "bedroom-rug",
-        "x": 258,
-        "y": 502,
+        "x": 250,
+        "y": 498,
         "layer": "floor",
-        "scale": 2
+        "scale": 2.1
       },
       "sourceAsset": "Modern Interiors 48x48 / Bedroom Singles 381"
     },
@@ -1458,11 +1474,11 @@
       "room": "living",
       "render": {
         "texture": "tv",
-        "x": 258,
+        "x": 262,
         "y": 357
       },
       "collision": {
-        "x": 214,
+        "x": 218,
         "y": 316,
         "w": 88,
         "h": 70
@@ -1483,11 +1499,11 @@
           }
         ],
         "approachPoint": {
-          "x": 258,
+          "x": 262,
           "y": 411
         },
         "actionPoint": {
-          "x": 258,
+          "x": 262,
           "y": 357
         },
         "facing": "up",
@@ -1504,12 +1520,12 @@
       "room": "living",
       "render": {
         "texture": "bookshelf",
-        "x": 72,
-        "y": 390
+        "x": 78,
+        "y": 454
       },
       "collision": {
-        "x": 52,
-        "y": 346,
+        "x": 58,
+        "y": 410,
         "w": 40,
         "h": 76
       },
@@ -1541,12 +1557,12 @@
           }
         ],
         "approachPoint": {
-          "x": 114,
-          "y": 395
+          "x": 120,
+          "y": 456
         },
         "actionPoint": {
-          "x": 72,
-          "y": 390
+          "x": 78,
+          "y": 454
         },
         "facing": "left",
         "type": "important",
@@ -1561,14 +1577,14 @@
       "room": "living",
       "render": {
         "texture": "plant",
-        "x": 420,
-        "y": 387
+        "x": 126,
+        "y": 392
       },
       "collision": {
-        "x": 405,
-        "y": 352,
-        "w": 30,
-        "h": 50
+        "x": 110,
+        "y": 356,
+        "w": 32,
+        "h": 46
       },
       "interaction": {
         "actions": [
@@ -1586,14 +1602,14 @@
           }
         ],
         "approachPoint": {
-          "x": 390,
-          "y": 414
+          "x": 154,
+          "y": 418
         },
         "actionPoint": {
-          "x": 420,
-          "y": 387
+          "x": 126,
+          "y": 392
         },
-        "facing": "right",
+        "facing": "left",
         "type": "observation",
         "priority": 20,
         "radius": 70
@@ -1606,12 +1622,12 @@
       "room": "living",
       "render": {
         "texture": "coffee-table",
-        "x": 258,
-        "y": 458
+        "x": 250,
+        "y": 463
       },
       "collision": {
-        "x": 213,
-        "y": 426,
+        "x": 205,
+        "y": 430,
         "w": 90,
         "h": 55
       },
@@ -1631,12 +1647,12 @@
           }
         ],
         "approachPoint": {
-          "x": 335,
-          "y": 470
+          "x": 328,
+          "y": 472
         },
         "actionPoint": {
-          "x": 258,
-          "y": 458
+          "x": 250,
+          "y": 463
         },
         "facing": "left",
         "type": "important",
@@ -1651,13 +1667,13 @@
       "room": "living",
       "render": {
         "texture": "sofa",
-        "x": 258,
-        "y": 548
+        "x": 250,
+        "y": 580
       },
       "collision": {
-        "x": 207,
-        "y": 530,
-        "w": 102,
+        "x": 198,
+        "y": 562,
+        "w": 104,
         "h": 42
       },
       "interaction": {
@@ -1682,12 +1698,12 @@
           }
         ],
         "approachPoint": {
-          "x": 258,
-          "y": 598
+          "x": 250,
+          "y": 628
         },
         "actionPoint": {
-          "x": 258,
-          "y": 540
+          "x": 250,
+          "y": 574
         },
         "facing": "up",
         "type": "seat",
@@ -1702,14 +1718,14 @@
       "room": "living",
       "render": {
         "texture": "floor-lamp",
-        "x": 414,
-        "y": 550
+        "x": 120,
+        "y": 580
       },
       "collision": {
-        "x": 398,
-        "y": 515,
+        "x": 104,
+        "y": 546,
         "w": 32,
-        "h": 60
+        "h": 58
       },
       "interaction": {
         "actions": [
@@ -1721,14 +1737,14 @@
           }
         ],
         "approachPoint": {
-          "x": 380,
-          "y": 576
+          "x": 156,
+          "y": 592
         },
         "actionPoint": {
-          "x": 414,
-          "y": 550
+          "x": 120,
+          "y": 580
         },
-        "facing": "right",
+        "facing": "left",
         "type": "important",
         "priority": 80,
         "radius": 76,
@@ -1742,12 +1758,12 @@
       "room": "living",
       "render": {
         "texture": "side-table",
-        "x": 112,
-        "y": 550
+        "x": 380,
+        "y": 565
       },
       "collision": {
-        "x": 94,
-        "y": 520,
+        "x": 362,
+        "y": 536,
         "w": 36,
         "h": 45
       },
@@ -1767,14 +1783,14 @@
           }
         ],
         "approachPoint": {
-          "x": 148,
-          "y": 565
+          "x": 344,
+          "y": 580
         },
         "actionPoint": {
-          "x": 112,
-          "y": 550
+          "x": 380,
+          "y": 565
         },
-        "facing": "left",
+        "facing": "right",
         "type": "important",
         "priority": 80,
         "radius": 68
@@ -1782,19 +1798,53 @@
       "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 45"
     },
     {
+      "id": "living-side-plant",
+      "label": "Plant",
+      "room": "living",
+      "render": {
+        "texture": "plant",
+        "x": 408,
+        "y": 608
+      },
+      "collision": {
+        "x": 392,
+        "y": 574,
+        "w": 30,
+        "h": 46
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
+      "id": "entry-plant",
+      "label": "Plant",
+      "room": "entry",
+      "render": {
+        "texture": "plant",
+        "x": 522,
+        "y": 404
+      },
+      "collision": {
+        "x": 506,
+        "y": 370,
+        "w": 32,
+        "h": 46
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
       "id": "entry-console",
       "label": "Halmeubel",
       "room": "entry",
       "render": {
         "texture": "entry-console",
-        "x": 548,
-        "y": 380
+        "x": 616,
+        "y": 404
       },
       "collision": {
-        "x": 502,
-        "y": 338,
+        "x": 570,
+        "y": 364,
         "w": 94,
-        "h": 70
+        "h": 66
       },
       "interaction": {
         "actions": [
@@ -1812,12 +1862,12 @@
           }
         ],
         "approachPoint": {
-          "x": 548,
-          "y": 432
+          "x": 616,
+          "y": 454
         },
         "actionPoint": {
-          "x": 548,
-          "y": 380
+          "x": 616,
+          "y": 404
         },
         "facing": "up",
         "type": "important",
@@ -1832,8 +1882,8 @@
       "room": "entry",
       "render": {
         "texture": "round-mirror",
-        "x": 630,
-        "y": 350,
+        "x": 616,
+        "y": 358,
         "layer": "wall"
       },
       "interaction": {
@@ -1852,12 +1902,12 @@
           }
         ],
         "approachPoint": {
-          "x": 626,
-          "y": 414
+          "x": 616,
+          "y": 454
         },
         "actionPoint": {
-          "x": 630,
-          "y": 350
+          "x": 616,
+          "y": 358
         },
         "facing": "up",
         "type": "observation",
@@ -1872,8 +1922,8 @@
       "room": "entry",
       "render": {
         "texture": "key-bowl",
-        "x": 535,
-        "y": 354,
+        "x": 602,
+        "y": 382,
         "layer": "surface"
       },
       "sourceAsset": "QUOTIDIANO project-owned pixel prop"
@@ -1884,8 +1934,8 @@
       "room": "entry",
       "render": {
         "texture": "keys",
-        "x": 535,
-        "y": 354,
+        "x": 602,
+        "y": 382,
         "layer": "surface"
       },
       "interaction": {
@@ -1904,12 +1954,12 @@
           }
         ],
         "approachPoint": {
-          "x": 548,
-          "y": 432
+          "x": 616,
+          "y": 454
         },
         "actionPoint": {
-          "x": 535,
-          "y": 354
+          "x": 602,
+          "y": 382
         },
         "facing": "up",
         "type": "inventory",
@@ -1924,8 +1974,8 @@
       "room": "entry",
       "render": {
         "texture": "mail",
-        "x": 568,
-        "y": 359,
+        "x": 632,
+        "y": 386,
         "layer": "surface"
       },
       "interaction": {
@@ -1950,12 +2000,12 @@
           }
         ],
         "approachPoint": {
-          "x": 548,
-          "y": 432
+          "x": 616,
+          "y": 454
         },
         "actionPoint": {
-          "x": 568,
-          "y": 359
+          "x": 632,
+          "y": 386
         },
         "facing": "up",
         "type": "inventory",
@@ -1972,7 +2022,7 @@
       "render": {
         "texture": "coat",
         "x": 638,
-        "y": 527,
+        "y": 438,
         "layer": "wall"
       },
       "interaction": {
@@ -1997,12 +2047,12 @@
           }
         ],
         "approachPoint": {
-          "x": 610,
-          "y": 540
+          "x": 606,
+          "y": 470
         },
         "actionPoint": {
           "x": 638,
-          "y": 527
+          "y": 438
         },
         "facing": "right",
         "type": "inventory",
@@ -2018,7 +2068,7 @@
       "render": {
         "texture": "umbrella",
         "x": 638,
-        "y": 588
+        "y": 586
       },
       "interaction": {
         "actions": [
@@ -2036,12 +2086,12 @@
           }
         ],
         "approachPoint": {
-          "x": 610,
+          "x": 606,
           "y": 590
         },
         "actionPoint": {
           "x": 638,
-          "y": 588
+          "y": 586
         },
         "facing": "right",
         "type": "inventory",
@@ -2049,6 +2099,45 @@
         "radius": 70
       },
       "sourceAsset": "QUOTIDIANO project-owned pixel prop"
+    },
+    {
+      "id": "entry-shoes",
+      "label": "Schoenen",
+      "room": "entry",
+      "render": {
+        "texture": "shoes",
+        "x": 622,
+        "y": 548
+      },
+      "interaction": {
+        "actions": [
+          {
+            "id": "wear",
+            "label": "Aantrekken",
+            "conditions": [],
+            "effects": []
+          },
+          {
+            "id": "remove",
+            "label": "Uittrekken",
+            "conditions": [],
+            "effects": []
+          }
+        ],
+        "approachPoint": {
+          "x": 606,
+          "y": 548
+        },
+        "actionPoint": {
+          "x": 622,
+          "y": 548
+        },
+        "facing": "right",
+        "type": "important",
+        "priority": 70,
+        "radius": 66
+      },
+      "sourceAsset": "Modern Interiors 48x48 / house prop crop"
     },
     {
       "id": "doormat",
@@ -2124,17 +2213,34 @@
       "sourceAsset": "Modern Interiors / animated door spritesheet"
     },
     {
+      "id": "laundry-plant-left",
+      "label": "Plant",
+      "room": "laundry",
+      "render": {
+        "texture": "plant",
+        "x": 710,
+        "y": 405
+      },
+      "collision": {
+        "x": 694,
+        "y": 372,
+        "w": 32,
+        "h": 44
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
       "id": "washing-machine",
       "label": "Wasmachine",
       "room": "laundry",
       "render": {
         "texture": "washing-machine",
-        "x": 742,
-        "y": 450
+        "x": 744,
+        "y": 448
       },
       "collision": {
-        "x": 721,
-        "y": 414,
+        "x": 722,
+        "y": 412,
         "w": 42,
         "h": 70
       },
@@ -2166,12 +2272,12 @@
           }
         ],
         "approachPoint": {
-          "x": 742,
+          "x": 744,
           "y": 510
         },
         "actionPoint": {
-          "x": 742,
-          "y": 450
+          "x": 744,
+          "y": 448
         },
         "facing": "up",
         "type": "important",
@@ -2182,18 +2288,35 @@
       "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles"
     },
     {
+      "id": "laundry-dryer",
+      "label": "Droger",
+      "room": "laundry",
+      "render": {
+        "texture": "washing-machine",
+        "x": 800,
+        "y": 448
+      },
+      "collision": {
+        "x": 778,
+        "y": 412,
+        "w": 42,
+        "h": 70
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles (similar used as dryer stand-in)"
+    },
+    {
       "id": "laundry-shelf",
       "label": "Wasplank",
       "room": "laundry",
       "render": {
         "texture": "bathroom-shelf",
-        "x": 864,
+        "x": 858,
         "y": 448
       },
       "collision": {
         "x": 824,
         "y": 405,
-        "w": 76,
+        "w": 74,
         "h": 80
       },
       "interaction": {
@@ -2212,14 +2335,14 @@
           }
         ],
         "approachPoint": {
-          "x": 810,
-          "y": 465
+          "x": 856,
+          "y": 512
         },
         "actionPoint": {
-          "x": 864,
+          "x": 858,
           "y": 448
         },
-        "facing": "right",
+        "facing": "up",
         "type": "important",
         "priority": 80,
         "radius": 82
@@ -2227,19 +2350,36 @@
       "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 83"
     },
     {
+      "id": "laundry-plant-right",
+      "label": "Plant",
+      "room": "laundry",
+      "render": {
+        "texture": "plant",
+        "x": 894,
+        "y": 404
+      },
+      "collision": {
+        "x": 878,
+        "y": 372,
+        "w": 32,
+        "h": 44
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Living Room Singles 15"
+    },
+    {
       "id": "laundry-basket",
       "label": "Wasmand",
       "room": "laundry",
       "render": {
         "texture": "laundry-basket",
-        "x": 835,
-        "y": 565
+        "x": 714,
+        "y": 570
       },
       "collision": {
-        "x": 817,
-        "y": 532,
+        "x": 696,
+        "y": 538,
         "w": 36,
-        "h": 50
+        "h": 48
       },
       "interaction": {
         "actions": [
@@ -2257,14 +2397,14 @@
           }
         ],
         "approachPoint": {
-          "x": 795,
-          "y": 570
+          "x": 752,
+          "y": 572
         },
         "actionPoint": {
-          "x": 835,
-          "y": 565
+          "x": 714,
+          "y": 570
         },
-        "facing": "right",
+        "facing": "left",
         "type": "important",
         "priority": 80,
         "radius": 78
@@ -2277,14 +2417,14 @@
       "room": "laundry",
       "render": {
         "texture": "towel-rack",
-        "x": 884,
-        "y": 590
+        "x": 846,
+        "y": 562
       },
       "collision": {
-        "x": 868,
-        "y": 555,
+        "x": 830,
+        "y": 528,
         "w": 32,
-        "h": 45
+        "h": 44
       },
       "interaction": {
         "actions": [
@@ -2302,12 +2442,12 @@
           }
         ],
         "approachPoint": {
-          "x": 840,
-          "y": 620
+          "x": 804,
+          "y": 584
         },
         "actionPoint": {
-          "x": 884,
-          "y": 590
+          "x": 846,
+          "y": 562
         },
         "facing": "right",
         "type": "important",
@@ -2315,6 +2455,23 @@
         "radius": 72
       },
       "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles 143"
+    },
+    {
+      "id": "laundry-sink",
+      "label": "Wasbak",
+      "room": "laundry",
+      "render": {
+        "texture": "bathroom-sink",
+        "x": 894,
+        "y": 576
+      },
+      "collision": {
+        "x": 854,
+        "y": 532,
+        "w": 74,
+        "h": 64
+      },
+      "sourceAsset": "Modern Interiors 48x48 / Bathroom Singles (similar used as utility sink)"
     }
   ],
   "interactions": [
@@ -2349,12 +2506,12 @@
         }
       ],
       "approachPoint": {
-        "x": 224,
+        "x": 220,
         "y": 144
       },
       "actionPoint": {
-        "x": 224,
-        "y": 74
+        "x": 220,
+        "y": 76
       },
       "facing": "up",
       "type": "important",
@@ -2399,12 +2556,12 @@
         }
       ],
       "approachPoint": {
-        "x": 184,
-        "y": 154
+        "x": 185,
+        "y": 166
       },
       "actionPoint": {
-        "x": 145,
-        "y": 142
+        "x": 144,
+        "y": 144
       },
       "facing": "left",
       "type": "important",
@@ -2437,12 +2594,12 @@
         }
       ],
       "approachPoint": {
-        "x": 185,
-        "y": 152
+        "x": 178,
+        "y": 150
       },
       "actionPoint": {
-        "x": 184,
-        "y": 103
+        "x": 176,
+        "y": 101
       },
       "facing": "up",
       "type": "important",
@@ -2463,11 +2620,11 @@
         }
       ],
       "approachPoint": {
-        "x": 185,
-        "y": 152
+        "x": 178,
+        "y": 150
       },
       "actionPoint": {
-        "x": 174,
+        "x": 176,
         "y": 80
       },
       "facing": "up",
@@ -2500,56 +2657,18 @@
         }
       ],
       "approachPoint": {
-        "x": 185,
-        "y": 152
+        "x": 178,
+        "y": 150
       },
       "actionPoint": {
-        "x": 193,
-        "y": 94
+        "x": 192,
+        "y": 93
       },
       "facing": "up",
       "type": "important",
       "priority": 80,
       "radius": 72,
       "persistentState": "alarmState"
-    },
-    {
-      "id": "wardrobe",
-      "objectId": "Kledingkast",
-      "room": "bedroom",
-      "actions": [
-        {
-          "id": "toggle",
-          "label": "Openen / sluiten",
-          "conditions": [],
-          "effects": []
-        },
-        {
-          "id": "dress",
-          "label": "Kleding kiezen",
-          "conditions": [],
-          "effects": []
-        },
-        {
-          "id": "store-clothes",
-          "label": "Kleding opbergen",
-          "conditions": [],
-          "effects": []
-        }
-      ],
-      "approachPoint": {
-        "x": 300,
-        "y": 184
-      },
-      "actionPoint": {
-        "x": 314,
-        "y": 106
-      },
-      "facing": "up",
-      "type": "important",
-      "priority": 80,
-      "radius": 92,
-      "persistentState": "wardrobeOpen"
     },
     {
       "id": "desk",
@@ -2576,12 +2695,12 @@
         }
       ],
       "approachPoint": {
-        "x": 227,
-        "y": 258
+        "x": 226,
+        "y": 164
       },
       "actionPoint": {
-        "x": 228,
-        "y": 218
+        "x": 226,
+        "y": 112
       },
       "facing": "up",
       "type": "seat",
@@ -2607,18 +2726,56 @@
         }
       ],
       "approachPoint": {
-        "x": 227,
-        "y": 258
+        "x": 226,
+        "y": 164
       },
       "actionPoint": {
-        "x": 228,
-        "y": 202
+        "x": 226,
+        "y": 100
       },
       "facing": "up",
       "type": "important",
       "priority": 80,
       "radius": 82,
       "persistentState": "laptopOn"
+    },
+    {
+      "id": "wardrobe",
+      "objectId": "Kledingkast",
+      "room": "bedroom",
+      "actions": [
+        {
+          "id": "toggle",
+          "label": "Openen / sluiten",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "dress",
+          "label": "Kleding kiezen",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "store-clothes",
+          "label": "Kleding opbergen",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 288,
+        "y": 222
+      },
+      "actionPoint": {
+        "x": 306,
+        "y": 144
+      },
+      "facing": "up",
+      "type": "important",
+      "priority": 80,
+      "radius": 92,
+      "persistentState": "wardrobeOpen"
     },
     {
       "id": "backpack",
@@ -2645,12 +2802,12 @@
         }
       ],
       "approachPoint": {
-        "x": 302,
-        "y": 250
+        "x": 274,
+        "y": 244
       },
       "actionPoint": {
-        "x": 317,
-        "y": 235
+        "x": 300,
+        "y": 236
       },
       "facing": "right",
       "type": "inventory",
@@ -2676,11 +2833,11 @@
         }
       ],
       "approachPoint": {
-        "x": 420,
+        "x": 424,
         "y": 164
       },
       "actionPoint": {
-        "x": 420,
+        "x": 424,
         "y": 72
       },
       "facing": "up",
@@ -2707,12 +2864,12 @@
         }
       ],
       "approachPoint": {
-        "x": 420,
-        "y": 169
+        "x": 424,
+        "y": 168
       },
       "actionPoint": {
-        "x": 420,
-        "y": 115
+        "x": 424,
+        "y": 114
       },
       "facing": "up",
       "type": "important",
@@ -2744,8 +2901,8 @@
         }
       ],
       "approachPoint": {
-        "x": 455,
-        "y": 169
+        "x": 452,
+        "y": 168
       },
       "actionPoint": {
         "x": 458,
@@ -2769,12 +2926,12 @@
         }
       ],
       "approachPoint": {
-        "x": 492,
+        "x": 486,
         "y": 174
       },
       "actionPoint": {
-        "x": 526,
-        "y": 166
+        "x": 518,
+        "y": 164
       },
       "facing": "right",
       "type": "important",
@@ -2801,12 +2958,12 @@
         }
       ],
       "approachPoint": {
-        "x": 454,
-        "y": 220
+        "x": 450,
+        "y": 224
       },
       "actionPoint": {
-        "x": 404,
-        "y": 220
+        "x": 402,
+        "y": 222
       },
       "facing": "left",
       "type": "important",
@@ -2842,8 +2999,8 @@
         "y": 232
       },
       "actionPoint": {
-        "x": 552,
-        "y": 218
+        "x": 553,
+        "y": 220
       },
       "facing": "right",
       "type": "important",
@@ -2875,14 +3032,14 @@
         }
       ],
       "approachPoint": {
-        "x": 468,
-        "y": 252
+        "x": 476,
+        "y": 170
       },
       "actionPoint": {
-        "x": 470,
-        "y": 226
+        "x": 476,
+        "y": 117
       },
-      "facing": "down",
+      "facing": "up",
       "type": "inventory",
       "priority": 70,
       "radius": 66
@@ -2900,12 +3057,12 @@
         }
       ],
       "approachPoint": {
-        "x": 520,
-        "y": 252
+        "x": 516,
+        "y": 254
       },
       "actionPoint": {
-        "x": 545,
-        "y": 258
+        "x": 546,
+        "y": 256
       },
       "facing": "right",
       "type": "important",
@@ -2969,11 +3126,11 @@
         }
       ],
       "approachPoint": {
-        "x": 718,
+        "x": 772,
         "y": 174
       },
       "actionPoint": {
-        "x": 718,
+        "x": 772,
         "y": 106
       },
       "facing": "up",
@@ -3000,12 +3157,12 @@
         }
       ],
       "approachPoint": {
-        "x": 778,
+        "x": 804,
         "y": 174
       },
       "actionPoint": {
-        "x": 778,
-        "y": 113
+        "x": 804,
+        "y": 110
       },
       "facing": "up",
       "type": "important",
@@ -3026,12 +3183,12 @@
         }
       ],
       "approachPoint": {
-        "x": 820,
+        "x": 754,
         "y": 174
       },
       "actionPoint": {
-        "x": 822,
-        "y": 113
+        "x": 754,
+        "y": 110
       },
       "facing": "up",
       "type": "important",
@@ -3064,12 +3221,12 @@
         }
       ],
       "approachPoint": {
-        "x": 878,
-        "y": 184
+        "x": 880,
+        "y": 196
       },
       "actionPoint": {
         "x": 880,
-        "y": 112
+        "y": 126
       },
       "facing": "up",
       "type": "important",
@@ -3090,14 +3247,14 @@
         }
       ],
       "approachPoint": {
-        "x": 872,
-        "y": 202
+        "x": 704,
+        "y": 178
       },
       "actionPoint": {
-        "x": 902,
-        "y": 194
+        "x": 678,
+        "y": 150
       },
-      "facing": "right",
+      "facing": "left",
       "type": "important",
       "priority": 80,
       "radius": 68
@@ -3139,11 +3296,11 @@
         }
       ],
       "approachPoint": {
-        "x": 702,
-        "y": 328
+        "x": 786,
+        "y": 342
       },
       "actionPoint": {
-        "x": 702,
+        "x": 786,
         "y": 286
       },
       "facing": "up",
@@ -3171,12 +3328,12 @@
         }
       ],
       "approachPoint": {
-        "x": 868,
-        "y": 318
+        "x": 864,
+        "y": 320
       },
       "actionPoint": {
-        "x": 900,
-        "y": 300
+        "x": 896,
+        "y": 294
       },
       "facing": "right",
       "type": "observation",
@@ -3202,11 +3359,11 @@
         }
       ],
       "approachPoint": {
-        "x": 258,
+        "x": 262,
         "y": 411
       },
       "actionPoint": {
-        "x": 258,
+        "x": 262,
         "y": 357
       },
       "facing": "up",
@@ -3246,12 +3403,12 @@
         }
       ],
       "approachPoint": {
-        "x": 114,
-        "y": 395
+        "x": 120,
+        "y": 456
       },
       "actionPoint": {
-        "x": 72,
-        "y": 390
+        "x": 78,
+        "y": 454
       },
       "facing": "left",
       "type": "important",
@@ -3277,14 +3434,14 @@
         }
       ],
       "approachPoint": {
-        "x": 390,
-        "y": 414
+        "x": 154,
+        "y": 418
       },
       "actionPoint": {
-        "x": 420,
-        "y": 387
+        "x": 126,
+        "y": 392
       },
-      "facing": "right",
+      "facing": "left",
       "type": "observation",
       "priority": 20,
       "radius": 70
@@ -3308,12 +3465,12 @@
         }
       ],
       "approachPoint": {
-        "x": 335,
-        "y": 470
+        "x": 328,
+        "y": 472
       },
       "actionPoint": {
-        "x": 258,
-        "y": 458
+        "x": 250,
+        "y": 463
       },
       "facing": "left",
       "type": "important",
@@ -3345,12 +3502,12 @@
         }
       ],
       "approachPoint": {
-        "x": 258,
-        "y": 598
+        "x": 250,
+        "y": 628
       },
       "actionPoint": {
-        "x": 258,
-        "y": 540
+        "x": 250,
+        "y": 574
       },
       "facing": "up",
       "type": "seat",
@@ -3370,14 +3527,14 @@
         }
       ],
       "approachPoint": {
-        "x": 380,
-        "y": 576
+        "x": 156,
+        "y": 592
       },
       "actionPoint": {
-        "x": 414,
-        "y": 550
+        "x": 120,
+        "y": 580
       },
-      "facing": "right",
+      "facing": "left",
       "type": "important",
       "priority": 80,
       "radius": 76,
@@ -3402,14 +3559,14 @@
         }
       ],
       "approachPoint": {
-        "x": 148,
-        "y": 565
+        "x": 344,
+        "y": 580
       },
       "actionPoint": {
-        "x": 112,
-        "y": 550
+        "x": 380,
+        "y": 565
       },
-      "facing": "left",
+      "facing": "right",
       "type": "important",
       "priority": 80,
       "radius": 68
@@ -3433,12 +3590,12 @@
         }
       ],
       "approachPoint": {
-        "x": 548,
-        "y": 432
+        "x": 616,
+        "y": 454
       },
       "actionPoint": {
-        "x": 548,
-        "y": 380
+        "x": 616,
+        "y": 404
       },
       "facing": "up",
       "type": "important",
@@ -3464,12 +3621,12 @@
         }
       ],
       "approachPoint": {
-        "x": 626,
-        "y": 414
+        "x": 616,
+        "y": 454
       },
       "actionPoint": {
-        "x": 630,
-        "y": 350
+        "x": 616,
+        "y": 358
       },
       "facing": "up",
       "type": "observation",
@@ -3495,12 +3652,12 @@
         }
       ],
       "approachPoint": {
-        "x": 548,
-        "y": 432
+        "x": 616,
+        "y": 454
       },
       "actionPoint": {
-        "x": 535,
-        "y": 354
+        "x": 602,
+        "y": 382
       },
       "facing": "up",
       "type": "inventory",
@@ -3532,12 +3689,12 @@
         }
       ],
       "approachPoint": {
-        "x": 548,
-        "y": 432
+        "x": 616,
+        "y": 454
       },
       "actionPoint": {
-        "x": 568,
-        "y": 359
+        "x": 632,
+        "y": 386
       },
       "facing": "up",
       "type": "inventory",
@@ -3570,12 +3727,12 @@
         }
       ],
       "approachPoint": {
-        "x": 610,
-        "y": 540
+        "x": 606,
+        "y": 470
       },
       "actionPoint": {
         "x": 638,
-        "y": 527
+        "y": 438
       },
       "facing": "right",
       "type": "inventory",
@@ -3601,17 +3758,48 @@
         }
       ],
       "approachPoint": {
-        "x": 610,
+        "x": 606,
         "y": 590
       },
       "actionPoint": {
         "x": 638,
-        "y": 588
+        "y": 586
       },
       "facing": "right",
       "type": "inventory",
       "priority": 70,
       "radius": 70
+    },
+    {
+      "id": "entry-shoes",
+      "objectId": "Schoenen",
+      "room": "entry",
+      "actions": [
+        {
+          "id": "wear",
+          "label": "Aantrekken",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "remove",
+          "label": "Uittrekken",
+          "conditions": [],
+          "effects": []
+        }
+      ],
+      "approachPoint": {
+        "x": 606,
+        "y": 548
+      },
+      "actionPoint": {
+        "x": 622,
+        "y": 548
+      },
+      "facing": "right",
+      "type": "important",
+      "priority": 70,
+      "radius": 66
     },
     {
       "id": "front-door",
@@ -3694,12 +3882,12 @@
         }
       ],
       "approachPoint": {
-        "x": 742,
+        "x": 744,
         "y": 510
       },
       "actionPoint": {
-        "x": 742,
-        "y": 450
+        "x": 744,
+        "y": 448
       },
       "facing": "up",
       "type": "important",
@@ -3726,14 +3914,14 @@
         }
       ],
       "approachPoint": {
-        "x": 810,
-        "y": 465
+        "x": 856,
+        "y": 512
       },
       "actionPoint": {
-        "x": 864,
+        "x": 858,
         "y": 448
       },
-      "facing": "right",
+      "facing": "up",
       "type": "important",
       "priority": 80,
       "radius": 82
@@ -3757,14 +3945,14 @@
         }
       ],
       "approachPoint": {
-        "x": 795,
-        "y": 570
+        "x": 752,
+        "y": 572
       },
       "actionPoint": {
-        "x": 835,
-        "y": 565
+        "x": 714,
+        "y": 570
       },
-      "facing": "right",
+      "facing": "left",
       "type": "important",
       "priority": 80,
       "radius": 78
@@ -3788,12 +3976,12 @@
         }
       ],
       "approachPoint": {
-        "x": 840,
-        "y": 620
+        "x": 804,
+        "y": 584
       },
       "actionPoint": {
-        "x": 884,
-        "y": 590
+        "x": 846,
+        "y": 562
       },
       "facing": "right",
       "type": "important",

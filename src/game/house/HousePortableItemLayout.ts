@@ -9,22 +9,22 @@ interface PortableSurfaceDefinition {
 }
 
 const SURFACES: Readonly<Record<string, PortableSurfaceDefinition>> = {
-  'entry-console': { anchor:{x:548,y:358}, approachPoint:{x:548,y:432}, facing:'up' },
-  entry: { anchor:{x:638,y:588}, approachPoint:{x:610,y:590}, facing:'right' },
-  'coat-hook': { anchor:{x:638,y:527}, approachPoint:{x:610,y:540}, facing:'right' },
-  bedroom: { anchor:{x:317,y:235}, approachPoint:{x:302,y:250}, facing:'right' },
-  desk: { anchor:{x:228,y:199}, approachPoint:{x:227,y:258}, facing:'up' },
-  'bathroom-sink': { anchor:{x:458,y:112}, approachPoint:{x:455,y:169}, facing:'up' },
-  'dining-table': { anchor:{x:790,y:270}, approachPoint:{x:744,y:315}, facing:'right' },
-  'coffee-table': { anchor:{x:258,y:452}, approachPoint:{x:335,y:470}, facing:'left' },
-  'side-table': { anchor:{x:112,y:542}, approachPoint:{x:148,y:565}, facing:'left' },
-  'kitchen-sink': { anchor:{x:718,y:112}, approachPoint:{x:718,y:174}, facing:'up' },
-  'laundry-shelf': { anchor:{x:864,y:438}, approachPoint:{x:810,y:465}, facing:'right' },
-  'laundry-basket': { anchor:{x:835,y:555}, approachPoint:{x:795,y:570}, facing:'right' },
-  'drying-rack': { anchor:{x:884,y:580}, approachPoint:{x:840,y:620}, facing:'right' },
-  fridge: { anchor:{x:880,y:112}, approachPoint:{x:878,y:184}, facing:'up', hidden:true },
-  wardrobe: { anchor:{x:314,y:106}, approachPoint:{x:300,y:184}, facing:'up', hidden:true },
-  bookshelf: { anchor:{x:72,y:390}, approachPoint:{x:114,y:395}, facing:'left', hidden:true }
+  'entry-console': { anchor:{x:616,y:384}, approachPoint:{x:616,y:454}, facing:'up' },
+  entry: { anchor:{x:638,y:586}, approachPoint:{x:606,y:590}, facing:'right' },
+  'coat-hook': { anchor:{x:638,y:438}, approachPoint:{x:606,y:470}, facing:'right' },
+  bedroom: { anchor:{x:300,y:236}, approachPoint:{x:274,y:244}, facing:'right' },
+  desk: { anchor:{x:226,y:98}, approachPoint:{x:226,y:164}, facing:'up' },
+  'bathroom-sink': { anchor:{x:458,y:112}, approachPoint:{x:452,y:168}, facing:'up' },
+  'dining-table': { anchor:{x:790,y:270}, approachPoint:{x:786,y:342}, facing:'up' },
+  'coffee-table': { anchor:{x:250,y:458}, approachPoint:{x:328,y:472}, facing:'left' },
+  'side-table': { anchor:{x:380,y:556}, approachPoint:{x:344,y:580}, facing:'right' },
+  'kitchen-sink': { anchor:{x:772,y:112}, approachPoint:{x:772,y:174}, facing:'up' },
+  'laundry-shelf': { anchor:{x:858,y:438}, approachPoint:{x:856,y:512}, facing:'up' },
+  'laundry-basket': { anchor:{x:714,y:560}, approachPoint:{x:752,y:572}, facing:'left' },
+  'drying-rack': { anchor:{x:846,y:552}, approachPoint:{x:804,y:584}, facing:'right' },
+  fridge: { anchor:{x:880,y:126}, approachPoint:{x:880,y:196}, facing:'up', hidden:true },
+  wardrobe: { anchor:{x:306,y:144}, approachPoint:{x:288,y:222}, facing:'up', hidden:true },
+  bookshelf: { anchor:{x:78,y:454}, approachPoint:{x:120,y:456}, facing:'left', hidden:true }
 };
 
 const OFFSETS: readonly Point[] = [
@@ -32,11 +32,11 @@ const OFFSETS: readonly Point[] = [
 ];
 
 const ITEM_OVERRIDES: Readonly<Record<string, Point>> = {
-  'entry-console:keys': {x:-13,y:-4},
-  'entry-console:mail': {x:20,y:1},
+  'entry-console:keys': {x:-14,y:-2},
+  'entry-console:mail': {x:16,y:2},
   'dining-table:toast': {x:-14,y:0},
   'dining-table:coffee': {x:16,y:2},
-  'kitchen-sink:mug': {x:22,y:2},
+  'kitchen-sink:mug': {x:24,y:2},
   'laundry-shelf:detergent': {x:0,y:-4},
   'laundry-basket:clothes': {x:0,y:-6},
   'drying-rack:clothes': {x:0,y:-8}
